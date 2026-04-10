@@ -36,7 +36,19 @@
 
         /* --- Palco Central --- */
         .stage { position: relative; max-width: 1300px; margin: 0 auto 100px; display: flex; justify-content: center; align-items: flex-end; min-height: 650px; }
-        .char-frame { position: absolute; bottom: 0; z-index: 5; background: white; padding: 25px; border-radius: 50px; width: 350px; }
+        
+        /* Ajuste para remover o fundo da imagem via CSS */
+        .char-frame { 
+            position: absolute; 
+            bottom: 0; 
+            z-index: 5; 
+            background: white; 
+            padding: 25px; 
+            border-radius: 50px; 
+            width: 350px; 
+            /* Esta linha tenta misturar o fundo branco da imagem com o degradê */
+            mix-blend-mode: multiply; 
+        }
         .char-left { left: 0; } .char-right { right: 0; }
         
         /* Celular Ajustado */
@@ -48,9 +60,9 @@
         }
         
         .phone-logo { 
-            width: 216px; /* 20% maior */
+            width: 216px; 
             margin-bottom: 30px; 
-            margin-top: 10px; /* Mais próximo do topo */
+            margin-top: 10px; 
         }
         .phone-inner p { font-size: 1.2rem; font-weight: 600; color: #666; line-height: 1.2; }
 
