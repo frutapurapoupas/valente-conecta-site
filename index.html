@@ -15,7 +15,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
         body { background: var(--bg-gradient); color: white; min-height: 100vh; overflow-x: hidden; scroll-behavior: smooth; }
 
-        /* --- Header (Menu Dobrado) --- */
+        /* --- Header (Menu Gigante) --- */
         header {
             display: flex; justify-content: space-between; align-items: center;
             padding: 50px 8%; background: rgba(0, 0, 0, 0.2); backdrop-filter: blur(15px);
@@ -27,10 +27,9 @@
         .btn-download-top {
             background: var(--accent-red); padding: 25px 60px; border-radius: 20px;
             border: none; color: white; font-weight: 800; cursor: pointer; font-size: 1.8rem;
-            box-shadow: 0 10px 25px rgba(248, 90, 94, 0.5);
         }
 
-        /* --- Modal do QR CODE --- */
+        /* --- Modal QR CODE --- */
         .modal {
             display: none; position: fixed; z-index: 2000; left: 0; top: 0;
             width: 100%; height: 100%; background: rgba(0,0,0,0.9);
@@ -41,38 +40,48 @@
             max-width: 550px; position: relative;
         }
         .modal-content h3 { font-size: 2.5rem; margin-bottom: 20px; font-weight: 800; }
-        .modal-content p { font-size: 1.5rem; margin-bottom: 30px; color: #666; }
-        .qr-placeholder { width: 350px; height: 350px; margin: 0 auto; background: #f0f0f0; border: 4px solid #eee; }
-        .qr-placeholder img { width: 100%; height: 100%; object-fit: contain; }
-        .close-modal { position: absolute; top: 20px; right: 30px; font-size: 50px; cursor: pointer; color: #999; }
+        .qr-placeholder { width: 350px; height: 350px; margin: 0 auto; background: #eee; }
+        .close-modal { position: absolute; top: 20px; right: 30px; font-size: 50px; cursor: pointer; }
 
-        /* --- Hero --- */
+        /* --- Conteúdo Principal --- */
         .hero { padding: 300px 20px 80px; text-align: center; }
         .hero h1 { font-size: 6.5rem; font-weight: 900; line-height: 0.9; margin-bottom: 30px; }
         .hero p.tagline { font-size: 2.5rem; font-weight: 300; margin-bottom: 100px; opacity: 0.9; }
 
         .stage { position: relative; max-width: 1300px; margin: 0 auto 100px; display: flex; justify-content: center; align-items: flex-end; min-height: 650px; }
-        .char-frame { position: absolute; bottom: 0; z-index: 5; background: white; padding: 25px; border-radius: 50px; }
-        .char-left { left: 0; width: 350px; } .char-right { right: 0; width: 350px; }
+        .char-frame { position: absolute; bottom: 0; z-index: 5; background: white; padding: 25px; border-radius: 50px; width: 350px;}
+        .char-left { left: 0; } .char-right { right: 0; }
         .phone-moldure { width: 400px; height: 800px; background: #000; border-radius: 70px; padding: 20px; z-index: 2; border: 6px solid #333; }
         .phone-inner { background: #fff; width: 100%; height: 100%; border-radius: 55px; }
 
-        .search-vazada { position: absolute; top: 25%; left: 50%; transform: translateX(-50%); width: 750px; z-index: 10; }
-        .search-vazada input { width: 100%; padding: 40px 60px; border-radius: 100px; border: none; font-size: 2.2rem; box-shadow: 0 25px 60px rgba(0,0,0,0.6); }
-
-        /* --- Cards --- */
+        /* --- Cards Home --- */
         .cards-section { display: flex; justify-content: center; gap: 80px; padding: 120px 5%; flex-wrap: wrap; }
-        .card { background: white; width: 750px; border-radius: 50px; overflow: hidden; color: #333; }
+        .card { background: white; width: 750px; border-radius: 50px; overflow: hidden; color: #333; box-shadow: 0 30px 60px rgba(0,0,0,0.3); }
         .card-header { background: var(--card-blue); color: white; padding: 50px; text-align: center; font-size: 4rem; font-weight: 900; }
         .card-body { padding: 80px; text-align: center; }
         .card-body p { color: #444; font-size: 2.2rem; margin-bottom: 50px; font-weight: 600; }
 
-        /* --- Detalhes --- */
-        .detail-section { display: none; padding: 250px 10% 150px; background: white; color: #333; border-radius: 100px 100px 0 0; }
-        .function-item { padding: 80px; background: #f8faff; border-radius: 50px; border-left: 30px solid var(--card-blue); margin-bottom: 40px; }
+        /* --- SEÇÕES DE DETALHES (Aqui está o Módulo Academia) --- */
+        .detail-section { 
+            display: none; /* Escondido por padrão, aparece ao clicar */
+            padding: 250px 10% 150px; 
+            background: white; 
+            color: #333; 
+            border-radius: 100px 100px 0 0; 
+            min-height: 100vh;
+        }
+        .function-item { 
+            padding: 80px; 
+            background: #f8faff; 
+            border-radius: 50px; 
+            border-left: 30px solid var(--card-blue); 
+            margin-bottom: 60px; 
+        }
         .function-item strong { font-size: 4rem; display: block; margin-bottom: 25px; color: #000; font-weight: 800; }
         .function-item span { font-size: 2.1rem; line-height: 1.4; color: #333; display: block; }
+        
         .btn-back { background: #111; color: white; border: none; padding: 40px 100px; border-radius: 25px; margin-top: 50px; cursor: pointer; font-size: 2.2rem; font-weight: 800; }
+
     </style>
 </head>
 <body>
@@ -80,9 +89,8 @@
     <div id="qrModal" class="modal">
         <div class="modal-content">
             <span class="close-modal" onclick="closeModal()">&times;</span>
-            <h3>Escaneie o QR Code</h3>
-            <p>Aponte a câmera para baixar o App!</p>
-            <div class="qr-placeholder"><img src="qr_code.png" alt="QR Code"></div>
+            <h3>Baixe o App</h3>
+            <div class="qr-placeholder"><img src="qr_code.png" alt="QR Code" width="100%"></div>
         </div>
     </div>
 
@@ -99,10 +107,9 @@
     <main id="home-content">
         <section class="hero">
             <h1>Você ao que Precisa!</h1>
-            <p class="tagline">O maior hub de conexão local do Brasil para transformar sua cidade.</p>
+            <p class="tagline">O maior hub de conexão local do Brasil.</p>
             <div class="stage">
                 <div class="char-frame char-left"><img src="mulher.jpg" width="100%"></div>
-                <div class="search-vazada"><input type="text" placeholder="O que você busca agora?"></div>
                 <div class="phone-moldure"><div class="phone-inner"></div></div>
                 <div class="char-frame char-right"><img src="homem.jpg" width="100%"></div>
             </div>
@@ -112,52 +119,72 @@
             <div class="card">
                 <div class="card-header">Para Usuários</div>
                 <div class="card-body">
-                    <p>Facilite sua rotina, cuide da saúde e anuncie grátis para toda a cidade.</p>
-                    <a style="font-size: 1.8rem; font-weight: 900; color: var(--card-blue); cursor: pointer;" onclick="showSection('usuarios')">DESCUBRA MAIS →</a>
+                    <p>Saúde, anúncios grátis e tudo para sua rotina em um só lugar.</p>
+                    <button class="btn-back" style="margin-top:0; width:100%;" onclick="showSection('usuarios')">DESCUBRA MAIS →</button>
                 </div>
             </div>
             <div class="card">
                 <div class="card-header">Para Empresas</div>
                 <div class="card-body">
-                    <p>Destaque seu negócio para quem realmente importa: o seu vizinho e cliente.</p>
-                    <a style="font-size: 1.8rem; font-weight: 900; color: var(--card-blue); cursor: pointer;" onclick="showSection('empresas')">VANTAGENS EXCLUSIVAS →</a>
+                    <p>Destaque seu negócio e evite a fuga de capital da nossa cidade.</p>
+                    <button class="btn-back" style="margin-top:0; width:100%; background:var(--card-blue);" onclick="showSection('empresas')">VER VANTAGENS →</button>
                 </div>
             </div>
         </section>
     </main>
 
     <section id="usuarios" class="detail-section">
+        <h2 style="font-size: 5rem; color: var(--card-blue); margin-bottom: 50px;">Área do Usuário</h2>
+        
         <div class="function-item">
             <strong>💪 Módulo Academia</strong>
-            <span>Para você que se preocupa com sua saúde, agora vc ja tem uma ferramenta incrível que vai te ajudar a atingir seus objetivos. Baixe o app e descubra todas as novidades.</span>
+            <span>Para você que se preocupa com sua saúde, agora vc ja tem uma ferramenta incrível que vai te ajudar a atingir seus objetivos. baixe o app e descubra todas as novidades.</span>
         </div>
+
         <div class="function-item">
             <strong>📢 Anuncie Grátis</strong>
             <span>Agora vc pode fazer anuncio de coisas que quer vender usando apenas seu celular inteiramente gratis e elas vão aparecer para toda a cidade instantaneamente.</span>
         </div>
-        <button class="btn-back" onclick="showSection('home')">VOLTAR</button>
+
+        <button class="btn-back" onclick="showSection('home')">VOLTAR AO INÍCIO</button>
     </section>
 
     <section id="empresas" class="detail-section">
+        <h2 style="font-size: 5rem; color: var(--card-blue); margin-bottom: 50px;">Área da Empresa</h2>
+        
         <div class="function-item">
             <strong>✨ Destaque seu estabelecimento</strong>
             <span>Apareça nas buscas inteligentes quando clientes procurarem por produtos e serviços que você vende todos os dias.</span>
         </div>
+
         <div class="function-item">
             <strong>💰 Fortaleça o comércio local</strong>
             <span>Usando a moeda conecta nas suas transações, você estará contribuindo para que não haja fuga de capital da nossa cidade.</span>
         </div>
-        <button class="btn-back" onclick="showSection('home')">VOLTAR</button>
+
+        <button class="btn-back" onclick="showSection('home')">VOLTAR AO INÍCIO</button>
     </section>
 
     <script>
         function openModal() { document.getElementById('qrModal').style.display = 'flex'; }
         function closeModal() { document.getElementById('qrModal').style.display = 'none'; }
+
         function showSection(id) {
+            // Esconde tudo
             document.getElementById('home-content').style.display = 'none';
             document.getElementById('usuarios').style.display = 'none';
             document.getElementById('empresas').style.display = 'none';
-            document.getElementById(id === 'home' ? 'home-content' : id).style.display = 'block';
+            
+            // Mostra apenas o que foi clicado
+            const target = document.getElementById(id === 'home' ? 'home-content' : id);
+            target.style.display = 'block';
+            
+            // Se for usuários ou empresas, muda o fundo para branco para o texto aparecer
+            if (id !== 'home') {
+                document.body.style.background = "white";
+            } else {
+                document.body.style.background = "radial-gradient(circle at 50% 30%, #4a2ec2 0%, #2e3192 45%, #1a1c61 100%)";
+            }
             window.scrollTo(0,0);
         }
     </script>
