@@ -2,238 +2,284 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Valente Conecta - Premium Official</title>
+    <title>Valente Conecta - Premium Landing Page</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-gradient: radial-gradient(circle at 50% 30%, #4a2ec2 0%, #2e3192 45%, #1a1c61 100%);
+            /* Gradiente radial rico e exato da arte original */
+            --bg-gradient: radial-gradient(circle at 50% -20%, #4a2ec2 0%, #2e3192 45%, #1a1c61 100%);
+            --accent-yellow: #ffeb3b;
             --accent-red: #f85a5e;
             --card-blue: #2e3192;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-        body { background: var(--bg-gradient); color: white; min-height: 100vh; overflow-x: hidden; scroll-behavior: smooth; }
+
+        body {
+            background: var(--bg-gradient);
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+        }
 
         /* --- Header --- */
         header {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 20px 8%; background: rgba(0, 0, 0, 0.2); backdrop-filter: blur(10px);
-            position: fixed; width: 100%; top: 0; z-index: 1000;
-        }
-        .header-logo { font-weight: 800; font-size: 1.1rem; }
-        nav { display: flex; gap: 20px; }
-        nav a { color: white; text-decoration: none; font-size: 0.85rem; cursor: pointer; opacity: 0.9; }
-        nav a:hover { opacity: 1; text-decoration: underline; }
-        
-        .btn-download-top {
-            background: var(--accent-red); padding: 10px 25px; border-radius: 8px;
-            border: none; color: white; font-weight: 700; cursor: pointer;
-            box-shadow: 0 4px 15px rgba(248, 90, 94, 0.4);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 8%;
+            background: rgba(0, 0, 0, 0.1);
+            position: relative; z-index: 100;
         }
 
-        /* --- Modal QR Code (Funcional) --- */
-        .modal {
-            display: none; position: fixed; z-index: 2000; left: 0; top: 0;
-            width: 100%; height: 100%; background: rgba(0,0,0,0.85);
-            align-items: center; justify-content: center;
+        .header-logo { font-weight: 800; font-size: 1.1rem; letter-spacing: 0.5px; }
+
+        nav { display: flex; gap: 25px; }
+        nav a { color: white; text-decoration: none; font-size: 0.85rem; font-weight: 400; opacity: 0.8; transition: 0.3s; }
+        nav a:hover { opacity: 1; color: var(--accent-yellow); }
+
+        .btn-top {
+            background: var(--accent-red);
+            border: none;
+            padding: 10px 25px;
+            border-radius: 8px;
+            color: white;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(248, 90, 94, 0.3);
+            font-size: 0.85rem;
         }
-        .modal-content {
-            background: white; padding: 40px; border-radius: 20px; text-align: center; color: #333;
-            max-width: 400px; position: relative; box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-        }
-        .modal-content img { width: 250px; height: 250px; margin-top: 20px; border: 5px solid #eee; }
-        .close-modal { position: absolute; top: 10px; right: 20px; font-size: 30px; cursor: pointer; color: #666; }
 
         /* --- Hero Section Principal --- */
-        .hero { padding: 120px 20px 0; text-align: center; position: relative; }
-        .hero h1 { font-size: 3.5rem; font-weight: 800; line-height: 1.1; margin-bottom: 10px; }
-        .hero p.tagline { font-size: 1.25rem; font-weight: 300; margin-bottom: 50px; opacity: 0.9; }
+        .hero {
+            text-align: center;
+            padding: 50px 20px 0;
+            position: relative; z-index: 10;
+        }
 
-        /* --- Palco Central (As Pessoas e o Celular) --- */
+        .main-logo-area { margin-bottom: 25px; display: inline-flex; flex-direction: column; align-items: center; }
+        .main-logo-area img { width: 220px; margin-bottom: 10px; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.4)); }
+        
+        .valente-text { font-size: 2.2rem; font-weight: 700; letter-spacing: -1px; }
+        .conecta-text { font-size: 2.2rem; font-weight: 400; color: var(--accent-yellow); }
+
+        .hero h2 {
+            font-size: 3.8rem; /* Título bem grande e pesado */
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 15px;
+            text-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .hero p.tagline {
+            font-size: 1.25rem;
+            font-weight: 300;
+            opacity: 0.9;
+            margin-bottom: 40px;
+            max-width: 600px; margin-left: auto; margin-right: auto;
+        }
+
+        /* --- O Cenário Central (Celular + Personagens PNG Transparente) --- */
         .stage {
-            position: relative; max-width: 1000px; margin: 0 auto 50px auto;
-            display: flex; justify-content: center; align-items: flex-end;
-            min-height: 500px;
+            position: relative;
+            max-width: 1050px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end; /* Personagens no 'chão' */
+            min-height: 520px;
         }
 
-        /* Molduras Brancas para JPGs das Pessoas */
-        .char-frame {
-            position: absolute; bottom: 0; z-index: 5;
-            background: white; padding: 10px; border-radius: 25px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+        /* Ilustrações Laterais (PNG Transparente Necessário) */
+        .character {
+            position: absolute;
+            bottom: -30px; /* Ajuste para o chão da cena */
+            z-index: 5;
+            filter: drop-shadow(0 15px 30px rgba(0,0,0,0.3));
+        }
+        .char-left { left: 0; width: 230px; } /* Mulher com sacolas */
+        .char-right { right: 0; width: 230px; } /* Empresário de terno */
+
+        /* O Celular com Mapa e Busca */
+        .phone-mockup {
+            width: 290px;
+            height: 580px;
+            background: #111; /* Cor do celular real */
+            border-radius: 45px;
+            padding: 10px;
+            position: relative; z-index: 10;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+            border: 3px solid #333;
+        }
+
+        .phone-screen {
+            background: #e5e5e5;
+            width: 100%; height: 100%;
+            border-radius: 35px;
             overflow: hidden;
-        }
-        .char-img { width: 100%; height: 100%; object-fit: contain; }
-        
-        .char-left { left: 0; width: 220px; height: 400px; }  /* Mulher */
-        .char-right { right: 0; width: 220px; height: 400px; } /* Homem */
-
-        /* Celular Central (Moldura) */
-        .phone-moldure {
-            width: 270px; height: 540px; background: #000; border-radius: 45px;
-            padding: 12px; position: relative; z-index: 2;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.6); border: 3px solid #333;
-        }
-        .phone-inner { background: white; width: 100%; height: 100%; border-radius: 30px; }
-
-        /* Barra de Busca "Vazada" (Atravessa o celular) */
-        .search-vazada {
-            position: absolute; top: 22%; left: 50%; transform: translateX(-50%);
-            width: 480px; z-index: 10;
-        }
-        .search-vazada input {
-            width: 100%; padding: 18px 30px; border-radius: 50px;
-            border: none; box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            font-size: 1rem; outline: none;
+            position: relative;
         }
 
-        /* --- Cards de Funcionalidades (Com Links) --- */
-        .cards-section { display: flex; justify-content: center; gap: 40px; padding: 60px 8%; flex-wrap: wrap; }
-        
-        .card {
-            background: white; width: 480px; border-radius: 20px; overflow: hidden;
-            color: #333; box-shadow: 0 15px 40px rgba(0,0,0,0.3); transition: 0.3s;
+        /* Imagem do mapa de fundo da tela (PNG) */
+        .phone-map-bg {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: cover;
+            z-index: 1;
         }
-        .card:hover { transform: translateY(-10px); }
-        .card-header { background: var(--card-blue); color: white; padding: 20px; text-align: center; font-size: 1.6rem; font-weight: 700; }
-        .card-body { padding: 30px; text-align: center; }
-        .card-body p { color: #666; font-size: 1rem; margin-bottom: 25px; }
-        
-        .card-link { color: var(--card-blue); text-decoration: underline; font-weight: 600; cursor: pointer; font-size: 0.9rem; }
 
-        /* --- Páginas Auxiliares Detalhadas --- */
-        .detail-section {
-            display: none; padding: 120px 10% 60px;
-            background: white; color: #333; border-radius: 40px 40px 0 0;
-            margin-top: -40px; position: relative; z-index: 500;
+        /* Barra de busca que "vaza" para fora do celular */
+        .search-vazada-overlay {
+            position: absolute;
+            top: 22%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 450px; /* Mais larga que o celular */
+            z-index: 20;
+            background: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+            border: 1px solid #ddd;
         }
-        .detail-section h2 { color: var(--card-blue); font-size: 2.8rem; font-weight: 800; margin-bottom: 10px; }
-        .detail-section p.section-sub { color: #555; font-size: 1.2rem; margin-bottom: 50px; }
 
-        .function-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .function-item { padding: 30px; background: #f9f9f9; border-radius: 15px; border-left: 6px solid var(--card-blue); }
-        .function-item strong { color: #222; display: block; margin-bottom: 5px; font-size: 1.1rem; }
-        
-        .btn-back { background: #eee; color: #333; border: none; padding: 10px 20px; border-radius: 8px; margin-top: 50px; cursor: pointer; }
+        .search-vazada-overlay input {
+            border: none;
+            width: 100%;
+            outline: none;
+            font-size: 1rem;
+            color: #333;
+        }
+
+        /* Badges de Lojas mais para baixo */
+        .hero-stores {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            position: relative; z-index: 10;
+        }
+        .hero-stores img { height: 45px; cursor: pointer; }
+
+        /* --- Seção de Cards Inferiores --- */
+        .cards-grid {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 80px 8%;
+            background: rgba(0,0,0,0.1);
+            position: relative; z-index: 10;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 20px;
+            width: 480px;
+            overflow: hidden;
+            color: #333;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+            border: 1px solid #eee;
+        }
+
+        .feature-card-header {
+            background: var(--card-blue); /* O azul profundo original */
+            color: white;
+            padding: 18px;
+            text-align: center;
+            font-size: 1.6rem;
+            font-weight: 700;
+        }
+
+        .feature-card-body { padding: 30px; text-align: center; }
+        .feature-card-body p { color: #666; font-size: 1rem; margin-bottom: 25px; }
+
+        .feature-icons { display: flex; justify-content: space-around; margin-top: 25px; }
+        .feature-item { font-size: 0.85rem; color: #555; font-weight: 600; text-align: center;}
+        .icon-box-circle {
+            width: 60px; height: 60px;
+            background: #f1f3f8;
+            border-radius: 50%;
+            margin: 0 auto 10px;
+            display: flex; align-items: center; justify-content: center;
+            color: var(--card-blue); font-size: 24px;
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
+        }
 
     </style>
 </head>
 <body>
 
-    <div id="qrModal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeModal()">&times;</span>
-            <h3>Baixe o Valente Conecta</h3>
-            <p>Escaneie o código QR abaixo com a câmera do seu celular para fazer o download.</p>
-            <img src="qr_code.png" alt="QR Code de Download">
-        </div>
-    </div>
-
     <header>
         <div class="header-logo">APP VALENTE CONECTA</div>
         <nav>
-            <a onclick="showSection('home')">Início</a>
-            <a onclick="showSection('usuarios')">Para Usuários</a>
-            <a onclick="showSection('empresas')">Para Empresas</a>
+            <a href="#">Início</a>
+            <a href="#">Para Usuários</a>
+            <a href="#">Para Empresas</a>
         </nav>
-        <button class="btn-download-top" onclick="openModal()">Baixe o App</button>
+        <button class="btn-top">Baixe o App</button>
     </header>
 
-    <main id="home-content">
-        <section class="hero">
-            <h1>Você ao que Precisa!</h1>
-            <p class="tagline">Encontre o melhor da sua cidade de forma rápida e fácil.</p>
-
-            <div class="stage">
-                <div class="char-frame char-left">
-                    <img src="mulher.jpg" class="char-img" alt="Usuária">
-                </div>
-
-                <div class="search-vazada">
-                    <input type="text" placeholder="O que você está procurando?">
-                </div>
-
-                <div class="phone-moldure">
-                    <div class="phone-inner">
-                        <div style="padding:40px; color:#555">Uma busca que conecta você à cidade em segundos.</div>
-                    </div>
-                </div>
-
-                <div class="char-frame char-right">
-                    <img src="homem.jpg" class="char-img" alt="Empresário">
-                </div>
-            </div>
-        </section>
-
-        <section class="cards-section">
-            <div class="card">
-                <div class="card-header">Para Usuários</div>
-                <div class="card-body">
-                    <p>Encontre lojas, serviços, restaurantes e muito mais.</p>
-                    <a class="card-link" onclick="showSection('usuarios')">Ver funcionalidades completas →</a>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-header">Para Empresas</div>
-                <div class="card-body">
-                    <p>Divulgue seu negócio e alcance milhares de clientes locais.</p>
-                    <a class="card-link" onclick="showSection('empresas')">Ver planos e vantagens →</a>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <section id="usuarios" class="detail-section">
-        <h2>Para Usuários</h2>
-        <p class="section-sub">Sua cidade mais inteligente e conectada ao seu dia a dia.</p>
-        
-        <div class="function-grid">
-            <div class="function-item"><strong>🔍 Busca Inteligente:</strong> Pesquise por nome, categoria ou palavra-chave e receba os melhores resultados próximos a você.</div>
-            <div class="function-item"><strong>❤️ Promoções e Ofertas:</strong> Siga seus estabelecimentos favoritos e receba notificações de descontos e promoções em tempo real.</div>
-            <div class="function-item"><strong>📅 Eventos Locais:</strong> Fique por dentro de tudo o que acontece na cidade: shows, feiras, exposições e muito mais.</div>
-            <div class="function-item"><strong>📍 Integração GPS:</strong> Traça a rota mais rápida e fácil para chegar ao estabelecimento escolhido.</div>
-            <div class="function-item"><strong>💬 Avaliações e Chat:</strong> Confira as opiniões de outros usuários e tire suas dúvidas diretamente com a empresa.</div>
+    <section class="hero">
+        <div class="main-logo-area">
+            <img src="logo_grande.png" alt="🔍 Logo Valente Conecta">
         </div>
-        <button class="btn-back" onclick="showSection('home')">← Voltar</button>
+        
+        <h1>Você ao que Precisa!</h1>
+        <p class="tagline">Encontre o melhor da sua cidade de forma rápida e fácil.</p>
+
+        <div class="stage">
+            <img src="mulher.png" alt="" class="character char-left">
+
+            <div class="phone-mockup">
+                <div class="phone-screen">
+                    <img src="mapa.png" alt="Tela do App Mapa" class="phone-map-bg">
+                </div>
+            </div>
+
+            <img src="homem.png" alt="" class="character char-right">
+
+            <div class="search-vazada-overlay">
+                <input type="text" placeholder="O que você está procurando?">
+                <span style="color: #666; font-size: 1.1rem">🔍</span>
+            </div>
+        </div>
+
+        <div class="hero-stores">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="App Store">
+        </div>
     </section>
 
-    <section id="empresas" class="detail-section">
-        <h2>Para Empresas</h2>
-        <p class="section-sub">Apareça para quem está procurando o seu produto ou serviço.</p>
-        
-        <div class="function-grid">
-            <div class="function-item"><strong>📢 Vitrine Digital:</strong> Exponha seus produtos e serviços com fotos e descrição detalhada 24h por dia.</div>
-            <div class="function-item"><strong>📊 Painel de Insights:</strong> Entenda o comportamento dos seus clientes: veja quantas pessoas visualizaram e clicaram no seu perfil.</div>
-            <div class="function-item"><strong>👤 Gestão de Clientes:</strong> Crie campanhas e notificações específicas para fidelizar sua base de clientes.</div>
-            <div class="function-item"><strong>💬 Atendimento Direto:</strong> Responda às dúvidas e pedidos dos seus clientes através do chat integrado.</div>
-            <div class="function-item"><strong>✅ Divulgação de Vagas:</strong> Anuncie vagas de emprego e encontre talentos na sua cidade.</div>
+    <section class="cards-grid">
+        <div class="feature-card">
+            <div class="feature-card-header">Para Usuários</div>
+            <div class="feature-card-body">
+                <p>Encontre lojas, serviços e promoções com a <strong>Busca Inteligente</strong>.</p>
+                <div class="feature-icons">
+                    <div class="feature-item"><div class="icon-box-circle">🔍</div>Busca Rápida</div>
+                    <div class="feature-item"><div class="icon-box-circle">❤️</div>Promoções Especiais</div>
+                    <div class="feature-item"><div class="icon-box-circle">📅</div>Eventos Locais</div>
+                </div>
+            </div>
         </div>
-        <button class="btn-back" onclick="showSection('home')">← Voltar</button>
+
+        <div class="feature-card">
+            <div class="feature-card-header">Para Empresas</div>
+            <div class="feature-card-body">
+                <p>Divulgue seu negócio e atraia muito mais clientes locais!</p>
+                <div class="feature-icons">
+                    <div class="feature-item"><div class="icon-box-circle">📢</div>Divulgação</div>
+                    <div class="feature-item"><div class="icon-box-circle">👤</div>Gestão</div>
+                    <div class="feature-item"><div class="icon-box-circle">📊</div>Insights</div>
+                </div>
+            </div>
+        </div>
     </section>
-
-    <script>
-        // Funções do Modal de QR Code
-        function openModal() { document.getElementById('qrModal').style.display = 'flex'; }
-        function closeModal() { document.getElementById('qrModal').style.display = 'none'; }
-
-        // Navegação de Seções (Páginas)
-        function showSection(id) {
-            // Esconde todas as seções
-            document.getElementById('home-content').style.display = 'none';
-            document.getElementById('usuarios').style.display = 'none';
-            document.getElementById('empresas').style.display = 'none';
-            
-            // Mostra a seção desejada e rola para o topo
-            if(id === 'home') {
-                document.getElementById('home-content').style.display = 'block';
-            } else {
-                document.getElementById(id).style.display = 'block';
-                window.scrollTo(0,0);
-            }
-        }
-    </script>
 
 </body>
 </html>
