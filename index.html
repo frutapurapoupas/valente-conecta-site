@@ -16,19 +16,20 @@
     }
 
     body {
-      background: linear-gradient(135deg, #0f172a, #2563eb);
+      background: linear-gradient(135deg, #1e3a8a, #2563eb, #4f46e5);
       color: white;
     }
 
     header {
       display: flex;
       justify-content: space-between;
-      align-items: center;
       padding: 20px 40px;
+      align-items: center;
     }
 
     header h1 {
-      font-size: 22px;
+      font-size: 20px;
+      font-weight: 600;
     }
 
     header button {
@@ -38,6 +39,7 @@
       border-radius: 8px;
       color: white;
       cursor: pointer;
+      font-weight: 600;
     }
 
     .hero {
@@ -46,18 +48,19 @@
     }
 
     .hero img {
-      width: 120px;
+      width: 140px;
       margin-bottom: 20px;
     }
 
     .hero h2 {
-      font-size: 42px;
-      margin-bottom: 10px;
+      font-size: 48px;
+      font-weight: 700;
     }
 
     .hero p {
       font-size: 18px;
       opacity: 0.9;
+      margin-top: 10px;
     }
 
     .search-box {
@@ -65,11 +68,13 @@
     }
 
     .search-box input {
-      width: 300px;
-      padding: 12px;
+      width: 400px;
+      max-width: 90%;
+      padding: 15px;
       border-radius: 30px;
       border: none;
       outline: none;
+      font-size: 16px;
     }
 
     .cards {
@@ -83,14 +88,16 @@
     .card {
       background: white;
       color: #111;
-      padding: 20px;
-      border-radius: 12px;
-      width: 280px;
+      padding: 25px;
+      border-radius: 15px;
+      width: 300px;
       text-align: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
     }
 
     .card h3 {
       margin-bottom: 10px;
+      font-size: 20px;
     }
 
     .section {
@@ -98,18 +105,23 @@
       margin: 80px 20px;
     }
 
+    .section h2 {
+      font-size: 32px;
+    }
+
     .phones {
       display: flex;
       justify-content: center;
-      gap: 20px;
-      margin-top: 30px;
+      gap: 30px;
+      margin-top: 40px;
     }
 
     .phone {
-      width: 200px;
-      height: 400px;
-      background: #222;
-      border-radius: 20px;
+      width: 220px;
+      height: 420px;
+      background: #111;
+      border-radius: 25px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     }
 
     footer {
@@ -124,18 +136,17 @@
 
 <header>
   <h1>Valente Conecta</h1>
-  <button>Baixe o App</button>
+  <button>Baixar App</button>
 </header>
 
 <section class="hero">
-  <!-- SUBSTITUA PELO CAMINHO DA SUA LOGO -->
-  <img src="logo.png" alt="Logo Valente Conecta">
+  <img src="logo.png">
 
   <h2>Conectando você ao que precisa</h2>
-  <p>Busca inteligente para encontrar tudo na sua cidade</p>
+  <p>Encontre serviços, lojas e oportunidades com busca inteligente</p>
 
   <div class="search-box">
-    <input type="text" placeholder="O que você procura?">
+    <input type="text" placeholder="O que você está procurando?">
   </div>
 </section>
 
@@ -143,7 +154,7 @@
 
   <div class="card">
     <h3>Para Usuários</h3>
-    <p>Encontre lojas, serviços e promoções rapidamente</p>
+    <p>Busque lojas, promoções e serviços próximos de você</p>
   </div>
 
   <div class="card">
