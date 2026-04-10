@@ -35,22 +35,34 @@
         .tagline-externa { font-size: 3.5rem; font-weight: 800; margin-bottom: 80px; max-width: 1000px; margin-left: auto; margin-right: auto; line-height: 1.1; }
 
         /* --- Palco Central --- */
-        .stage { position: relative; max-width: 1300px; margin: 0 auto 100px; display: flex; justify-content: center; align-items: flex-end; min-height: 650px; }
+        .stage { position: relative; max-width: 1400px; margin: 0 auto 100px; display: flex; justify-content: center; align-items: flex-end; min-height: 800px; }
         
-        /* Contêiner Base para as Imagens (Sem Fundo/Padding) */
-        .char-frame { 
-            position: absolute; 
-            bottom: 0; 
-            z-index: 5; 
-            width: 455px; /* Tamanho Gigante para Ambos */
+        /* Imagem da Mulher (Tamanho original) */
+        .char-left { position: absolute; bottom: 0; left: 0; z-index: 5; width: 455px; }
+
+        /* Mapa de Fundo (Atrás do homem) */
+        .bg-map {
+            position: absolute;
+            right: -50px;
+            bottom: 50px;
+            width: 800px; /* Tamanho grande para cobrir a área */
+            opacity: 0.3; /* Transparência suave */
+            z-index: 1;
+            pointer-events: none;
         }
 
-        /* Posicionamento Específico */
-        .char-left { left: 0; }
-        .char-right { right: 0; }
+        /* Contêiner do Homem (3x maior que o original de 455px -> ~1300px) */
+        /* Ajustamos para 1000px para não quebrar o layout da tela */
+        .char-right { 
+            position: absolute; 
+            bottom: -50px; 
+            right: -100px; 
+            z-index: 5; 
+            width: 1000px; 
+        }
         
         /* Celular Ajustado */
-        .phone-moldure { width: 400px; height: 800px; background: #000; border-radius: 70px; padding: 20px; z-index: 2; border: 6px solid #333; }
+        .phone-moldure { width: 400px; height: 800px; background: #000; border-radius: 70px; padding: 20px; z-index: 2; border: 6px solid #333; position: relative; }
         .phone-inner { 
             background: #fff; width: 100%; height: 100%; border-radius: 55px; 
             display: flex; flex-direction: column; align-items: center; justify-content: flex-start;
@@ -65,8 +77,8 @@
         .phone-inner p { font-size: 1.2rem; font-weight: 600; color: #666; line-height: 1.2; }
 
         /* --- Cards --- */
-        .cards-section { display: flex; justify-content: center; gap: 80px; padding: 120px 5%; flex-wrap: wrap; }
-        .card { background: white; width: 750px; border-radius: 50px; overflow: hidden; color: #333; }
+        .cards-section { display: flex; justify-content: center; gap: 80px; padding: 120px 5%; flex-wrap: wrap; position: relative; z-index: 10; }
+        .card { background: white; width: 750px; border-radius: 50px; overflow: hidden; color: #333; box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
         .card-header { background: var(--card-blue); color: white; padding: 50px; text-align: center; font-size: 4rem; font-weight: 900; }
         .card-body { padding: 80px; text-align: center; }
         .card-body p { color: #444; font-size: 2.2rem; margin-bottom: 50px; font-weight: 600; }
@@ -96,7 +108,9 @@
             <h1>Você ao que Precisa!</h1>
             <p class="tagline-externa">Conectando você ao que precisa em segundos.</p>
             <div class="stage">
-                <div class="char-frame char-left"><img src="mulher.png" width="100%"></div>
+                <div class="char-left">
+                    <img src="mulher.png" width="100%">
+                </div>
                 
                 <div class="phone-moldure">
                     <div class="phone-inner">
@@ -104,8 +118,12 @@
                         <p>Tudo o que você precisa,<br>na palma da sua mão.</p>
                     </div>
                 </div>
+
+                <img src="mapa.png" class="bg-map" alt="Mapa">
                 
-                <div class="char-frame char-right"><img src="homem.png" width="100%"></div>
+                <div class="char-right">
+                    <img src="homem.png" width="100%">
+                </div>
             </div>
         </section>
 
