@@ -37,26 +37,23 @@
         /* --- Palco Central --- */
         .stage { position: relative; max-width: 1400px; margin: 0 auto 100px; display: flex; justify-content: center; align-items: flex-end; min-height: 800px; }
         
+        /* AJUSTE CIRÚRGICO: Mulher e Homem com exatamente 455px */
         .char-left { position: absolute; bottom: 0; left: 0; z-index: 5; width: 455px; }
+        .char-right { position: absolute; bottom: 0; right: 0; z-index: 5; width: 455px; }
+        .char-left img, .char-right img { width: 100%; height: auto; display: block; }
 
+        /* Mapa de Fundo - Aumentado e para a Direita */
         .bg-map {
             position: absolute;
-            right: -50px;
+            right: -100px; /* Mais para a direita */
             bottom: 50px;
-            width: 800px;
-            opacity: 0.3;
+            width: 900px; /* Um pouco maior */
+            opacity: 0.3; 
             z-index: 1;
             pointer-events: none;
         }
-
-        .char-right { 
-            position: absolute; 
-            bottom: -50px; 
-            right: -100px; 
-            z-index: 5; 
-            width: 1000px; 
-        }
         
+        /* Celular */
         .phone-moldure { width: 400px; height: 800px; background: #000; border-radius: 70px; padding: 20px; z-index: 2; border: 6px solid #333; position: relative; }
         .phone-inner { 
             background: #fff; width: 100%; height: 100%; border-radius: 55px; 
@@ -81,33 +78,12 @@
         .function-item span { font-size: 2.1rem; line-height: 1.4; color: #333; display: block; }
         .btn-back { background: #111; color: white; border: none; padding: 40px 100px; border-radius: 25px; margin-top: 50px; cursor: pointer; font-size: 2.2rem; font-weight: 800; width: 100%; }
 
-        /* ============================================================
-           AJUSTES DE RESPONSIVIDADE (MOBILE) - SEM PERDER O DESKTOP
-           ============================================================ */
-        @media (max-width: 1024px) {
-            header { padding: 20px 5%; flex-direction: column; gap: 20px; }
-            nav a { margin: 0 15px; font-size: 1.5rem; }
-            .btn-download-top { padding: 15px 30px; font-size: 1.2rem; }
-
-            .hero { padding-top: 250px; }
-            .hero h1 { font-size: 3.5rem; }
-            .tagline-externa { font-size: 1.8rem; margin-bottom: 40px; }
-
-            /* Esconde os personagens no mobile para o conteúdo caber */
+        /* Responsividade Básica */
+        @media (max-width: 1100px) {
             .char-left, .char-right, .bg-map { display: none; }
-
-            .stage { min-height: auto; padding-bottom: 50px; }
-            .phone-moldure { width: 300px; height: 600px; }
-
-            .card { width: 100%; }
-            .card-header { font-size: 2.5rem; padding: 30px; }
-            .card-body { padding: 40px; }
-            .card-body p { font-size: 1.5rem; }
-
-            .detail-section { padding-top: 150px; }
-            .function-item { padding: 30px; border-left-width: 15px; }
-            .function-item strong { font-size: 2rem; }
-            .function-item span { font-size: 1.2rem; }
+            .hero h1 { font-size: 4rem; }
+            header { flex-direction: column; padding: 20px; }
+            nav a { margin: 10px; font-size: 1.5rem; }
         }
     </style>
 </head>
@@ -128,9 +104,7 @@
             <h1>Conectando Você ao que Precisa!</h1>
             <p class="tagline-externa">Encontre o que você procura em segundos.</p>
             <div class="stage">
-                <div class="char-left">
-                    <img src="mulher.png" width="100%">
-                </div>
+                <div class="char-left"><img src="mulher.png"></div>
                 
                 <div class="phone-moldure">
                     <div class="phone-inner">
@@ -141,9 +115,7 @@
 
                 <img src="mapa.png" class="bg-map" alt="Mapa">
                 
-                <div class="char-right">
-                    <img src="homem.png" width="100%">
-                </div>
+                <div class="char-right"><img src="homem.png"></div>
             </div>
         </section>
 
@@ -169,15 +141,7 @@
         <h2 style="font-size: 5rem; color: var(--card-blue); margin-bottom: 60px; font-weight: 900;">Tudo para o Usuário</h2>
         <div class="function-item">
             <strong>🔍 Busca Inteligente e Preço</strong>
-            <span>Encontre tudo que precisa. Agora vc pode tanto anunciar gratis! como fazer busca inteligente por qualquer produto. vc vai encontrar o melhor preço e mais perto de você!</span>
-        </div>
-        <div class="function-item">
-            <strong>💪 Módulo Academia</strong>
-            <span>Para você que se preocupa com sua saúde, agora vc ja tem uma ferramenta incrível que vai te ajudar a atingir seus objetivos. baixe o app e descubra todas as novidades.</span>
-        </div>
-        <div class="function-item">
-            <strong>📢 Anuncie Grátis</strong>
-            <span>Agora vc pode fazer anuncio de coisas que quer vender usando apenas seu celular inteiramente gratis e elas vão aparecer para toda a cidade instantaneamente.</span>
+            <span>Encontre tudo que precisa...</span>
         </div>
         <button class="btn-back" onclick="showSection('home')">VOLTAR AO INÍCIO</button>
     </section>
@@ -186,15 +150,7 @@
         <h2 style="font-size: 5rem; color: var(--card-blue); margin-bottom: 60px; font-weight: 900;">Vantagens Parceiros</h2>
         <div class="function-item">
             <strong>✨ Destaque seu estabelecimento</strong>
-            <span>Apareça nas buscas inteligentes quando clientes procurarem por produtos e serviços que você vende todos os dias. Essa ferramenta será excelente para Manicure, borracheiros, diarista, terapeuta, engenheiro, pedreiro e todos os outros.</span>
-        </div>
-        <div class="function-item">
-            <strong>💰 Fortaleça o comércio local</strong>
-            <span>Usando a moeda conecta nas suas transações, você estará contribuindo para que não haja fuga de capital da nossa cidade.</span>
-        </div>
-        <div class="function-item">
-            <strong>📈 Vitrine 24 Horas</strong>
-            <span>Seu negócio aberto e visível para milhares de usuários locais mesmo após o fechamento das portas físicas.</span>
+            <span>Apareça nas buscas inteligentes...</span>
         </div>
         <button class="btn-back" onclick="showSection('home')">VOLTAR AO INÍCIO</button>
     </section>
@@ -208,7 +164,6 @@
             target.style.display = 'block';
             if (id !== 'home') {
                 document.body.style.background = "white";
-                // Ajuste responsivo para cor dos textos no cabeçalho
                 document.querySelectorAll('nav a').forEach(a => a.style.color = "#333");
                 document.querySelector('.header-logo').style.color = "#333";
             } else {
