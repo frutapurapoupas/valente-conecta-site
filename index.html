@@ -37,22 +37,18 @@
         /* --- Palco Central --- */
         .stage { position: relative; max-width: 1400px; margin: 0 auto 100px; display: flex; justify-content: center; align-items: flex-end; min-height: 800px; }
         
-        /* Imagem da Mulher (Tamanho original) */
         .char-left { position: absolute; bottom: 0; left: 0; z-index: 5; width: 455px; }
 
-        /* Mapa de Fundo (Atrás do homem) */
         .bg-map {
             position: absolute;
             right: -50px;
             bottom: 50px;
-            width: 800px; /* Tamanho grande para cobrir a área */
-            opacity: 0.3; /* Transparência suave */
+            width: 800px;
+            opacity: 0.3;
             z-index: 1;
             pointer-events: none;
         }
 
-        /* Contêiner do Homem (3x maior que o original de 455px -> ~1300px) */
-        /* Ajustamos para 1000px para não quebrar o layout da tela */
         .char-right { 
             position: absolute; 
             bottom: -50px; 
@@ -61,7 +57,6 @@
             width: 1000px; 
         }
         
-        /* Celular Ajustado */
         .phone-moldure { width: 400px; height: 800px; background: #000; border-radius: 70px; padding: 20px; z-index: 2; border: 6px solid #333; position: relative; }
         .phone-inner { 
             background: #fff; width: 100%; height: 100%; border-radius: 55px; 
@@ -69,11 +64,7 @@
             padding: 40px 30px; text-align: center; color: #333;
         }
         
-        .phone-logo { 
-            width: 216px; 
-            margin-bottom: 30px; 
-            margin-top: 10px; 
-        }
+        .phone-logo { width: 216px; margin-bottom: 30px; margin-top: 10px; }
         .phone-inner p { font-size: 1.2rem; font-weight: 600; color: #666; line-height: 1.2; }
 
         /* --- Cards --- */
@@ -89,6 +80,35 @@
         .function-item strong { font-size: 4rem; display: block; margin-bottom: 25px; color: #000; font-weight: 800; }
         .function-item span { font-size: 2.1rem; line-height: 1.4; color: #333; display: block; }
         .btn-back { background: #111; color: white; border: none; padding: 40px 100px; border-radius: 25px; margin-top: 50px; cursor: pointer; font-size: 2.2rem; font-weight: 800; width: 100%; }
+
+        /* ============================================================
+           AJUSTES DE RESPONSIVIDADE (MOBILE) - SEM PERDER O DESKTOP
+           ============================================================ */
+        @media (max-width: 1024px) {
+            header { padding: 20px 5%; flex-direction: column; gap: 20px; }
+            nav a { margin: 0 15px; font-size: 1.5rem; }
+            .btn-download-top { padding: 15px 30px; font-size: 1.2rem; }
+
+            .hero { padding-top: 250px; }
+            .hero h1 { font-size: 3.5rem; }
+            .tagline-externa { font-size: 1.8rem; margin-bottom: 40px; }
+
+            /* Esconde os personagens no mobile para o conteúdo caber */
+            .char-left, .char-right, .bg-map { display: none; }
+
+            .stage { min-height: auto; padding-bottom: 50px; }
+            .phone-moldure { width: 300px; height: 600px; }
+
+            .card { width: 100%; }
+            .card-header { font-size: 2.5rem; padding: 30px; }
+            .card-body { padding: 40px; }
+            .card-body p { font-size: 1.5rem; }
+
+            .detail-section { padding-top: 150px; }
+            .function-item { padding: 30px; border-left-width: 15px; }
+            .function-item strong { font-size: 2rem; }
+            .function-item span { font-size: 1.2rem; }
+        }
     </style>
 </head>
 <body>
@@ -106,7 +126,7 @@
     <main id="home-content">
         <section class="hero">
             <h1>Conectando Você ao que Precisa!</h1>
-            <p class="tagline-externa">Encontre o que voçê procura em segundos.</p>
+            <p class="tagline-externa">Encontre o que você procura em segundos.</p>
             <div class="stage">
                 <div class="char-left">
                     <img src="mulher.png" width="100%">
@@ -188,6 +208,7 @@
             target.style.display = 'block';
             if (id !== 'home') {
                 document.body.style.background = "white";
+                // Ajuste responsivo para cor dos textos no cabeçalho
                 document.querySelectorAll('nav a').forEach(a => a.style.color = "#333");
                 document.querySelector('.header-logo').style.color = "#333";
             } else {
