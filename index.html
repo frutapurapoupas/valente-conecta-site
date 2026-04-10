@@ -2,284 +2,184 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Valente Conecta - Premium Landing Page</title>
+    <title>Valente Conecta - Oficial</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* Gradiente radial rico e exato da arte original */
-            --bg-gradient: radial-gradient(circle at 50% -20%, #4a2ec2 0%, #2e3192 45%, #1a1c61 100%);
-            --accent-yellow: #ffeb3b;
+            --bg-gradient: radial-gradient(circle at 50% 30%, #4a2ec2 0%, #2e3192 45%, #1a1c61 100%);
             --accent-red: #f85a5e;
             --card-blue: #2e3192;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-
-        body {
-            background: var(--bg-gradient);
-            color: white;
-            min-height: 100vh;
-            overflow-x: hidden;
-            display: flex;
-            flex-direction: column;
-        }
+        body { background: var(--bg-gradient); color: white; min-height: 100vh; overflow-x: hidden; scroll-behavior: smooth; }
 
         /* --- Header --- */
         header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 25px 8%;
-            background: rgba(0, 0, 0, 0.1);
-            position: relative; z-index: 100;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 40px 8%; background: rgba(0, 0, 0, 0.2); backdrop-filter: blur(15px);
+            position: fixed; width: 100%; top: 0; z-index: 1000;
         }
-
-        .header-logo { font-weight: 800; font-size: 1.1rem; letter-spacing: 0.5px; }
-
-        nav { display: flex; gap: 25px; }
-        nav a { color: white; text-decoration: none; font-size: 0.85rem; font-weight: 400; opacity: 0.8; transition: 0.3s; }
-        nav a:hover { opacity: 1; color: var(--accent-yellow); }
-
-        .btn-top {
-            background: var(--accent-red);
-            border: none;
-            padding: 10px 25px;
-            border-radius: 8px;
-            color: white;
-            font-weight: 700;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(248, 90, 94, 0.3);
-            font-size: 0.85rem;
-        }
-
-        /* --- Hero Section Principal --- */
-        .hero {
-            text-align: center;
-            padding: 50px 20px 0;
-            position: relative; z-index: 10;
-        }
-
-        .main-logo-area { margin-bottom: 25px; display: inline-flex; flex-direction: column; align-items: center; }
-        .main-logo-area img { width: 220px; margin-bottom: 10px; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.4)); }
+        .header-logo { font-weight: 900; font-size: 2rem; letter-spacing: -1px; }
+        nav a { color: white; text-decoration: none; margin: 0 25px; font-size: 1.3rem; cursor: pointer; font-weight: 600; }
         
-        .valente-text { font-size: 2.2rem; font-weight: 700; letter-spacing: -1px; }
-        .conecta-text { font-size: 2.2rem; font-weight: 400; color: var(--accent-yellow); }
-
-        .hero h2 {
-            font-size: 3.8rem; /* Título bem grande e pesado */
-            font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 15px;
-            text-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        .btn-download-top {
+            background: var(--accent-red); padding: 20px 45px; border-radius: 15px;
+            border: none; color: white; font-weight: 800; cursor: pointer; font-size: 1.3rem;
+            box-shadow: 0 10px 20px rgba(248, 90, 94, 0.4);
         }
 
-        .hero p.tagline {
-            font-size: 1.25rem;
-            font-weight: 300;
-            opacity: 0.9;
-            margin-bottom: 40px;
-            max-width: 600px; margin-left: auto; margin-right: auto;
+        /* --- Modal QR Code --- */
+        .modal {
+            display: none; position: fixed; z-index: 2000; left: 0; top: 0;
+            width: 100%; height: 100%; background: rgba(0,0,0,0.95);
+            align-items: center; justify-content: center;
         }
+        .modal-content {
+            background: white; padding: 60px; border-radius: 40px; text-align: center; color: #333;
+            max-width: 600px; position: relative;
+        }
+        .modal-content img { width: 350px; height: 350px; margin-top: 30px; }
+        .close-modal { position: absolute; top: 20px; right: 30px; font-size: 50px; cursor: pointer; }
 
-        /* --- O Cenário Central (Celular + Personagens PNG Transparente) --- */
+        /* --- Hero Section (Textos Dobrados) --- */
+        .hero { padding: 220px 20px 80px; text-align: center; }
+        .hero h1 { font-size: 6.5rem; font-weight: 900; line-height: 0.9; margin-bottom: 30px; letter-spacing: -3px; }
+        .hero p.tagline { font-size: 2.8rem; font-weight: 300; margin-bottom: 80px; opacity: 0.9; }
+
+        /* --- Palco Central --- */
         .stage {
-            position: relative;
-            max-width: 1050px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: center;
-            align-items: flex-end; /* Personagens no 'chão' */
-            min-height: 520px;
+            position: relative; max-width: 1200px; margin: 0 auto 100px;
+            display: flex; justify-content: center; align-items: flex-end; min-height: 600px;
         }
+        .char-frame { position: absolute; bottom: 0; z-index: 5; background: white; padding: 20px; border-radius: 40px; box-shadow: 0 30px 60px rgba(0,0,0,0.5); }
+        .char-left { left: 0; width: 320px; } 
+        .char-right { right: 0; width: 320px; }
+        
+        .phone-moldure { width: 350px; height: 700px; background: #000; border-radius: 60px; padding: 18px; z-index: 2; border: 5px solid #333; }
+        .phone-inner { background: #fff; width: 100%; height: 100%; border-radius: 45px; overflow: hidden; }
 
-        /* Ilustrações Laterais (PNG Transparente Necessário) */
-        .character {
-            position: absolute;
-            bottom: -30px; /* Ajuste para o chão da cena */
-            z-index: 5;
-            filter: drop-shadow(0 15px 30px rgba(0,0,0,0.3));
-        }
-        .char-left { left: 0; width: 230px; } /* Mulher com sacolas */
-        .char-right { right: 0; width: 230px; } /* Empresário de terno */
+        .search-vazada { position: absolute; top: 25%; left: 50%; transform: translateX(-50%); width: 650px; z-index: 10; }
+        .search-vazada input { width: 100%; padding: 35px 50px; border-radius: 80px; border: none; font-size: 2rem; box-shadow: 0 20px 50px rgba(0,0,0,0.5); font-weight: 600; }
 
-        /* O Celular com Mapa e Busca */
-        .phone-mockup {
-            width: 290px;
-            height: 580px;
-            background: #111; /* Cor do celular real */
-            border-radius: 45px;
-            padding: 10px;
-            position: relative; z-index: 10;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.6);
-            border: 3px solid #333;
-        }
+        /* --- Cards --- */
+        .cards-section { display: flex; justify-content: center; gap: 60px; padding: 100px 5%; flex-wrap: wrap; }
+        .card { background: white; width: 650px; border-radius: 40px; overflow: hidden; color: #333; box-shadow: 0 40px 80px rgba(0,0,0,0.5); }
+        .card-header { background: var(--card-blue); color: white; padding: 40px; text-align: center; font-size: 3.5rem; font-weight: 900; }
+        .card-body { padding: 60px; text-align: center; }
+        .card-body p { color: #444; font-size: 2rem; margin-bottom: 45px; line-height: 1.3; font-weight: 600; }
+        .card-link { color: var(--card-blue); text-decoration: underline; font-weight: 900; cursor: pointer; font-size: 1.6rem; }
 
-        .phone-screen {
-            background: #e5e5e5;
-            width: 100%; height: 100%;
-            border-radius: 35px;
-            overflow: hidden;
-            position: relative;
-        }
+        /* --- Seções de Detalhes (Onde os novos textos entram) --- */
+        .detail-section { display: none; padding: 200px 10% 120px; background: white; color: #333; border-radius: 80px 80px 0 0; }
+        .detail-section h2 { color: var(--card-blue); font-size: 5.5rem; font-weight: 900; margin-bottom: 20px; letter-spacing: -2px; }
+        .detail-section p.section-sub { font-size: 2.5rem; margin-bottom: 80px; color: #666; font-weight: 300; }
 
-        /* Imagem do mapa de fundo da tela (PNG) */
-        .phone-map-bg {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            object-fit: cover;
-            z-index: 1;
-        }
-
-        /* Barra de busca que "vaza" para fora do celular */
-        .search-vazada-overlay {
-            position: absolute;
-            top: 22%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 450px; /* Mais larga que o celular */
-            z-index: 20;
-            background: white;
-            padding: 15px 25px;
-            border-radius: 50px;
-            display: flex;
-            align-items: center;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-            border: 1px solid #ddd;
-        }
-
-        .search-vazada-overlay input {
-            border: none;
-            width: 100%;
-            outline: none;
-            font-size: 1rem;
-            color: #333;
-        }
-
-        /* Badges de Lojas mais para baixo */
-        .hero-stores {
-            margin-top: 40px;
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            position: relative; z-index: 10;
-        }
-        .hero-stores img { height: 45px; cursor: pointer; }
-
-        /* --- Seção de Cards Inferiores --- */
-        .cards-grid {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            padding: 80px 8%;
-            background: rgba(0,0,0,0.1);
-            position: relative; z-index: 10;
-        }
-
-        .feature-card {
-            background: white;
-            border-radius: 20px;
-            width: 480px;
-            overflow: hidden;
-            color: #333;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
-            border: 1px solid #eee;
-        }
-
-        .feature-card-header {
-            background: var(--card-blue); /* O azul profundo original */
-            color: white;
-            padding: 18px;
-            text-align: center;
-            font-size: 1.6rem;
-            font-weight: 700;
-        }
-
-        .feature-card-body { padding: 30px; text-align: center; }
-        .feature-card-body p { color: #666; font-size: 1rem; margin-bottom: 25px; }
-
-        .feature-icons { display: flex; justify-content: space-around; margin-top: 25px; }
-        .feature-item { font-size: 0.85rem; color: #555; font-weight: 600; text-align: center;}
-        .icon-box-circle {
-            width: 60px; height: 60px;
-            background: #f1f3f8;
-            border-radius: 50%;
-            margin: 0 auto 10px;
-            display: flex; align-items: center; justify-content: center;
-            color: var(--card-blue); font-size: 24px;
-            box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
-        }
+        .function-grid { display: grid; grid-template-columns: 1fr; gap: 60px; }
+        .function-item { padding: 60px; background: #f8faff; border-radius: 40px; border-left: 20px solid var(--card-blue); }
+        .function-item strong { font-size: 3rem; display: block; margin-bottom: 20px; color: #000; font-weight: 800; line-height: 1.1; }
+        .function-item span { font-size: 2rem; line-height: 1.4; color: #333; display: block; }
+        
+        .btn-back { background: #111; color: white; border: none; padding: 30px 80px; border-radius: 20px; margin-top: 80px; cursor: pointer; font-size: 1.8rem; font-weight: 800; }
 
     </style>
 </head>
 <body>
 
+    <div id="qrModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <h2 style="font-size: 3rem; font-weight: 900;">Baixe Agora</h2>
+            <img src="qr_code.png" alt="QR Code">
+            <p style="margin-top:30px; font-size: 1.8rem; font-weight: 600;">O App que conecta você à sua cidade!</p>
+        </div>
+    </div>
+
     <header>
-        <div class="header-logo">APP VALENTE CONECTA</div>
+        <div class="header-logo">VALENTE CONECTA</div>
         <nav>
-            <a href="#">Início</a>
-            <a href="#">Para Usuários</a>
-            <a href="#">Para Empresas</a>
+            <a onclick="showSection('home')">Início</a>
+            <a onclick="showSection('usuarios')">Usuários</a>
+            <a onclick="showSection('empresas')">Empresas</a>
         </nav>
-        <button class="btn-top">Baixe o App</button>
+        <button class="btn-download-top" onclick="openModal()">Baixe o App</button>
     </header>
 
-    <section class="hero">
-        <div class="main-logo-area">
-            <img src="logo_grande.png" alt="🔍 Logo Valente Conecta">
-        </div>
-        
-        <h1>Você ao que Precisa!</h1>
-        <p class="tagline">Encontre o melhor da sua cidade de forma rápida e fácil.</p>
+    <main id="home-content">
+        <section class="hero">
+            <h1>Você ao que Precisa!</h1>
+            <p class="tagline">O maior hub de conexão local do Brasil.</p>
+            <div class="stage">
+                <div class="char-frame char-left"><img src="mulher.jpg" width="100%" alt=""></div>
+                <div class="search-vazada"><input type="text" placeholder="O que você busca agora?"></div>
+                <div class="phone-moldure"><div class="phone-inner"></div></div>
+                <div class="char-frame char-right"><img src="homem.jpg" width="100%" alt=""></div>
+            </div>
+        </section>
 
-        <div class="stage">
-            <img src="mulher.png" alt="" class="character char-left">
-
-            <div class="phone-mockup">
-                <div class="phone-screen">
-                    <img src="mapa.png" alt="Tela do App Mapa" class="phone-map-bg">
+        <section class="cards-section">
+            <div class="card">
+                <div class="card-header">Para Usuários</div>
+                <div class="card-body">
+                    <p>Encontre tudo o que precisa e fortaleça nossa economia local.</p>
+                    <a class="card-link" onclick="showSection('usuarios')">DESCUBRA MAIS →</a>
                 </div>
             </div>
-
-            <img src="homem.png" alt="" class="character char-right">
-
-            <div class="search-vazada-overlay">
-                <input type="text" placeholder="O que você está procurando?">
-                <span style="color: #666; font-size: 1.1rem">🔍</span>
+            <div class="card">
+                <div class="card-header">Para Empresas</div>
+                <div class="card-body">
+                    <p>Destaque seu negócio para quem realmente importa: o seu vizinho.</p>
+                    <a class="card-link" onclick="showSection('empresas')">VANTAGENS EXCLUSIVAS →</a>
+                </div>
             </div>
-        </div>
+        </section>
+    </main>
 
-        <div class="hero-stores">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="App Store">
+    <section id="usuarios" class="detail-section">
+        <h2>Para Usuários</h2>
+        <p class="section-sub">A ferramenta definitiva para o cidadão moderno.</p>
+        <div class="function-grid">
+            <div class="function-item"><strong>🔍 Busca Hiper-Local</strong><span>Encontre estabelecimentos e serviços a poucos metros de você com precisão cirúrgica.</span></div>
+            <div class="function-item"><strong>💎 Moeda Conecta</strong><span>Ganhe benefícios reais e ajude a economia local a girar com nossa moeda digital.</span></div>
         </div>
+        <button class="btn-back" onclick="showSection('home')">VOLTAR</button>
     </section>
 
-    <section class="cards-grid">
-        <div class="feature-card">
-            <div class="feature-card-header">Para Usuários</div>
-            <div class="feature-card-body">
-                <p>Encontre lojas, serviços e promoções com a <strong>Busca Inteligente</strong>.</p>
-                <div class="feature-icons">
-                    <div class="feature-item"><div class="icon-box-circle">🔍</div>Busca Rápida</div>
-                    <div class="feature-item"><div class="icon-box-circle">❤️</div>Promoções Especiais</div>
-                    <div class="feature-item"><div class="icon-box-circle">📅</div>Eventos Locais</div>
-                </div>
+    <section id="empresas" class="detail-section">
+        <h2>Para Empresas</h2>
+        <p class="section-sub">Sua empresa no centro das atenções da cidade.</p>
+        <div class="function-grid">
+            
+            <div class="function-item">
+                <strong>✨ Destaque seu estabelecimento</strong>
+                <span>Apareça nas buscas inteligentes quando clientes procurarem por produtos e serviços que você vende.</span>
             </div>
-        </div>
 
-        <div class="feature-card">
-            <div class="feature-card-header">Para Empresas</div>
-            <div class="feature-card-body">
-                <p>Divulgue seu negócio e atraia muito mais clientes locais!</p>
-                <div class="feature-icons">
-                    <div class="feature-item"><div class="icon-box-circle">📢</div>Divulgação</div>
-                    <div class="feature-item"><div class="icon-box-circle">👤</div>Gestão</div>
-                    <div class="feature-item"><div class="icon-box-circle">📊</div>Insights</div>
-                </div>
+            <div class="function-item">
+                <strong>💰 Fortaleça o comércio local</strong>
+                <span>Usando a moeda conecta nas suas transações, você estará contribuindo para que não haja fuga de capital da nossa cidade.</span>
             </div>
+
+            <div class="function-item">
+                <strong>📈 Vitrine 24 Horas</strong>
+                <span>Seu negócio aberto e visível para milhares de usuários locais mesmo após o fechamento das portas.</span>
+            </div>
+            
         </div>
+        <button class="btn-back" onclick="showSection('home')">VOLTAR</button>
     </section>
 
+    <script>
+        function openModal() { document.getElementById('qrModal').style.display = 'flex'; }
+        function closeModal() { document.getElementById('qrModal').style.display = 'none'; }
+        function showSection(id) {
+            document.getElementById('home-content').style.display = 'none';
+            document.getElementById('usuarios').style.display = 'none';
+            document.getElementById('empresas').style.display = 'none';
+            document.getElementById(id === 'home' ? 'home-content' : id).style.display = 'block';
+            window.scrollTo(0,0);
+        }
+    </script>
 </body>
 </html>
