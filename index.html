@@ -2,282 +2,190 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Valente Conecta - Premium Official</title>
+    <title>Valente Conecta - Oficial</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* Gradiente radial rico e exato da arte original */
-            --bg-gradient: radial-gradient(circle at 50% -20%, #4a2ec2 0%, #2e3192 45%, #1a1c61 100%);
-            --accent-yellow: #ffeb3b;
+            --bg-gradient: radial-gradient(circle at 50% 30%, #4a2ec2 0%, #2e3192 45%, #1a1c61 100%);
             --accent-red: #f85a5e;
             --card-blue: #2e3192;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-
-        body {
-            background: var(--bg-gradient);
-            color: white;
-            min-height: 100vh;
-            overflow-x: hidden;
-            display: flex;
-            flex-direction: column;
-        }
+        body { background: var(--bg-gradient); color: white; min-height: 100vh; overflow-x: hidden; scroll-behavior: smooth; transition: background 0.5s ease; }
 
         /* --- Header --- */
         header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 25px 8%;
-            background: rgba(0, 0, 0, 0.1);
-            position: relative; z-index: 100;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 50px 8%; background: rgba(0, 0, 0, 0.2); backdrop-filter: blur(15px);
+            position: fixed; width: 100%; top: 0; z-index: 1000;
+        }
+        .header-logo { font-weight: 900; font-size: 2.2rem; }
+        nav a { color: white; text-decoration: none; margin: 0 40px; font-size: 2.6rem; cursor: pointer; font-weight: 700; }
+        
+        .btn-download-top {
+            background: var(--accent-red); padding: 25px 60px; border-radius: 20px;
+            border: none; color: white; font-weight: 800; cursor: pointer; font-size: 1.8rem;
         }
 
-        .header-logo { font-weight: 800; font-size: 1.1rem; letter-spacing: 0.5px; }
+        /* --- Modal QR CODE --- */
+        .modal {
+            display: none; position: fixed; z-index: 2000; left: 0; top: 0;
+            width: 100%; height: 100%; background: rgba(0,0,0,0.9);
+            align-items: center; justify-content: center;
+        }
+        .modal-content {
+            background: white; padding: 60px; border-radius: 40px; text-align: center; color: #333;
+            max-width: 550px; position: relative;
+        }
+        .qr-placeholder { width: 350px; height: 350px; margin: 0 auto; background: #eee; }
+        .close-modal { position: absolute; top: 20px; right: 30px; font-size: 50px; cursor: pointer; color: #999; }
 
-        nav { display: flex; gap: 25px; }
-        nav a { color: white; text-decoration: none; font-size: 0.85rem; font-weight: 400; opacity: 0.8; transition: 0.3s; }
-        nav a:hover { opacity: 1; color: var(--accent-yellow); }
-
-        .btn-top {
-            background: var(--accent-red);
-            border: none;
-            padding: 10px 25px;
-            border-radius: 8px;
-            color: white;
-            font-weight: 700;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(248, 90, 94, 0.3);
-            font-size: 0.85rem;
+        /* --- Hero (TEXTO GIGANTE FORA) --- */
+        .hero { padding: 300px 20px 80px; text-align: center; }
+        .hero h1 { font-size: 6.5rem; font-weight: 900; line-height: 0.9; margin-bottom: 30px; }
+        .tagline-externa { 
+            font-size: 3.5rem; /* Texto Grande Lado de Fora */
+            font-weight: 800; 
+            margin-bottom: 80px; 
+            max-width: 1000px; 
+            margin-left: auto; 
+            margin-right: auto;
+            line-height: 1.1;
         }
 
-        /* --- Hero Section Principal --- */
-        .hero {
-            text-align: center;
-            padding: 50px 20px 0;
-            position: relative; z-index: 10;
+        /* --- Palco Central --- */
+        .stage { position: relative; max-width: 1300px; margin: 0 auto 100px; display: flex; justify-content: center; align-items: flex-end; min-height: 650px; }
+        .char-frame { position: absolute; bottom: 0; z-index: 5; background: white; padding: 25px; border-radius: 50px; width: 350px; box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
+        .char-left { left: 0; } .char-right { right: 0; }
+        
+        /* Celular */
+        .phone-moldure { width: 400px; height: 800px; background: #000; border-radius: 70px; padding: 20px; z-index: 2; border: 6px solid #333; }
+        .phone-inner { 
+            background: #fff; width: 100%; height: 100%; border-radius: 55px; 
+            display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 30px; text-align: center; color: #333;
         }
+        
+        .phone-logo { width: 180px; margin-bottom: 20px; }
+        /* Texto Interno reduzido pela metade */
+        .phone-inner p { font-size: 1.2rem; font-weight: 600; color: #666; line-height: 1.2; }
 
-        .main-tagline {
-            font-size: 1.25rem;
-            font-weight: 300;
-            opacity: 0.9;
-            margin-bottom: 40px;
-            max-width: 600px; margin-left: auto; margin-right: auto;
-        }
+        /* --- Seção de Cards --- */
+        .cards-section { display: flex; justify-content: center; gap: 80px; padding: 120px 5%; flex-wrap: wrap; }
+        .card { background: white; width: 750px; border-radius: 50px; overflow: hidden; color: #333; box-shadow: 0 30px 60px rgba(0,0,0,0.3); }
+        .card-header { background: var(--card-blue); color: white; padding: 50px; text-align: center; font-size: 4rem; font-weight: 900; }
+        .card-body { padding: 80px; text-align: center; }
+        .card-body p { color: #444; font-size: 2.2rem; margin-bottom: 50px; font-weight: 600; }
 
-        /* --- O Cenário Central (Celular + Personagens) --- */
-        .stage {
-            position: relative;
-            max-width: 1050px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: center;
-            align-items: flex-end; /* Personagens no chão */
-            min-height: 520px;
-        }
-
-        /* Ilustrações Laterais */
-        .character {
-            position: absolute;
-            bottom: -30px;
-            z-index: 5;
-            filter: drop-shadow(0 15px 30px rgba(0,0,0,0.3));
-        }
-        .char-left { left: 0; width: 230px; } /* Mulher com sacolas */
-        .char-right { right: 0; width: 230px; } /* Empresário */
-
-        /* O Celular Mockup */
-        .phone-mockup {
-            width: 290px;
-            height: 580px;
-            background: #111;
-            border-radius: 45px;
-            padding: 10px;
-            position: relative; z-index: 10;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.6);
-            border: 3px solid #333;
-        }
-
-        /* --- TELA DO CELULAR (AQUI VAI O LOGO) --- */
-        .phone-screen {
-            background: white; /* Fundo branco para a tela do app */
-            width: 100%; height: 100%;
-            border-radius: 35px;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: #333;
-            padding: 20px;
-        }
-
-        /* O Logo centralizado dentro da tela */
-        .phone-app-logo {
-            width: 160px; /* Ajuste para caber bem */
-            margin-bottom: 25px;
-            filter: drop-shadow(0 5px 10px rgba(0,0,0,0.15));
-        }
-
-        /* Título de boas-vindas já dentro do app */
-        .phone-screen h3 {
-            font-size: 2.2rem;
-            font-weight: 800;
-            line-height: 1;
-            margin-bottom: 5px;
-        }
-        .phone-screen .busca-text { font-size: 0.8rem; font-weight: 300; color: #666; margin-bottom: 30px;}
-
-        /* Barra de busca que "vaza" para fora do celular */
-        .search-vazada-overlay {
-            position: absolute;
-            top: 22%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 450px; /* Mais larga que o celular */
-            z-index: 20;
-            background: white;
-            padding: 15px 25px;
-            border-radius: 50px;
-            display: flex;
-            align-items: center;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-            border: 1px solid #ddd;
-        }
-
-        .search-vazada-overlay input {
-            border: none;
-            width: 100%;
-            outline: none;
-            font-size: 1rem;
-            color: #333;
-        }
-
-        /* Badges de Lojas */
-        .hero-stores {
-            margin-top: 40px;
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            position: relative; z-index: 10;
-        }
-        .hero-stores img { height: 45px; cursor: pointer; }
-
-        /* --- Seção de Cards Inferiores --- */
-        .cards-grid {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            padding: 80px 8%;
-            background: rgba(0,0,0,0.1);
-            position: relative; z-index: 10;
-        }
-
-        .feature-card {
-            background: white;
-            border-radius: 20px;
-            width: 480px;
-            overflow: hidden;
-            color: #333;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
-            border: 1px solid #eee;
-        }
-
-        .feature-card-header {
-            background: var(--card-blue);
-            color: white;
-            padding: 18px;
-            text-align: center;
-            font-size: 1.6rem;
-            font-weight: 700;
-        }
-
-        .feature-card-body { padding: 30px; text-align: center; }
-        .feature-card-body p { color: #666; font-size: 1rem; margin-bottom: 25px; }
-
-        .feature-icons { display: flex; justify-content: space-around; margin-top: 25px; }
-        .feature-item { font-size: 0.85rem; color: #555; font-weight: 600; text-align: center;}
-        .icon-box-circle {
-            width: 60px; height: 60px;
-            background: #f1f3f8;
-            border-radius: 50%;
-            margin: 0 auto 10px;
-            display: flex; align-items: center; justify-content: center;
-            color: var(--card-blue); font-size: 24px;
-        }
+        /* --- Detalhes --- */
+        .detail-section { display: none; padding: 250px 10% 150px; background: white; color: #333; border-radius: 100px 100px 0 0; min-height: 100vh; }
+        .function-item { padding: 80px; background: #f8faff; border-radius: 50px; border-left: 30px solid var(--card-blue); margin-bottom: 60px; }
+        .function-item strong { font-size: 4rem; display: block; margin-bottom: 25px; color: #000; font-weight: 800; }
+        .function-item span { font-size: 2.1rem; line-height: 1.4; color: #333; display: block; }
+        .btn-back { background: #111; color: white; border: none; padding: 40px 100px; border-radius: 25px; margin-top: 50px; cursor: pointer; font-size: 2.2rem; font-weight: 800; width: 100%; }
 
     </style>
 </head>
 <body>
 
+    <div id="qrModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <h3 style="font-size: 2.5rem; margin-bottom: 20px;">Baixe o App</h3>
+            <div class="qr-placeholder"><img src="qr_code.png" alt="QR Code" width="100%"></div>
+        </div>
+    </div>
+
     <header>
         <div class="header-logo">VALENTE CONECTA</div>
         <nav>
-            <a href="#">Início</a>
-            <a href="#">Para Usuários</a>
-            <a href="#">Para Empresas</a>
+            <a onclick="showSection('home')">Início</a>
+            <a onclick="showSection('usuarios')">Usuários</a>
+            <a onclick="showSection('empresas')">Empresas</a>
         </nav>
-        <button class="btn-top">Baixe o App</button>
+        <button class="btn-download-top" onclick="openModal()">Baixar App</button>
     </header>
 
-    <section class="hero">
-        <p class="main-tagline">Conectando você ao que precisa em segundos.</p>
+    <main id="home-content">
+        <section class="hero">
+            <h1>Você ao que Precisa!</h1>
+            <p class="tagline-externa">Conectando você ao que precisa em segundos.</p>
+            
+            <div class="stage">
+                <div class="char-frame char-left"><img src="mulher.jpg" width="100%"></div>
+                
+                <div class="phone-moldure">
+                    <div class="phone-inner">
+                        <img src="logo.png" alt="Logo" class="phone-logo">
+                        <p>Tudo o que você precisa,<br>na palma da sua mão.</p>
+                    </div>
+                </div>
+                
+                <div class="char-frame char-right"><img src="homem.jpg" width="100%"></div>
+            </div>
+        </section>
 
-        <div class="stage">
-            <img src="mulher.jpg" alt="" class="character char-left">
-
-            <div class="phone-mockup">
-                <div class="phone-screen">
-                    <img src="logo.png" alt="Logo Valente Conecta" class="phone-app-logo">
-                    
-                    <h3>Você ao</h3>
-                    <h3 style="color: var(--card-blue)">que Precisa!</h3>
-                    <p class="busca-text">Conectando você a toda a cidade.</p>
+        <section class="cards-section">
+            <div class="card">
+                <div class="card-header">Para Usuários</div>
+                <div class="card-body">
+                    <p>Busca inteligente, anúncios grátis e saúde em um só lugar.</p>
+                    <button class="btn-back" style="margin-top:0;" onclick="showSection('usuarios')">DESCUBRA MAIS →</button>
                 </div>
             </div>
-
-            <img src="homem.jpg" alt="" class="character char-right">
-
-            <div class="search-vazada-overlay">
-                <input type="text" placeholder="O que você está procurando?">
-                <span style="color: #666; font-size: 1.1rem">🔍</span>
+            <div class="card">
+                <div class="card-header">Para Empresas</div>
+                <div class="card-body">
+                    <p>Seja visto por toda a cidade e valorize seu serviço profissional.</p>
+                    <button class="btn-back" style="margin-top:0; background:var(--card-blue);" onclick="showSection('empresas')">VER VANTAGENS →</button>
+                </div>
             </div>
-        </div>
+        </section>
+    </main>
 
-        <div class="hero-stores">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="App Store">
+    <section id="usuarios" class="detail-section">
+        <h2 style="font-size: 5rem; color: var(--card-blue); margin-bottom: 60px; font-weight: 900;">Tudo para o Usuário</h2>
+        <div class="function-item">
+            <strong>🔍 Busca Inteligente e Preço</strong>
+            <span>Encontre tudo que precisa. Agora vc pode tanto anunciar gratis! como fazer busca inteligente por qualquer produto. vc vai encontrar o melhor preço e mais perto de você!</span>
         </div>
+        <div class="function-item">
+            <strong>💪 Módulo Academia</strong>
+            <span>Para você que se preocupa com sua saúde, agora vc ja tem uma ferramenta incrível que vai te ajudar a atingir seus objetivos. baixe o app e descubra todas as novidades.</span>
+        </div>
+        <button class="btn-back" onclick="showSection('home')">VOLTAR AO INÍCIO</button>
     </section>
 
-    <section class="cards-grid">
-        <div class="feature-card">
-            <div class="feature-card-header">Para Usuários</div>
-            <div class="feature-card-body">
-                <p>Encontre lojas, serviços e promoções com a <strong>Busca Inteligente</strong>.</p>
-                <div class="feature-icons">
-                    <div class="feature-item"><div class="icon-box-circle">🔍</div>Busca Rápida</div>
-                    <div class="feature-item"><div class="icon-box-circle">❤️</div>Promoções Especiais</div>
-                    <div class="feature-item"><div class="icon-box-circle">📅</div>Eventos Locais</div>
-                </div>
-            </div>
+    <section id="empresas" class="detail-section">
+        <h2 style="font-size: 5rem; color: var(--card-blue); margin-bottom: 60px; font-weight: 900;">Vantagens Parceiros</h2>
+        <div class="function-item">
+            <strong>✨ Destaque seu estabelecimento</strong>
+            <span>Apareça nas buscas inteligentes quando clientes procurarem por produtos e serviços que você vende todos os dias. Essa ferramenta será excelente para Manicure, borracheiros, diarista, terapeuta, engenheiro, pedreiro e todos os outros.</span>
         </div>
-
-        <div class="feature-card">
-            <div class="feature-card-header">Para Empresas</div>
-            <div class="feature-card-body">
-                <p>Divulgue seu negócio e atraia muito mais clientes locais!</p>
-                <div class="feature-icons">
-                    <div class="feature-item"><div class="icon-box-circle">📢</div>Divulgação</div>
-                    <div class="feature-item"><div class="icon-box-circle">👤</div>Gestão</div>
-                    <div class="feature-item"><div class="icon-box-circle">📊</div>Insights</div>
-                </div>
-            </div>
-        </div>
+        <button class="btn-back" onclick="showSection('home')">VOLTAR AO INÍCIO</button>
     </section>
 
+    <script>
+        function openModal() { document.getElementById('qrModal').style.display = 'flex'; }
+        function closeModal() { document.getElementById('qrModal').style.display = 'none'; }
+        function showSection(id) {
+            document.getElementById('home-content').style.display = 'none';
+            document.getElementById('usuarios').style.display = 'none';
+            document.getElementById('empresas').style.display = 'none';
+            const target = document.getElementById(id === 'home' ? 'home-content' : id);
+            target.style.display = 'block';
+            if (id !== 'home') {
+                document.body.style.background = "white";
+                document.querySelectorAll('nav a').forEach(a => a.style.color = "#333");
+                document.querySelector('.header-logo').style.color = "#333";
+            } else {
+                document.body.style.background = "radial-gradient(circle at 50% 30%, #4a2ec2 0%, #2e3192 45%, #1a1c61 100%)";
+                document.querySelectorAll('nav a').forEach(a => a.style.color = "white");
+                document.querySelector('.header-logo').style.color = "white";
+            }
+            window.scrollTo(0,0);
+        }
+    </script>
 </body>
 </html>
