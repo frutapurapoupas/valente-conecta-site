@@ -22,79 +22,65 @@
             position: fixed; width: 100%; top: 0; z-index: 1000;
         }
         .header-logo { font-weight: 900; font-size: 2rem; letter-spacing: -1px; }
-        nav a { color: white; text-decoration: none; margin: 0 25px; font-size: 1.3rem; cursor: pointer; font-weight: 600; }
+        nav a { color: white; text-decoration: none; margin: 0 25px; font-size: 1.5rem; cursor: pointer; font-weight: 600; }
         
         .btn-download-top {
-            background: var(--accent-red); padding: 20px 45px; border-radius: 15px;
-            border: none; color: white; font-weight: 800; cursor: pointer; font-size: 1.3rem;
+            background: var(--accent-red); padding: 25px 55px; border-radius: 15px;
+            border: none; color: white; font-weight: 800; cursor: pointer; font-size: 1.6rem;
             box-shadow: 0 10px 20px rgba(248, 90, 94, 0.4);
         }
 
-        /* --- Modal QR Code --- */
-        .modal {
-            display: none; position: fixed; z-index: 2000; left: 0; top: 0;
-            width: 100%; height: 100%; background: rgba(0,0,0,0.95);
-            align-items: center; justify-content: center;
-        }
-        .modal-content {
-            background: white; padding: 60px; border-radius: 40px; text-align: center; color: #333;
-            max-width: 600px; position: relative;
-        }
-        .modal-content img { width: 350px; height: 350px; margin-top: 30px; }
-        .close-modal { position: absolute; top: 20px; right: 30px; font-size: 50px; cursor: pointer; }
-
-        /* --- Hero Section (Textos Dobrados) --- */
-        .hero { padding: 220px 20px 80px; text-align: center; }
+        /* --- Hero Section --- */
+        .hero { padding: 250px 20px 80px; text-align: center; }
         .hero h1 { font-size: 6.5rem; font-weight: 900; line-height: 0.9; margin-bottom: 30px; letter-spacing: -3px; }
-        .hero p.tagline { font-size: 2.8rem; font-weight: 300; margin-bottom: 80px; opacity: 0.9; }
+        
+        /* TEXTO DOBRADO */
+        .hero p.tagline { font-size: 3.2rem; font-weight: 300; margin-bottom: 100px; opacity: 0.9; line-height: 1.2; }
 
         /* --- Palco Central --- */
         .stage {
-            position: relative; max-width: 1200px; margin: 0 auto 100px;
-            display: flex; justify-content: center; align-items: flex-end; min-height: 600px;
+            position: relative; max-width: 1300px; margin: 0 auto 100px;
+            display: flex; justify-content: center; align-items: flex-end; min-height: 650px;
         }
-        .char-frame { position: absolute; bottom: 0; z-index: 5; background: white; padding: 20px; border-radius: 40px; box-shadow: 0 30px 60px rgba(0,0,0,0.5); }
-        .char-left { left: 0; width: 320px; } 
-        .char-right { right: 0; width: 320px; }
+        .char-frame { position: absolute; bottom: 0; z-index: 5; background: white; padding: 25px; border-radius: 50px; box-shadow: 0 30px 60px rgba(0,0,0,0.5); }
+        .char-left { left: 0; width: 350px; } 
+        .char-right { right: 0; width: 350px; }
         
-        .phone-moldure { width: 350px; height: 700px; background: #000; border-radius: 60px; padding: 18px; z-index: 2; border: 5px solid #333; }
-        .phone-inner { background: #fff; width: 100%; height: 100%; border-radius: 45px; overflow: hidden; }
+        .phone-moldure { width: 400px; height: 800px; background: #000; border-radius: 70px; padding: 20px; z-index: 2; border: 6px solid #333; }
+        .phone-inner { background: #fff; width: 100%; height: 100%; border-radius: 55px; overflow: hidden; }
 
-        .search-vazada { position: absolute; top: 25%; left: 50%; transform: translateX(-50%); width: 650px; z-index: 10; }
-        .search-vazada input { width: 100%; padding: 35px 50px; border-radius: 80px; border: none; font-size: 2rem; box-shadow: 0 20px 50px rgba(0,0,0,0.5); font-weight: 600; }
+        .search-vazada { position: absolute; top: 25%; left: 50%; transform: translateX(-50%); width: 750px; z-index: 10; }
+        .search-vazada input { width: 100%; padding: 45px 60px; border-radius: 100px; border: none; font-size: 2.5rem; box-shadow: 0 25px 60px rgba(0,0,0,0.6); font-weight: 600; }
 
         /* --- Cards --- */
-        .cards-section { display: flex; justify-content: center; gap: 60px; padding: 100px 5%; flex-wrap: wrap; }
-        .card { background: white; width: 650px; border-radius: 40px; overflow: hidden; color: #333; box-shadow: 0 40px 80px rgba(0,0,0,0.5); }
-        .card-header { background: var(--card-blue); color: white; padding: 40px; text-align: center; font-size: 3.5rem; font-weight: 900; }
-        .card-body { padding: 60px; text-align: center; }
-        .card-body p { color: #444; font-size: 2rem; margin-bottom: 45px; line-height: 1.3; font-weight: 600; }
-        .card-link { color: var(--card-blue); text-decoration: underline; font-weight: 900; cursor: pointer; font-size: 1.6rem; }
-
-        /* --- Seções de Detalhes (Onde os novos textos entram) --- */
-        .detail-section { display: none; padding: 200px 10% 120px; background: white; color: #333; border-radius: 80px 80px 0 0; }
-        .detail-section h2 { color: var(--card-blue); font-size: 5.5rem; font-weight: 900; margin-bottom: 20px; letter-spacing: -2px; }
-        .detail-section p.section-sub { font-size: 2.5rem; margin-bottom: 80px; color: #666; font-weight: 300; }
-
-        .function-grid { display: grid; grid-template-columns: 1fr; gap: 60px; }
-        .function-item { padding: 60px; background: #f8faff; border-radius: 40px; border-left: 20px solid var(--card-blue); }
-        .function-item strong { font-size: 3rem; display: block; margin-bottom: 20px; color: #000; font-weight: 800; line-height: 1.1; }
-        .function-item span { font-size: 2rem; line-height: 1.4; color: #333; display: block; }
+        .cards-section { display: flex; justify-content: center; gap: 80px; padding: 120px 5%; flex-wrap: wrap; }
+        .card { background: white; width: 750px; border-radius: 50px; overflow: hidden; color: #333; box-shadow: 0 50px 100px rgba(0,0,0,0.5); }
+        .card-header { background: var(--card-blue); color: white; padding: 50px; text-align: center; font-size: 4rem; font-weight: 900; }
+        .card-body { padding: 80px; text-align: center; }
         
-        .btn-back { background: #111; color: white; border: none; padding: 30px 80px; border-radius: 20px; margin-top: 80px; cursor: pointer; font-size: 1.8rem; font-weight: 800; }
+        /* TEXTO DOBRADO */
+        .card-body p { color: #444; font-size: 2.8rem; margin-bottom: 50px; line-height: 1.2; font-weight: 600; }
+        .card-link { color: var(--card-blue); text-decoration: underline; font-weight: 900; cursor: pointer; font-size: 2.2rem; }
+
+        /* --- Seções de Detalhes --- */
+        .detail-section { display: none; padding: 250px 10% 150px; background: white; color: #333; border-radius: 100px 100px 0 0; }
+        .detail-section h2 { color: var(--card-blue); font-size: 6rem; font-weight: 900; margin-bottom: 30px; letter-spacing: -2px; }
+        
+        /* TEXTO DOBRADO */
+        .detail-section p.section-sub { font-size: 3rem; margin-bottom: 100px; color: #666; font-weight: 300; line-height: 1.3; }
+
+        .function-grid { display: grid; grid-template-columns: 1fr; gap: 80px; }
+        .function-item { padding: 80px; background: #f8faff; border-radius: 50px; border-left: 30px solid var(--card-blue); }
+        .function-item strong { font-size: 4rem; display: block; margin-bottom: 25px; color: #000; font-weight: 800; line-height: 1.1; }
+        
+        /* TEXTO DOBRADO */
+        .function-item span { font-size: 2.6rem; line-height: 1.4; color: #333; display: block; font-weight: 400; }
+        
+        .btn-back { background: #111; color: white; border: none; padding: 40px 100px; border-radius: 25px; margin-top: 100px; cursor: pointer; font-size: 2.5rem; font-weight: 800; }
 
     </style>
 </head>
 <body>
-
-    <div id="qrModal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeModal()">&times;</span>
-            <h2 style="font-size: 3rem; font-weight: 900;">Baixe Agora</h2>
-            <img src="qr_code.png" alt="QR Code">
-            <p style="margin-top:30px; font-size: 1.8rem; font-weight: 600;">O App que conecta você à sua cidade!</p>
-        </div>
-    </div>
 
     <header>
         <div class="header-logo">VALENTE CONECTA</div>
@@ -103,13 +89,13 @@
             <a onclick="showSection('usuarios')">Usuários</a>
             <a onclick="showSection('empresas')">Empresas</a>
         </nav>
-        <button class="btn-download-top" onclick="openModal()">Baixe o App</button>
+        <button class="btn-download-top" onclick="alert('QR Code em breve!')">BAIXAR APP</button>
     </header>
 
     <main id="home-content">
         <section class="hero">
             <h1>Você ao que Precisa!</h1>
-            <p class="tagline">O maior hub de conexão local do Brasil.</p>
+            <p class="tagline">O maior hub de conexão local do Brasil para transformar sua cidade.</p>
             <div class="stage">
                 <div class="char-frame char-left"><img src="mulher.jpg" width="100%" alt=""></div>
                 <div class="search-vazada"><input type="text" placeholder="O que você busca agora?"></div>
@@ -122,14 +108,14 @@
             <div class="card">
                 <div class="card-header">Para Usuários</div>
                 <div class="card-body">
-                    <p>Encontre tudo o que precisa e fortaleça nossa economia local.</p>
+                    <p>Encontre tudo o que precisa e fortaleça nossa economia local agora mesmo.</p>
                     <a class="card-link" onclick="showSection('usuarios')">DESCUBRA MAIS →</a>
                 </div>
             </div>
             <div class="card">
                 <div class="card-header">Para Empresas</div>
                 <div class="card-body">
-                    <p>Destaque seu negócio para quem realmente importa: o seu vizinho.</p>
+                    <p>Destaque seu negócio para quem realmente importa: o seu vizinho e cliente.</p>
                     <a class="card-link" onclick="showSection('empresas')">VANTAGENS EXCLUSIVAS →</a>
                 </div>
             </div>
@@ -138,22 +124,27 @@
 
     <section id="usuarios" class="detail-section">
         <h2>Para Usuários</h2>
-        <p class="section-sub">A ferramenta definitiva para o cidadão moderno.</p>
+        <p class="section-sub">A ferramenta definitiva para o cidadão moderno que valoriza seu tempo e sua região.</p>
         <div class="function-grid">
-            <div class="function-item"><strong>🔍 Busca Hiper-Local</strong><span>Encontre estabelecimentos e serviços a poucos metros de você com precisão cirúrgica.</span></div>
-            <div class="function-item"><strong>💎 Moeda Conecta</strong><span>Ganhe benefícios reais e ajude a economia local a girar com nossa moeda digital.</span></div>
+            <div class="function-item">
+                <strong>🔍 Busca Hiper-Local</strong>
+                <span>Encontre estabelecimentos e serviços a poucos metros de você com precisão cirúrgica e rapidez total.</span>
+            </div>
+            <div class="function-item">
+                <strong>💎 Moeda Conecta</strong>
+                <span>Ganhe benefícios reais e ajude a economia local a girar com nossa moeda digital feita para você.</span>
+            </div>
         </div>
         <button class="btn-back" onclick="showSection('home')">VOLTAR</button>
     </section>
 
     <section id="empresas" class="detail-section">
         <h2>Para Empresas</h2>
-        <p class="section-sub">Sua empresa no centro das atenções da cidade.</p>
+        <p class="section-sub">Sua empresa no centro das atenções da cidade para quem quer comprar de você.</p>
         <div class="function-grid">
-            
             <div class="function-item">
                 <strong>✨ Destaque seu estabelecimento</strong>
-                <span>Apareça nas buscas inteligentes quando clientes procurarem por produtos e serviços que você vende.</span>
+                <span>Apareça nas buscas inteligentes quando clientes procurarem por produtos e serviços que você vende todos os dias.</span>
             </div>
 
             <div class="function-item">
@@ -163,16 +154,13 @@
 
             <div class="function-item">
                 <strong>📈 Vitrine 24 Horas</strong>
-                <span>Seu negócio aberto e visível para milhares de usuários locais mesmo após o fechamento das portas.</span>
+                <span>Seu negócio aberto e visível para milhares de usuários locais mesmo após o fechamento das portas físicas.</span>
             </div>
-            
         </div>
         <button class="btn-back" onclick="showSection('home')">VOLTAR</button>
     </section>
 
     <script>
-        function openModal() { document.getElementById('qrModal').style.display = 'flex'; }
-        function closeModal() { document.getElementById('qrModal').style.display = 'none'; }
         function showSection(id) {
             document.getElementById('home-content').style.display = 'none';
             document.getElementById('usuarios').style.display = 'none';
