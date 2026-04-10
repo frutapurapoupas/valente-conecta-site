@@ -37,27 +37,17 @@
         /* --- Palco Central --- */
         .stage { position: relative; max-width: 1300px; margin: 0 auto 100px; display: flex; justify-content: center; align-items: flex-end; min-height: 650px; }
         
-        /* Contêiner da Mulher - Aumentado em 30% e sem fundo/padding/transparência */
-        .char-frame.char-left { 
+        /* Contêiner Base para as Imagens (Sem Fundo/Padding) */
+        .char-frame { 
             position: absolute; 
             bottom: 0; 
             z-index: 5; 
-            width: 455px; /* Aumentado em 30% (de 350px para 455px) */
-            left: 0;
-            /* Fundo branco, padding e mix-blend-mode removidos */
+            width: 455px; /* Tamanho Gigante para Ambos */
         }
 
-        /* Contêiner do Homem (Mantido o original para comparação, se necessário, ou ajuste conforme preferir) */
-        .char-frame.char-right { 
-            position: absolute; 
-            bottom: 0; 
-            z-index: 5; 
-            background: white; 
-            padding: 25px; 
-            border-radius: 50px; 
-            width: 350px; 
-            right: 0;
-        }
+        /* Posicionamento Específico */
+        .char-left { left: 0; }
+        .char-right { right: 0; }
         
         /* Celular Ajustado */
         .phone-moldure { width: 400px; height: 800px; background: #000; border-radius: 70px; padding: 20px; z-index: 2; border: 6px solid #333; }
@@ -107,12 +97,14 @@
             <p class="tagline-externa">Conectando você ao que precisa em segundos.</p>
             <div class="stage">
                 <div class="char-frame char-left"><img src="mulher.png" width="100%"></div>
+                
                 <div class="phone-moldure">
                     <div class="phone-inner">
                         <img src="logo.png" alt="Logo" class="phone-logo">
                         <p>Tudo o que você precisa,<br>na palma da sua mão.</p>
                     </div>
                 </div>
+                
                 <div class="char-frame char-right"><img src="homem.png" width="100%"></div>
             </div>
         </section>
