@@ -97,7 +97,7 @@
     <main id="home-content">
         <section class="hero">
             <h1>Você ao que Precisa!</h1>
-            <p class="tagline">O maior hub de conexão local do Brasil para transformar sua cidade.</p>
+            <p class="tagline">Conectando profissionais e clientes na palma da mão.</p>
             <div class="stage">
                 <div class="char-frame char-left"><img src="mulher.jpg" width="100%"></div>
                 <div class="phone-moldure"><div class="phone-inner"></div></div>
@@ -109,14 +109,14 @@
             <div class="card">
                 <div class="card-header">Para Usuários</div>
                 <div class="card-body">
-                    <p>Encontre tudo que precisa, cuide da saúde e anuncie grátis!</p>
+                    <p>Busca inteligente, anúncios grátis e saúde em um só lugar.</p>
                     <button class="btn-back" style="margin-top:0;" onclick="showSection('usuarios')">DESCUBRA MAIS →</button>
                 </div>
             </div>
             <div class="card">
                 <div class="card-header">Para Empresas</div>
                 <div class="card-body">
-                    <p>Destaque seu negócio e impulsione a economia da nossa cidade.</p>
+                    <p>Seja visto por toda a cidade e valorize seu serviço profissional.</p>
                     <button class="btn-back" style="margin-top:0; background:var(--card-blue);" onclick="showSection('empresas')">VER VANTAGENS →</button>
                 </div>
             </div>
@@ -136,11 +136,6 @@
             <span>Para você que se preocupa com sua saúde, agora vc ja tem uma ferramenta incrível que vai te ajudar a atingir seus objetivos. baixe o app e descubra todas as novidades.</span>
         </div>
 
-        <div class="function-item">
-            <strong>📢 Anuncie Grátis</strong>
-            <span>Anuncie coisas que quer vender usando apenas seu celular inteiramente gratis e elas vão aparecer para toda a cidade instantaneamente.</span>
-        </div>
-
         <button class="btn-back" onclick="showSection('home')">VOLTAR AO INÍCIO</button>
     </section>
 
@@ -149,7 +144,7 @@
         
         <div class="function-item">
             <strong>✨ Destaque seu estabelecimento</strong>
-            <span>Apareça nas buscas inteligentes quando clientes procurarem por produtos e serviços que você vende todos os dias.</span>
+            <span>Apareça nas buscas inteligentes quando clientes procurarem por produtos e serviços que você vende todos os dias. Essa ferramenta será excelente para Manicure, borracheiros, diarista, terapeuta, engenheiro, pedreiro e todos os outros.</span>
         </div>
 
         <div class="function-item">
@@ -172,7 +167,6 @@
             const target = document.getElementById(id === 'home' ? 'home-content' : id);
             target.style.display = 'block';
             
-            // Ajuste de contraste para leitura
             if (id !== 'home') {
                 document.body.style.background = "white";
                 document.querySelectorAll('nav a').forEach(a => a.style.color = "#333");
