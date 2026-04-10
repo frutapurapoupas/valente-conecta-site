@@ -2,14 +2,15 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Valente Conecta - Oficial</title>
+    <title>Valente Conecta - Premium</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-gradient: radial-gradient(circle at 50% 30%, #4a2ec2 0%, #2e3192 60%, #1a1c61 100%);
-            --card-blue: #2e3192;
-            --accent-red: #ff4d4d;
+            --primary-blue: #2e3192;
+            --bright-blue: #007bff;
+            --accent-red: #f85a5e;
+            --bg-gradient: radial-gradient(circle at 50% -20%, #4a2ec2 0%, #2e3192 45%, #1a1c61 100%);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
@@ -26,267 +27,254 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 8%;
-            background: rgba(0, 0, 0, 0.2);
+            padding: 25px 10%;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
         }
 
-        .logo-top { font-weight: 700; font-size: 0.9rem; letter-spacing: 1px; }
+        .header-logo { font-weight: 800; font-size: 1.2rem; letter-spacing: 1px; }
+        
+        nav { display: flex; gap: 30px; }
+        nav a { color: white; text-decoration: none; font-size: 0.9rem; font-weight: 400; opacity: 0.8; }
+        nav a:hover { opacity: 1; }
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 0.85rem;
-            opacity: 0.9;
-        }
-
-        .btn-top {
+        .btn-download {
             background: var(--accent-red);
+            padding: 12px 28px;
+            border-radius: 10px;
             border: none;
-            padding: 8px 20px;
-            border-radius: 6px;
             color: white;
-            font-weight: 600;
+            font-weight: 700;
             cursor: pointer;
+            box-shadow: 0 4px 15px rgba(248, 90, 94, 0.4);
         }
 
         /* --- Hero Section --- */
         .hero {
             text-align: center;
-            padding: 40px 20px;
+            padding: 60px 20px 0;
             position: relative;
         }
 
-        .main-logo-img {
-            width: 120px;
-            margin-bottom: 15px;
-            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.3));
-        }
+        .main-logo-area { margin-bottom: 30px; }
+        .main-logo-area img { width: 220px; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3)); }
 
         .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 5px;
+            font-size: 4.5rem; /* Título bem grande como na foto */
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 15px;
+            text-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
-        .hero p.tagline {
-            font-size: 1.1rem;
-            margin-bottom: 40px;
+        .hero p.subtitle {
+            font-size: 1.4rem;
             font-weight: 300;
+            margin-bottom: 50px;
+            opacity: 0.9;
         }
 
-        /* --- Scene (O Celular e as Pessoas) --- */
-        .scene {
+        /* --- Cenário Central (Celular + Pessoas) --- */
+        .stage {
             position: relative;
-            max-width: 900px;
-            margin: 0 auto 50px auto;
+            max-width: 1100px;
+            margin: 0 auto;
             display: flex;
             justify-content: center;
             align-items: flex-end;
-            min-height: 450px;
+            min-height: 550px;
         }
 
-        .phone-frame {
-            width: 260px;
-            height: 520px;
-            background: #111;
-            border-radius: 40px;
-            padding: 10px;
+        /* Estilo do Celular central */
+        .phone-center {
+            width: 320px;
+            height: 640px;
+            background: #000;
+            border-radius: 50px;
+            border: 10px solid #1a1a1a;
             position: relative;
-            z-index: 5;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-            border: 3px solid #444;
+            z-index: 10;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+            overflow: hidden;
         }
 
         .phone-screen {
-            background: #e5e5e5;
             width: 100%;
             height: 100%;
-            border-radius: 30px;
-            overflow: hidden;
-            position: relative;
+            background: #fff; /* Aqui vai a foto do mapa */
+            display: flex;
+            flex-direction: column;
         }
 
-        /* Barra de busca flutuante sobre o celular */
-        .search-overlay {
+        /* Barra de busca que "vaza" para fora do celular */
+        .floating-search {
             position: absolute;
-            top: 20%;
+            top: 25%;
             left: 50%;
             transform: translateX(-50%);
-            width: 130%; /* Ela sai para fora do celular como na foto */
-            z-index: 10;
+            width: 480px; /* Mais larga que o celular */
+            z-index: 20;
         }
 
-        .search-overlay input {
+        .floating-search input {
             width: 100%;
-            padding: 15px 25px;
+            padding: 18px 30px;
             border-radius: 50px;
             border: none;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-            font-size: 1rem;
+            font-size: 1.1rem;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
             outline: none;
         }
 
-        /* Imagens das Pessoas (PNGs) */
-        .person {
+        /* Ilustrações Laterais */
+        .character {
             position: absolute;
             bottom: 0;
-            width: 250px;
-            z-index: 4;
-            /* Se a imagem faltar, mostra um espaço invisível */
+            width: 300px;
+            z-index: 5;
+            transition: transform 0.3s;
         }
-        .left-person { left: -50px; }
-        .right-person { right: -50px; }
+        .char-left { left: 0; }
+        .char-right { right: 0; }
 
-        /* --- Lojas --- */
-        .stores {
-            margin: 30px 0;
+        /* --- Cards Brancos (Para Usuários/Empresas) --- */
+        .cards-section {
             display: flex;
             justify-content: center;
-            gap: 15px;
-        }
-        .stores img { height: 40px; }
-
-        /* --- Cards --- */
-        .cards-container {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            padding: 40px 5%;
-            flex-wrap: wrap;
+            gap: 40px;
+            padding: 80px 5%;
+            background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.2));
         }
 
         .card {
             background: white;
-            width: 450px;
-            border-radius: 20px;
+            width: 500px;
+            border-radius: 25px;
             overflow: hidden;
             color: #333;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
         }
 
         .card-header {
-            background: var(--card-blue);
+            background: var(--primary-blue);
             color: white;
-            padding: 15px;
-            font-size: 1.4rem;
+            padding: 20px;
+            text-align: center;
+            font-size: 1.8rem;
             font-weight: 700;
+        }
+
+        .card-content {
+            padding: 40px;
             text-align: center;
         }
 
-        .card-body {
-            padding: 25px;
-            text-align: center;
-        }
+        .card-content p { color: #666; font-size: 1.1rem; margin-bottom: 30px; }
 
-        .card-body p {
-            font-size: 0.95rem;
-            margin-bottom: 20px;
-            color: #666;
-        }
-
-        .icon-row {
+        .icon-grid {
             display: flex;
             justify-content: space-around;
         }
 
-        .icon-group {
-            text-align: center;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-
-        .icon-circle {
-            width: 50px;
-            height: 50px;
-            background: #f0f2f5;
+        .icon-item { text-align: center; }
+        .icon-box {
+            width: 65px;
+            height: 65px;
+            background: #f0f4ff;
             border-radius: 50%;
+            margin: 0 auto 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 8px;
-            font-size: 20px;
-            color: var(--card-blue);
+            font-size: 28px;
+            color: var(--primary-blue);
         }
+        .icon-item span { font-weight: 600; font-size: 0.85rem; color: #444; }
 
-        /* --- Rodapé --- */
-        .footer-section {
+        /* --- Footer Section --- */
+        .footer-cta {
             text-align: center;
-            padding: 60px 20px;
+            padding: 100px 20px;
         }
 
-        .footer-section h2 { font-size: 2.2rem; margin-bottom: 10px; }
+        .footer-cta h2 { font-size: 3rem; font-weight: 800; margin-bottom: 20px; }
+
+        .stores { margin-top: 30px; display: flex; justify-content: center; gap: 20px; }
+        .stores img { height: 50px; cursor: pointer; }
 
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo-top">APP VALENTE CONECTA</div>
+        <div class="header-logo">APP VALENTE CONECTA</div>
         <nav>
             <a href="#">Início</a>
             <a href="#">Para Usuários</a>
             <a href="#">Para Empresas</a>
         </nav>
-        <button class="btn-top">Baixe o App</button>
+        <button class="btn-download">Baixe o App</button>
     </header>
 
     <section class="hero">
-        <img src="logo.png" alt="🔍" class="main-logo-img">
+        <div class="main-logo-area">
+            <img src="logo_grande.png" alt="VALENTE CONECTA">
+        </div>
         
         <h1>Você ao que Precisa!</h1>
-        <p class="tagline">Encontre o melhor da sua cidade de forma rápida e fácil.</p>
+        <p class="subtitle">Encontre o melhor da sua cidade de forma rápida e fácil.</p>
 
-        <div class="scene">
-            <img src="mulher.png" alt="" class="person left-person">
+        <div class="stage">
+            <img src="mulher_compras.png" class="character char-left" alt="">
 
-            <div class="phone-frame">
+            <div class="floating-search">
+                <input type="text" placeholder="O que você está procurando?">
+            </div>
+
+            <div class="phone-center">
                 <div class="phone-screen">
-                    <img src="mapa.png" style="width:100%; height:100%; object-fit:cover;" alt="Mapa">
-                </div>
-                <div class="search-overlay">
-                    <input type="text" placeholder="O que você está procurando?">
+                    <img src="mapa_preview.png" style="width:100%; height:100%; object-fit:cover;" alt="Mapa">
                 </div>
             </div>
 
-            <img src="homem.png" alt="" class="person right-person">
+            <img src="empresario.png" class="character char-right" alt="">
         </div>
 
         <div class="stores">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="App Store">
         </div>
     </section>
 
-    <section class="cards-container">
+    <section class="cards-section">
         <div class="card">
             <div class="card-header">Para Usuários</div>
-            <div class="card-body">
-                <p>Encontre lojas, serviços, restaurantes e muito mais com a busca inteligente.</p>
-                <div class="icon-row">
-                    <div class="icon-group"><div class="icon-circle">🔍</div>Busca Rápida</div>
-                    <div class="icon-group"><div class="icon-circle">❤️</div>Promoções</div>
-                    <div class="icon-group"><div class="icon-circle">📅</div>Eventos</div>
+            <div class="card-body card-content">
+                <p>Encontre lojas, serviços, restaurantes e muito mais com a <strong>Busca Inteligente</strong>.</p>
+                <div class="icon-grid">
+                    <div class="icon-item"><div class="icon-box">🔍</div><span>Busca Rápida</span></div>
+                    <div class="icon-item"><div class="icon-box">❤️</div><span>Promoções</span></div>
+                    <div class="icon-item"><div class="icon-box">📅</div><span>Eventos</span></div>
                 </div>
             </div>
         </div>
 
         <div class="card">
             <div class="card-header">Para Empresas</div>
-            <div class="card-body">
+            <div class="card-body card-content">
                 <p>Divulgue seu negócio e atraia muito mais clientes para sua empresa!</p>
-                <div class="icon-row">
-                    <div class="icon-group"><div class="icon-circle">📢</div>Divulgação</div>
-                    <div class="icon-group"><div class="icon-circle">👤</div>Gestão</div>
-                    <div class="icon-group"><div class="icon-circle">📊</div>Relatórios</div>
+                <div class="icon-grid">
+                    <div class="icon-item"><div class="icon-box">📢</div><span>Divulgação</span></div>
+                    <div class="icon-item"><div class="icon-box">👤</div><span>Gestão</span></div>
+                    <div class="icon-item"><div class="icon-box">📊</div><span>Insights</span></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <div class="footer-section">
+    <div class="footer-cta">
         <h2>Tudo ao Seu Alcance!</h2>
-        <p>Encontre oportunidades na sua cidade de forma rápida.</p>
+        <p>A ferramenta perfeita para conectar você à sua cidade.</p>
     </div>
 
 </body>
