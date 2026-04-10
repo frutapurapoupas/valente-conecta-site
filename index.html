@@ -37,8 +37,18 @@
         /* --- Palco Central --- */
         .stage { position: relative; max-width: 1300px; margin: 0 auto 100px; display: flex; justify-content: center; align-items: flex-end; min-height: 650px; }
         
-        /* Ajuste para remover o fundo da imagem via CSS */
-        .char-frame { 
+        /* Contêiner da Mulher - Aumentado em 30% e sem fundo/padding/transparência */
+        .char-frame.char-left { 
+            position: absolute; 
+            bottom: 0; 
+            z-index: 5; 
+            width: 455px; /* Aumentado em 30% (de 350px para 455px) */
+            left: 0;
+            /* Fundo branco, padding e mix-blend-mode removidos */
+        }
+
+        /* Contêiner do Homem (Mantido o original para comparação, se necessário, ou ajuste conforme preferir) */
+        .char-frame.char-right { 
             position: absolute; 
             bottom: 0; 
             z-index: 5; 
@@ -46,10 +56,8 @@
             padding: 25px; 
             border-radius: 50px; 
             width: 350px; 
-            /* Esta linha tenta misturar o fundo branco da imagem com o degradê */
-            mix-blend-mode: multiply; 
+            right: 0;
         }
-        .char-left { left: 0; } .char-right { right: 0; }
         
         /* Celular Ajustado */
         .phone-moldure { width: 400px; height: 800px; background: #000; border-radius: 70px; padding: 20px; z-index: 2; border: 6px solid #333; }
