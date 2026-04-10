@@ -29,58 +29,36 @@
             border: none; color: white; font-weight: 800; cursor: pointer; font-size: 1.8rem;
         }
 
-        /* --- Modal QR CODE --- */
-        .modal {
-            display: none; position: fixed; z-index: 2000; left: 0; top: 0;
-            width: 100%; height: 100%; background: rgba(0,0,0,0.9);
-            align-items: center; justify-content: center;
-        }
-        .modal-content {
-            background: white; padding: 60px; border-radius: 40px; text-align: center; color: #333;
-            max-width: 550px; position: relative;
-        }
-        .qr-placeholder { width: 350px; height: 350px; margin: 0 auto; background: #eee; }
-        .close-modal { position: absolute; top: 20px; right: 30px; font-size: 50px; cursor: pointer; color: #999; }
-
         /* --- Hero --- */
         .hero { padding: 300px 20px 80px; text-align: center; }
         .hero h1 { font-size: 6.5rem; font-weight: 900; line-height: 0.9; margin-bottom: 30px; }
-        .tagline-externa { 
-            font-size: 3.5rem; 
-            font-weight: 800; 
-            margin-bottom: 80px; 
-            max-width: 1000px; 
-            margin-left: auto; 
-            margin-right: auto;
-            line-height: 1.1;
-        }
+        .tagline-externa { font-size: 3.5rem; font-weight: 800; margin-bottom: 80px; max-width: 1000px; margin-left: auto; margin-right: auto; line-height: 1.1; }
 
         /* --- Palco Central --- */
-        .stage { position: relative; max-width: 1300px; margin: 0 auto 100px; display: flex; justify-content: center; align-items: flex-end; min-height: 650px; }
+        .stage { position: relative; max-width: 1400px; margin: 0 auto 100px; display: flex; justify-content: center; align-items: flex-end; min-height: 800px; }
         
-        /* Contêiner Base para as Imagens (Sem Fundo/Padding) */
-        .char-frame { position: absolute; bottom: 0; z-index: 5; }
+        /* Imagem da Mulher (Tamanho original) */
+        .char-left { position: absolute; bottom: 0; left: 0; z-index: 5; width: 455px; }
 
-        /* Posicionamento Específico */
-        /* Mulher no tamanho gigante original de 455px */
-        .char-left { left: 0; width: 455px; } 
-
-        /* Homem - Tamanho dobrado para ficar igual à mulher */
-        .char-right { right: 0; width: 455px; } 
-        /* Dobramos o tamanho da imagem interna do homem */
-        .char-right img { width: 200% !important; height: auto; transform: translateX(-25%); }
-
-        /* Mapa - Dobrado de tamanho e mais à direita */
+        /* Mapa de Fundo (Atrás do homem) */
         .bg-map {
-            width: 200%; /* Dobramos o tamanho do mapa */
-            height: auto;
-            opacity: 0.2; /* Mantivemos a transparência suave */
             position: absolute;
-            top: 50%;
-            left: 60%; /* Empurramos um pouco mais para a direita */
-            transform: translate(-50%, -50%);
-            z-index: 1; /* Atrás dos personagens e do celular */
-            pointer-events: none; /* Não interfere nos cliques */
+            right: -50px;
+            bottom: 50px;
+            width: 800px; /* Tamanho grande para cobrir a área */
+            opacity: 0.3; /* Transparência suave */
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* Contêiner do Homem (3x maior que o original de 455px -> ~1300px) */
+        /* Ajustamos para 1000px para não quebrar o layout da tela */
+        .char-right { 
+            position: absolute; 
+            bottom: -50px; 
+            right: -100px; 
+            z-index: 5; 
+            width: 1000px; 
         }
         
         /* Celular Ajustado */
@@ -91,18 +69,16 @@
             padding: 40px 30px; text-align: center; color: #333;
         }
         
-        /* Logo dentro do celular 20% maior e no topo */
         .phone-logo { 
             width: 216px; 
             margin-bottom: 30px; 
             margin-top: 10px; 
         }
-        /* Texto Interno reduzido pela metade */
         .phone-inner p { font-size: 1.2rem; font-weight: 600; color: #666; line-height: 1.2; }
 
-        /* --- Seção de Cards --- */
+        /* --- Cards --- */
         .cards-section { display: flex; justify-content: center; gap: 80px; padding: 120px 5%; flex-wrap: wrap; position: relative; z-index: 10; }
-        .card { background: white; width: 750px; border-radius: 50px; overflow: hidden; color: #333; box-shadow: 0 30px 60px rgba(0,0,0,0.3); }
+        .card { background: white; width: 750px; border-radius: 50px; overflow: hidden; color: #333; box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
         .card-header { background: var(--card-blue); color: white; padding: 50px; text-align: center; font-size: 4rem; font-weight: 900; }
         .card-body { padding: 80px; text-align: center; }
         .card-body p { color: #444; font-size: 2.2rem; margin-bottom: 50px; font-weight: 600; }
@@ -113,18 +89,9 @@
         .function-item strong { font-size: 4rem; display: block; margin-bottom: 25px; color: #000; font-weight: 800; }
         .function-item span { font-size: 2.1rem; line-height: 1.4; color: #333; display: block; }
         .btn-back { background: #111; color: white; border: none; padding: 40px 100px; border-radius: 25px; margin-top: 50px; cursor: pointer; font-size: 2.2rem; font-weight: 800; width: 100%; }
-
     </style>
 </head>
 <body>
-
-    <div id="qrModal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeModal()">&times;</span>
-            <h3 style="font-size: 2.5rem; margin-bottom: 20px;">Baixe o App</h3>
-            <div class="qr-placeholder"><img src="qr_code.png" alt="QR Code" width="100%"></div>
-        </div>
-    </div>
 
     <header>
         <div class="header-logo">VALENTE CONECTA</div>
@@ -133,16 +100,17 @@
             <a onclick="showSection('usuarios')">Usuários</a>
             <a onclick="showSection('empresas')">Empresas</a>
         </nav>
-        <button class="btn-download-top" onclick="openModal()">Baixar App</button>
+        <button class="btn-download-top">Baixar App</button>
     </header>
 
     <main id="home-content">
         <section class="hero">
             <h1>Você ao que Precisa!</h1>
             <p class="tagline-externa">Conectando você ao que precisa em segundos.</p>
-            
             <div class="stage">
-                <div class="char-frame char-left"><img src="mulher.png" width="100%"></div>
+                <div class="char-left">
+                    <img src="mulher.png" width="100%">
+                </div>
                 
                 <div class="phone-moldure">
                     <div class="phone-inner">
@@ -150,10 +118,12 @@
                         <p>Tudo o que você precisa,<br>na palma da sua mão.</p>
                     </div>
                 </div>
-                
+
                 <img src="mapa.png" class="bg-map" alt="Mapa">
                 
-                <div class="char-frame char-right"><img src="homem.png" alt="Homem"></div>
+                <div class="char-right">
+                    <img src="homem.png" width="100%">
+                </div>
             </div>
         </section>
 
@@ -185,6 +155,10 @@
             <strong>💪 Módulo Academia</strong>
             <span>Para você que se preocupa com sua saúde, agora vc ja tem uma ferramenta incrível que vai te ajudar a atingir seus objetivos. baixe o app e descubra todas as novidades.</span>
         </div>
+        <div class="function-item">
+            <strong>📢 Anuncie Grátis</strong>
+            <span>Agora vc pode fazer anuncio de coisas que quer vender usando apenas seu celular inteiramente gratis e elas vão aparecer para toda a cidade instantaneamente.</span>
+        </div>
         <button class="btn-back" onclick="showSection('home')">VOLTAR AO INÍCIO</button>
     </section>
 
@@ -194,12 +168,18 @@
             <strong>✨ Destaque seu estabelecimento</strong>
             <span>Apareça nas buscas inteligentes quando clientes procurarem por produtos e serviços que você vende todos os dias. Essa ferramenta será excelente para Manicure, borracheiros, diarista, terapeuta, engenheiro, pedreiro e todos os outros.</span>
         </div>
+        <div class="function-item">
+            <strong>💰 Fortaleça o comércio local</strong>
+            <span>Usando a moeda conecta nas suas transações, você estará contribuindo para que não haja fuga de capital da nossa cidade.</span>
+        </div>
+        <div class="function-item">
+            <strong>📈 Vitrine 24 Horas</strong>
+            <span>Seu negócio aberto e visível para milhares de usuários locais mesmo após o fechamento das portas físicas.</span>
+        </div>
         <button class="btn-back" onclick="showSection('home')">VOLTAR AO INÍCIO</button>
     </section>
 
     <script>
-        function openModal() { document.getElementById('qrModal').style.display = 'flex'; }
-        function closeModal() { document.getElementById('qrModal').style.display = 'none'; }
         function showSection(id) {
             document.getElementById('home-content').style.display = 'none';
             document.getElementById('usuarios').style.display = 'none';
