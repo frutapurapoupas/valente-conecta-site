@@ -15,17 +15,17 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
         body { background: var(--bg-gradient); color: white; min-height: 100vh; overflow-x: hidden; scroll-behavior: smooth; transition: background 0.5s ease; }
 
-        /* ========== HEADER COM FLEXBOX ========== */
+        /* --- Header com FLEXBOX (melhoria) --- */
         header {
-            display: flex;
-            justify-content: space-between;
+            display: flex; 
+            justify-content: space-between; 
             align-items: center;
-            padding: 20px 8%;
-            background: rgba(0, 0, 0, 0.2);
+            padding: 20px 8%; 
+            background: rgba(0, 0, 0, 0.2); 
             backdrop-filter: blur(15px);
-            position: fixed;
-            width: 100%;
-            top: 0;
+            position: fixed; 
+            width: 100%; 
+            top: 0; 
             z-index: 1000;
             flex-wrap: wrap;
             gap: 15px;
@@ -34,201 +34,191 @@
         
         nav {
             display: flex;
-            gap: 40px;
+            gap: 30px;
             flex-wrap: wrap;
         }
-        nav a { color: white; text-decoration: none; font-size: 1.2rem; cursor: pointer; font-weight: 700; }
+        nav a { color: white; text-decoration: none; font-size: 1rem; cursor: pointer; font-weight: 700; }
         
         .btn-download-top {
-            background: var(--accent-red);
-            padding: 12px 30px;
+            background: var(--accent-red); 
+            padding: 10px 25px; 
             border-radius: 30px;
-            border: none;
-            color: white;
-            font-weight: 800;
-            cursor: pointer;
-            font-size: 1rem;
+            border: none; 
+            color: white; 
+            font-weight: 800; 
+            cursor: pointer; 
+            font-size: 0.9rem;
         }
 
-        /* ========== HERO COM FLEXBOX ========== */
-        .hero { 
-            padding: 180px 20px 60px; 
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .hero h1 { font-size: 3.5rem; font-weight: 900; margin-bottom: 20px; max-width: 900px; }
-        .tagline-externa { font-size: 1.5rem; font-weight: 800; margin-bottom: 50px; max-width: 700px; }
+        /* --- Hero (sem mudanças) --- */
+        .hero { padding: 180px 20px 60px; text-align: center; }
+        .hero h1 { font-size: 3rem; font-weight: 900; margin-bottom: 20px; }
+        .tagline-externa { font-size: 1.3rem; font-weight: 800; margin-bottom: 50px; max-width: 800px; margin-left: auto; margin-right: auto; }
 
-        /* ========== PALCO CENTRAL COM GRID ========== */
+        /* --- Palco Central (MANTIDO ORIGINAL - com position absolute) --- */
         .stage { 
-            display: grid;
-            grid-template-columns: 1fr auto 1fr;
-            align-items: end;
-            gap: 20px;
-            max-width: 1400px;
-            margin: 0 auto;
-            position: relative;
+            position: relative; 
+            max-width: 1400px; 
+            margin: 0 auto 60px; 
+            display: flex; 
+            justify-content: center; 
+            align-items: flex-end; 
+            min-height: 600px; 
         }
         
         .char-left { 
-            justify-self: start;
-            align-self: end;
+            position: absolute; 
+            bottom: 0; 
+            left: 0; 
+            z-index: 1; 
+            width: 280px; 
         }
-        .char-left img { width: 100%; max-width: 300px; height: auto; }
-
-        .char-right { 
-            justify-self: end;
-            align-self: end;
-        }
-        .char-right img { width: 100%; max-width: 300px; height: auto; }
 
         .bg-map {
-            grid-column: 1 / -1;
-            grid-row: 1 / 2;
-            justify-self: center;
-            align-self: center;
-            width: 80%;
-            max-width: 600px;
+            position: absolute;
+            right: -200px;
+            bottom: 50px;
+            width: 600px;
             opacity: 0.3;
+            z-index: 0;
             pointer-events: none;
+        }
+
+        .char-right { 
+            position: absolute; 
+            bottom: -40px; 
+            right: -250px; 
+            z-index: 1; 
+            width: 280px; 
         }
         
         .phone-moldure { 
-            grid-column: 2 / 3;
-            grid-row: 1 / 2;
-            width: 280px;
-            height: 560px;
-            background: #000;
-            border-radius: 50px;
-            padding: 15px;
-            z-index: 10;
-            border: 5px solid #333;
-            justify-self: center;
+            width: 280px; 
+            height: 560px; 
+            background: #000; 
+            border-radius: 50px; 
+            padding: 15px; 
+            z-index: 10; 
+            border: 5px solid #333; 
+            position: relative; 
         }
         .phone-inner { 
-            background: #fff;
-            width: 100%;
-            height: 100%;
-            border-radius: 40px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            background: #fff; 
+            width: 100%; 
+            height: 100%; 
+            border-radius: 40px; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
             justify-content: center;
-            padding: 30px 20px;
-            text-align: center;
+            padding: 30px 20px; 
+            text-align: center; 
             color: #333;
         }
         
         .phone-logo { width: 150px; margin-bottom: 20px; }
-        .phone-inner p { font-size: 1rem; font-weight: 600; color: #666; }
+        .phone-inner p { font-size: 0.9rem; font-weight: 600; color: #666; }
 
-        /* ========== CARDS COM GRID ========== */
+        /* --- Cards com GRID (melhoria real) --- */
         .cards-section { 
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 50px;
-            padding: 80px 5%;
-            max-width: 1400px;
+            gap: 40px;
+            padding: 60px 5%;
+            max-width: 1200px;
             margin: 0 auto;
         }
         
         .card { 
-            background: white;
-            border-radius: 40px;
-            overflow: hidden;
-            color: #333;
+            background: white; 
+            border-radius: 40px; 
+            overflow: hidden; 
+            color: #333; 
             box-shadow: 0 20px 40px rgba(0,0,0,0.3);
             display: flex;
             flex-direction: column;
         }
         .card-header { 
-            background: var(--card-blue);
-            color: white;
-            padding: 30px;
-            text-align: center;
-            font-size: 2rem;
-            font-weight: 900;
+            background: var(--card-blue); 
+            color: white; 
+            padding: 30px; 
+            text-align: center; 
+            font-size: 2rem; 
+            font-weight: 900; 
         }
         .card-body { 
-            padding: 40px;
+            padding: 40px; 
             text-align: center;
             display: flex;
             flex-direction: column;
-            flex-grow: 1;
             gap: 30px;
+            flex-grow: 1;
         }
         .card-body p { 
-            color: #444;
-            font-size: 1.2rem;
-            font-weight: 600;
-            flex-grow: 1;
+            color: #444; 
+            font-size: 1.2rem; 
+            font-weight: 600; 
         }
 
-        /* ========== BOTÕES ========== */
-        .btn-back { 
-            background: #111;
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            border-radius: 30px;
-            cursor: pointer;
-            font-size: 1rem;
-            font-weight: 800;
-            width: 100%;
-        }
-        .btn-back-blue {
-            background: var(--card-blue);
-        }
-
-        /* ========== SEÇÕES DE DETALHE ========== */
+        /* --- Seções de detalhe com GRID (melhoria real) --- */
         .detail-section { 
-            display: none;
-            padding: 150px 5% 80px;
-            background: white;
-            color: #333;
-            border-radius: 50px 50px 0 0;
+            display: none; 
+            padding: 150px 5% 80px; 
+            background: white; 
+            color: #333; 
+            border-radius: 50px 50px 0 0; 
         }
         
         .detail-section h2 { 
             font-size: 2.5rem;
-            color: var(--card-blue);
-            margin-bottom: 40px;
-            font-weight: 900;
+            color: var(--card-blue); 
+            margin-bottom: 50px; 
+            font-weight: 900; 
             text-align: center;
         }
         
-        /* Grid para os itens de função */
         .functions-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
             max-width: 1200px;
-            margin: 0 auto 40px;
+            margin: 0 auto 50px;
         }
         
         .function-item { 
-            padding: 30px;
-            background: #f8faff;
-            border-radius: 30px;
+            padding: 30px; 
+            background: #f8faff; 
+            border-radius: 30px; 
             border-left: 8px solid var(--card-blue);
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
         }
         .function-item strong { 
-            font-size: 1.5rem;
-            color: #000;
-            font-weight: 800;
+            font-size: 1.3rem; 
+            display: block; 
+            margin-bottom: 15px; 
+            color: #000; 
+            font-weight: 800; 
         }
         .function-item span { 
-            font-size: 1rem;
-            line-height: 1.4;
-            color: #333;
+            font-size: 1rem; 
+            line-height: 1.4; 
+            color: #333; 
+            display: block;
+        }
+        
+        .btn-back { 
+            background: #111; 
+            color: white; 
+            border: none; 
+            padding: 15px 40px; 
+            border-radius: 30px; 
+            cursor: pointer; 
+            font-size: 1rem; 
+            font-weight: 800; 
+            display: block;
+            margin: 0 auto;
         }
 
-        /* ========== MODAL ========== */
+        /* --- Modal --- */
         .modal {
             display: none;
             position: fixed;
@@ -254,10 +244,6 @@
             max-width: 250px;
             margin: 15px 0;
         }
-        .modal-content h3 {
-            color: var(--card-blue);
-            font-size: 1.5rem;
-        }
         .close-modal {
             background: var(--accent-red);
             color: white;
@@ -269,39 +255,19 @@
             cursor: pointer;
         }
 
-        /* ========== RESPONSIVIDADE ========== */
+        /* --- Responsivo --- */
         @media (max-width: 900px) {
-            header {
-                flex-direction: column;
-                text-align: center;
-            }
-            nav {
-                justify-content: center;
-                gap: 20px;
-            }
-            .hero h1 { font-size: 2.2rem; }
-            .tagline-externa { font-size: 1.2rem; }
-            
-            .stage {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-            .char-left, .char-right, .bg-map {
-                display: none;
-            }
-            .phone-moldure {
-                grid-column: 1 / 2;
-                width: 260px;
-                height: 520px;
-            }
-            .cards-section {
-                gap: 30px;
-                padding: 50px 20px;
-            }
+            .hero h1 { font-size: 2rem; }
+            .tagline-externa { font-size: 1rem; }
+            .char-left, .char-right, .bg-map { display: none; }
+            .stage { min-height: auto; }
+            .phone-moldure { width: 260px; height: 520px; }
+            .cards-section { gap: 25px; padding: 40px 20px; }
             .card-header { font-size: 1.5rem; padding: 20px; }
             .card-body { padding: 25px; }
             .detail-section h2 { font-size: 1.8rem; }
-            .function-item strong { font-size: 1.2rem; }
+            header { flex-direction: column; text-align: center; }
+            nav { justify-content: center; }
         }
     </style>
 </head>
@@ -325,7 +291,7 @@
 
         <div class="stage">
             <div class="char-left">
-                <img src="mulher.png" alt="Mulher" width="100%">
+                <img src="mulher.png" alt="Mulher" style="width:100%">
             </div>
             
             <div class="phone-moldure">
@@ -338,26 +304,26 @@
             <img src="mapa.png" class="bg-map" alt="Mapa">
             
             <div class="char-right">
-                <img src="homem.png" alt="Homem" width="100%">
+                <img src="homem.png" alt="Homem" style="width:100%">
             </div>
         </div>
 
-        <section class="cards-section">
+        <div class="cards-section">
             <div class="card">
                 <div class="card-header">Para Usuários</div>
                 <div class="card-body">
                     <p>Busca inteligente, anúncios grátis e saúde em um só lugar.</p>
-                    <button class="btn-back" onclick="showSection('usuarios')">DESCUBRA MAIS →</button>
+                    <button class="btn-back" style="background: var(--card-blue);" onclick="showSection('usuarios')">DESCUBRA MAIS →</button>
                 </div>
             </div>
             <div class="card">
                 <div class="card-header">Para Empresas</div>
                 <div class="card-body">
                     <p>Seja visto por toda a cidade e valorize seu serviço profissional.</p>
-                    <button class="btn-back btn-back-blue" onclick="showSection('empresas')">VER VANTAGENS →</button>
+                    <button class="btn-back" onclick="showSection('empresas')">VER VANTAGENS →</button>
                 </div>
             </div>
-        </section>
+        </div>
     </main>
 
     <section id="usuarios" class="detail-section">
@@ -376,7 +342,7 @@
                 <span>Anuncie usando seu celular inteiramente grátis. Apareça para toda a cidade.</span>
             </div>
         </div>
-        <button class="btn-back" style="max-width: 300px; margin: 0 auto; display: block;" onclick="showSection('home')">VOLTAR AO INÍCIO</button>
+        <button class="btn-back" onclick="showSection('home')">VOLTAR AO INÍCIO</button>
     </section>
 
     <section id="empresas" class="detail-section">
@@ -395,10 +361,9 @@
                 <span>Seu negócio visível para milhares de usuários mesmo após o fechamento.</span>
             </div>
         </div>
-        <button class="btn-back" style="max-width: 300px; margin: 0 auto; display: block;" onclick="showSection('home')">VOLTAR AO INÍCIO</button>
+        <button class="btn-back" onclick="showSection('home')">VOLTAR AO INÍCIO</button>
     </section>
 
-    <!-- Modal QR Code -->
     <div id="qrModal" class="modal">
         <div class="modal-content">
             <h3>📱 Baixe o App</h3>
@@ -421,7 +386,6 @@
                 document.body.style.background = "white";
                 document.querySelectorAll('nav a').forEach(a => a.style.color = "#333");
                 document.querySelector('.header-logo').style.color = "#333";
-                document.querySelector('.btn-download-top').style.background = "var(--accent-red)";
             } else {
                 document.body.style.background = "var(--bg-gradient)";
                 document.querySelectorAll('nav a').forEach(a => a.style.color = "white");
