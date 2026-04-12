@@ -32,7 +32,6 @@
                 padding: 2rem 3rem;
             }
             
-            /* Dobrar tamanhos no PC */
             .logo {
                 width: 140px !important;
                 height: 140px !important;
@@ -89,7 +88,6 @@
             }
         }
 
-        /* HEADER COM LOGO MAIOR */
         .header {
             display: flex;
             flex-direction: column;
@@ -138,7 +136,6 @@
             color: transparent;
         }
 
-        /* FRASE MOTIVACIONAL */
         .frase-motivacional {
             background: linear-gradient(135deg, #f0f9ff, #e0e7ff);
             padding: 1.2rem;
@@ -155,7 +152,6 @@
             font-weight: 500;
         }
 
-        /* NAVEGAÇÃO - 5 BOTÕES */
         .publico-nav-wrapper {
             margin-bottom: 2rem;
             overflow-x: visible;
@@ -352,7 +348,6 @@
 </head>
 <body>
 <div class="container">
-    <!-- HEADER COM LOGO MAIOR -->
     <div class="header">
         <div class="header-top">
             <div class="logo-area">
@@ -363,19 +358,17 @@
             </div>
         </div>
         
-        <!-- FRASE MOTIVACIONAL -->
         <div class="frase-motivacional">
             <p>✨ Tudo que você precisa no seu dia a dia aqui na sua cidade, em um só app.<br>
             Descubra como economizar, vender mais, GANHAR BÔNUS e facilitar sua rotina — comece navegando pelos cards abaixo.</p>
         </div>
     </div>
 
-    <!-- NAVEGAÇÃO - 5 BOTÕES -->
     <div class="publico-nav-wrapper">
         <div class="publico-nav">
-            <button class="nav-btn active" data-secao="comerciante">🏪 Comerciante / PDV</button>
+            <button class="nav-btn" data-secao="comerciante">🏪 Comerciante / PDV</button>
             <button class="nav-btn" data-secao="academia">🏋️ Academia</button>
-            <button class="nav-btn" data-secao="usuario">👥 Usuário Geral</button>
+            <button class="nav-btn active" data-secao="usuario">👥 Usuário Geral</button>
             <button class="nav-btn" data-secao="profissional">👨‍⚕️ Profissionais</button>
             <button class="nav-btn" data-secao="servicos">📅 Serviços com Agendamento</button>
         </div>
@@ -393,7 +386,6 @@
     const URL_API = 'https://script.google.com/macros/s/AKfycbz9tb16wyEhCOQxV0h_jHwKfg-aB6eRTeVvq3S6FwJHRq14wwIiXDnS2_JVCipLw2Pm/exec';
     
     const DADOS_PADRAO = {
-        // Comerciante
         hero_comerciante_titulo: "PDV Colaborativo",
         hero_comerciante_texto: "Gerencie vendas, estoque e clientes em um só lugar",
         card_comerciante_1_titulo: "PDV Completo",
@@ -405,7 +397,6 @@
         card_comerciante_4_titulo: "SKU Universal",
         card_comerciante_4_desc: "Produtos sem EAN recebem SKU único compartilhável",
         
-        // Academia
         hero_academia_titulo: "Módulo Academia",
         hero_academia_texto: "Controle de treinos, alunos e permanência",
         card_academia_1_titulo: "Visualização de Treino",
@@ -415,7 +406,6 @@
         card_academia_3_titulo: "Notificações Push",
         card_academia_3_desc: "Alertas de treino e novidades no celular",
         
-        // Usuário Geral
         hero_usuario_titulo: "Criptomoeda Conecta",
         hero_usuario_texto: "Transações comerciais com saldo inicial gratuito",
         card_usuario_1_titulo: "Moeda Conecta",
@@ -427,7 +417,6 @@
         card_usuario_4_titulo: "Busca Inteligente",
         card_usuario_4_desc: "5 consultas gratuitas/dia com mapa",
         
-        // Profissionais Liberais (NOVO)
         hero_profissional_titulo: "Profissionais Liberais",
         hero_profissional_texto: "Advogados, médicos, dentistas, psicólogos, personal trainers e muito mais",
         card_profissional_1_titulo: "Agenda Online",
@@ -439,7 +428,6 @@
         card_profissional_4_titulo: "Indique e Ganhe",
         card_profissional_4_desc: "Indique outros profissionais e receba bônus",
         
-        // Serviços com Agendamento (NOVO)
         hero_servicos_titulo: "Serviços com Agendamento",
         hero_servicos_texto: "Salões de beleza, barbearias, clínicas de estética, oficinas e muito mais",
         card_servicos_1_titulo: "Agendamento Online",
@@ -471,8 +459,8 @@
     function renderizarPagina(d) {
         const html = `
             <!-- COMERCIANTE / PDV -->
-            <div id="secao-comerciante" class="secao active-secao">
-                <div class="hero"><h2>🏪 ${d.hero_comerciante_titulo || 'PDV Colaborativo'}</h2><p>${d.hero_comerciante_texto || ''}</p><div class="hero-badge">Modo Espião | Integração com PDV</div><a href="#" class="btn">Começar agora →</a></div>
+            <div id="secao-comerciante" class="secao">
+                <div class="hero"><h2>🏪 ${d.hero_comerciante_titulo || 'PDV Colaborativo'}</h2><p>${d.hero_comerciante_texto || ''}</p><div class="hero-badge">Modo Espião | Integração com PDV</div><a href="#" class="btn">📱 Baixe Grátis →</a></div>
                 <div class="card-grid">
                     <div class="card"><div class="card-icon">📱</div><h3>${d.card_comerciante_1_titulo || 'PDV Completo'}</h3><p>${d.card_comerciante_1_desc || ''}</p><span class="badge">Imediato</span></div>
                     <div class="card"><div class="card-icon">🕵️</div><h3>${d.card_comerciante_2_titulo || 'Modo Espião'}</h3><p>${d.card_comerciante_2_desc || ''}</p><span class="badge">Integração</span></div>
@@ -482,7 +470,7 @@
             </div>
             
             <!-- ACADEMIA -->
-            <div id="secao-academia" class="secao"><div class="hero" style="background: linear-gradient(135deg,#1e293b,#0891b2);"><h2>🏋️ ${d.hero_academia_titulo || 'Módulo Academia'}</h2><p>${d.hero_academia_texto || ''}</p><div class="hero-badge">Geolocalização | Push + WhatsApp</div><a href="#" class="btn">Conhecer módulo →</a></div>
+            <div id="secao-academia" class="secao"><div class="hero" style="background: linear-gradient(135deg,#1e293b,#0891b2);"><h2>🏋️ ${d.hero_academia_titulo || 'Módulo Academia'}</h2><p>${d.hero_academia_texto || ''}</p><div class="hero-badge">Geolocalização | Push + WhatsApp</div><a href="#" class="btn">📱 Baixe Grátis →</a></div>
                 <div class="card-grid">
                     <div class="card"><div class="card-icon">📋</div><h3>${d.card_academia_1_titulo || 'Visualização de Treino'}</h3><p>${d.card_academia_1_desc || ''}</p><span class="badge">Individualizado</span></div>
                     <div class="card"><div class="card-icon">📍</div><h3>${d.card_academia_2_titulo || 'Controle de Permanência'}</h3><p>${d.card_academia_2_desc || ''}</p><span class="badge">Automatizado</span></div>
@@ -490,8 +478,8 @@
                 </div>
             </div>
             
-            <!-- USUÁRIO GERAL -->
-            <div id="secao-usuario" class="secao"><div class="hero" style="background: linear-gradient(135deg,#1e293b,#eab308);"><h2>💰 ${d.hero_usuario_titulo || 'Criptomoeda Conecta'}</h2><p>${d.hero_usuario_texto || ''}</p><div class="hero-badge">Indique e Ganhe | Ofertas ilimitadas</div><a href="#" class="btn">Resgatar saldo →</a></div>
+            <!-- USUÁRIO GERAL (PADRÃO - ATIVA) -->
+            <div id="secao-usuario" class="secao active-secao"><div class="hero" style="background: linear-gradient(135deg,#1e293b,#eab308);"><h2>💰 ${d.hero_usuario_titulo || 'Criptomoeda Conecta'}</h2><p>${d.hero_usuario_texto || ''}</p><div class="hero-badge">Indique e Ganhe | Ofertas ilimitadas</div><a href="#" class="btn">📱 Baixe Grátis →</a></div>
                 <div class="card-grid">
                     <div class="card"><div class="card-icon">🪙</div><h3>${d.card_usuario_1_titulo || 'Moeda Conecta'}</h3><p>${d.card_usuario_1_desc || ''}</p><span class="badge">Criptomoeda própria</span></div>
                     <div class="card"><div class="card-icon">📢</div><h3>${d.card_usuario_2_titulo || 'Publicar Ofertas'}</h3><p>${d.card_usuario_2_desc || ''}</p><span class="badge">Grátis</span></div>
@@ -500,8 +488,8 @@
                 </div>
             </div>
             
-            <!-- PROFISSIONAIS (NOVO) -->
-            <div id="secao-profissional" class="secao"><div class="hero" style="background: linear-gradient(135deg,#1e293b,#10b981);"><h2>👨‍⚕️ ${d.hero_profissional_titulo || 'Profissionais Liberais'}</h2><p>${d.hero_profissional_texto || ''}</p><div class="hero-badge">Agenda Online | Financeiro Simplificado</div><a href="#" class="btn">Quero me cadastrar →</a></div>
+            <!-- PROFISSIONAIS -->
+            <div id="secao-profissional" class="secao"><div class="hero" style="background: linear-gradient(135deg,#1e293b,#10b981);"><h2>👨‍⚕️ ${d.hero_profissional_titulo || 'Profissionais Liberais'}</h2><p>${d.hero_profissional_texto || ''}</p><div class="hero-badge">Agenda Online | Financeiro Simplificado</div><a href="#" class="btn">📱 Baixe Grátis →</a></div>
                 <div class="card-grid">
                     <div class="card"><div class="card-icon">📅</div><h3>${d.card_profissional_1_titulo || 'Agenda Online'}</h3><p>${d.card_profissional_1_desc || ''}</p><span class="badge">Organização</span></div>
                     <div class="card"><div class="card-icon">👥</div><h3>${d.card_profissional_2_titulo || 'Carteira de Clientes'}</h3><p>${d.card_profissional_2_desc || ''}</p><span class="badge">Histórico</span></div>
@@ -510,8 +498,8 @@
                 </div>
             </div>
             
-            <!-- SERVIÇOS COM AGENDAMENTO (NOVO) -->
-            <div id="secao-servicos" class="secao"><div class="hero" style="background: linear-gradient(135deg,#1e293b,#f59e0b);"><h2>📅 ${d.hero_servicos_titulo || 'Serviços com Agendamento'}</h2><p>${d.hero_servicos_texto || ''}</p><div class="hero-badge">Agende | Gerencie | Fidelize</div><a href="#" class="btn">Quero divulgar meu negócio →</a></div>
+            <!-- SERVIÇOS COM AGENDAMENTO -->
+            <div id="secao-servicos" class="secao"><div class="hero" style="background: linear-gradient(135deg,#1e293b,#f59e0b);"><h2>📅 ${d.hero_servicos_titulo || 'Serviços com Agendamento'}</h2><p>${d.hero_servicos_texto || ''}</p><div class="hero-badge">Agende | Gerencie | Fidelize</div><a href="#" class="btn">📱 Baixe Grátis →</a></div>
                 <div class="card-grid">
                     <div class="card"><div class="card-icon">📆</div><h3>${d.card_servicos_1_titulo || 'Agendamento Online'}</h3><p>${d.card_servicos_1_desc || ''}</p><span class="badge">Prático</span></div>
                     <div class="card"><div class="card-icon">⏰</div><h3>${d.card_servicos_2_titulo || 'Lista de Espera'}</h3><p>${d.card_servicos_2_desc || ''}</p><span class="badge">Oportunidade</span></div>
