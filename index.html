@@ -18,7 +18,7 @@
             line-height: 1.5;
         }
 
-        /* CONTAINER - TELA CHEIA SEM SOBRAS */
+        /* CONTAINER - TELA CHEIA */
         .container {
             width: 100%;
             max-width: 100%;
@@ -26,20 +26,70 @@
             padding: 1rem;
         }
 
-        /* Notebook/Desktop: menos padding lateral */
+        /* Notebook/Desktop: tudo em dobro */
         @media (min-width: 1024px) {
-            .container {
-                padding: 1.5rem 2rem;
-            }
-        }
-
-        @media (min-width: 1440px) {
             .container {
                 padding: 2rem 3rem;
             }
+            
+            /* Dobrar tamanhos no PC */
+            .logo {
+                width: 140px !important;
+                height: 140px !important;
+            }
+            
+            .site-title {
+                font-size: 3rem !important;
+            }
+            
+            .frase-motivacional p {
+                font-size: 2rem !important;
+            }
+            
+            .nav-btn {
+                padding: 1.2rem 2rem !important;
+                font-size: 1.3rem !important;
+            }
+            
+            .hero {
+                padding: 3rem !important;
+            }
+            
+            .hero h2 {
+                font-size: 2.8rem !important;
+            }
+            
+            .hero p {
+                font-size: 1.5rem !important;
+            }
+            
+            .card {
+                padding: 2rem !important;
+            }
+            
+            .card-icon {
+                font-size: 3.5rem !important;
+            }
+            
+            .card h3 {
+                font-size: 1.6rem !important;
+            }
+            
+            .card p {
+                font-size: 1.2rem !important;
+            }
+            
+            .badge {
+                font-size: 1rem !important;
+                padding: 0.5rem 1rem !important;
+            }
+            
+            .footer {
+                font-size: 1.1rem !important;
+            }
         }
 
-        /* HEADER COM LOGO */
+        /* HEADER COM LOGO MAIOR */
         .header {
             display: flex;
             flex-direction: column;
@@ -64,8 +114,8 @@
         }
 
         .logo {
-            width: 60px;
-            height: 60px;
+            width: 80px;
+            height: 80px;
             border-radius: 1rem;
             display: flex;
             align-items: center;
@@ -79,26 +129,13 @@
             object-fit: cover;
         }
 
-        @media (min-width: 768px) {
-            .logo {
-                width: 70px;
-                height: 70px;
-            }
-        }
-
         .site-title {
-            font-size: 1.5rem;
+            font-size: 2rem;
             font-weight: 700;
             background: linear-gradient(135deg, #1e293b, #7c3aed);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-        }
-
-        @media (min-width: 768px) {
-            .site-title {
-                font-size: 1.8rem;
-            }
         }
 
         /* FRASE MOTIVACIONAL */
@@ -118,19 +155,7 @@
             font-weight: 500;
         }
 
-        @media (min-width: 768px) {
-            .frase-motivacional p {
-                font-size: 1.5rem;
-            }
-        }
-
-        @media (min-width: 1280px) {
-            .frase-motivacional p {
-                font-size: 1.6rem;
-            }
-        }
-
-        /* NAVEGAÇÃO - SEM SCROLL, BOTÕES AJUSTADOS */
+        /* NAVEGAÇÃO - 5 BOTÕES */
         .publico-nav-wrapper {
             margin-bottom: 2rem;
             overflow-x: visible;
@@ -146,28 +171,21 @@
         .nav-btn {
             background: white;
             border: 2px solid #e2e8f0;
-            padding: 0.7rem 1.2rem;
+            padding: 0.7rem 1rem;
             border-radius: 2rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s;
             color: #475569;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             white-space: nowrap;
             flex: 0 0 auto;
         }
 
-        @media (min-width: 640px) {
+        @media (min-width: 768px) {
             .nav-btn {
-                padding: 0.8rem 1.5rem;
-                font-size: 1rem;
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .nav-btn {
-                padding: 0.9rem 1.8rem;
-                font-size: 1.1rem;
+                padding: 0.8rem 1.3rem;
+                font-size: 0.95rem;
             }
         }
 
@@ -199,31 +217,19 @@
         .hero {
             background: linear-gradient(135deg, #1e293b 0%, #7c3aed 100%);
             color: white;
-            padding: 1.8rem;
+            padding: 1.5rem;
             border-radius: 1.2rem;
             margin-bottom: 2rem;
             text-align: center;
         }
 
-        @media (min-width: 768px) {
-            .hero {
-                padding: 2rem;
-            }
-        }
-
         .hero h2 {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             margin-bottom: 0.75rem;
         }
 
-        @media (min-width: 768px) {
-            .hero h2 {
-                font-size: 2.2rem;
-            }
-        }
-
         .hero p {
-            font-size: 1.1rem;
+            font-size: 1rem;
             max-width: 80%;
             margin-left: auto;
             margin-right: auto;
@@ -255,7 +261,6 @@
             transform: scale(1.02);
         }
 
-        /* CARDS GRID - MELHOR APROVEITAMENTO */
         .card-grid {
             display: grid;
             gap: 1.2rem;
@@ -283,7 +288,7 @@
         .card {
             background: white;
             border-radius: 1rem;
-            padding: 1.2rem;
+            padding: 1rem;
             box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
             transition: transform 0.3s;
             border: 1px solid #e2e8f0;
@@ -293,31 +298,25 @@
             flex-direction: column;
         }
 
-        @media (min-width: 768px) {
-            .card {
-                padding: 1.3rem;
-            }
-        }
-
         .card:hover {
             transform: translateY(-5px);
             box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
         }
 
         .card-icon {
-            font-size: 2.2rem;
+            font-size: 2rem;
             margin-bottom: 0.8rem;
         }
 
         .card h3 {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             margin-bottom: 0.6rem;
             color: #1e293b;
         }
 
         .card p {
             color: #475569;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             margin-bottom: 0.8rem;
             flex-grow: 1;
             line-height: 1.4;
@@ -327,7 +326,7 @@
             display: inline-block;
             background: #e0e7ff;
             color: #4338ca;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             padding: 0.25rem 0.7rem;
             border-radius: 999px;
             font-weight: 600;
@@ -339,7 +338,7 @@
             padding-top: 1.2rem;
             border-top: 1px solid #e2e8f0;
             text-align: center;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: #64748b;
         }
 
@@ -353,7 +352,7 @@
 </head>
 <body>
 <div class="container">
-    <!-- HEADER COM LOGO -->
+    <!-- HEADER COM LOGO MAIOR -->
     <div class="header">
         <div class="header-top">
             <div class="logo-area">
@@ -371,13 +370,14 @@
         </div>
     </div>
 
-    <!-- NAVEGAÇÃO - BOTÕES EM LINHA SEM SCROLL -->
+    <!-- NAVEGAÇÃO - 5 BOTÕES -->
     <div class="publico-nav-wrapper">
         <div class="publico-nav">
             <button class="nav-btn active" data-secao="comerciante">🏪 Comerciante / PDV</button>
             <button class="nav-btn" data-secao="academia">🏋️ Academia</button>
             <button class="nav-btn" data-secao="usuario">👥 Usuário Geral</button>
-            <button class="nav-btn" data-secao="admin">👑 Admin Master</button>
+            <button class="nav-btn" data-secao="profissional">👨‍⚕️ Profissionais</button>
+            <button class="nav-btn" data-secao="servicos">📅 Serviços com Agendamento</button>
         </div>
     </div>
 
@@ -393,14 +393,9 @@
     const URL_API = 'https://script.google.com/macros/s/AKfycbz9tb16wyEhCOQxV0h_jHwKfg-aB6eRTeVvq3S6FwJHRq14wwIiXDnS2_JVCipLw2Pm/exec';
     
     const DADOS_PADRAO = {
+        // Comerciante
         hero_comerciante_titulo: "PDV Colaborativo",
         hero_comerciante_texto: "Gerencie vendas, estoque e clientes em um só lugar",
-        hero_academia_titulo: "Módulo Academia",
-        hero_academia_texto: "Controle de treinos, alunos e permanência",
-        hero_usuario_titulo: "Criptomoeda Conecta",
-        hero_usuario_texto: "Transações comerciais com saldo inicial gratuito",
-        hero_admin_titulo: "Admin Master",
-        hero_admin_texto: "Gestão completa de empresas, produtos e usuários",
         card_comerciante_1_titulo: "PDV Completo",
         card_comerciante_1_desc: "Opere em celulares, notebooks ou terminais fixos",
         card_comerciante_2_titulo: "Modo Espião",
@@ -409,28 +404,53 @@
         card_comerciante_3_desc: "Dados de mercado e análise de vendas em tempo real",
         card_comerciante_4_titulo: "SKU Universal",
         card_comerciante_4_desc: "Produtos sem EAN recebem SKU único compartilhável",
+        
+        // Academia
+        hero_academia_titulo: "Módulo Academia",
+        hero_academia_texto: "Controle de treinos, alunos e permanência",
         card_academia_1_titulo: "Visualização de Treino",
         card_academia_1_desc: "Alunos acessam treino e biblioteca de exercícios",
         card_academia_2_titulo: "Controle de Permanência",
         card_academia_2_desc: "Geolocalização conta tempo de chegada e saída",
         card_academia_3_titulo: "Notificações Push",
         card_academia_3_desc: "Alertas de treino e novidades no celular",
+        
+        // Usuário Geral
+        hero_usuario_titulo: "Criptomoeda Conecta",
+        hero_usuario_texto: "Transações comerciais com saldo inicial gratuito",
         card_usuario_1_titulo: "Moeda Conecta",
         card_usuario_1_desc: "Saldo inicial gratuito para transações",
         card_usuario_2_titulo: "Publicar Ofertas",
         card_usuario_2_desc: "Ilimitado e sem custo com localização",
         card_usuario_3_titulo: "Indique e Ganhe",
-        card_usuario_3_desc: "R$10,50 por indicação, R$2 para empresas R$0,50 para profissional liberal",
+        card_usuario_3_desc: "R$10,50 por indicação, R$2 para empresas",
         card_usuario_4_titulo: "Busca Inteligente",
         card_usuario_4_desc: "5 consultas gratuitas/dia com mapa",
-        card_admin_1_titulo: "Aprovações",
-        card_admin_1_desc: "Produtos pendentes e novas empresas",
-        card_admin_2_titulo: "Relatório Dinâmico",
-        card_admin_2_desc: "Dados de mercado em tempo real",
-        card_admin_3_titulo: "Cadastro de Empresas",
-        card_admin_3_desc: "Edição de logomarca e liberação de uso",
-        card_admin_4_titulo: "Desbloqueio de Cidades",
-        card_admin_4_desc: "30 dias por R$30 para expansão",
+        
+        // Profissionais Liberais (NOVO)
+        hero_profissional_titulo: "Profissionais Liberais",
+        hero_profissional_texto: "Advogados, médicos, dentistas, psicólogos, personal trainers e muito mais",
+        card_profissional_1_titulo: "Agenda Online",
+        card_profissional_1_desc: "Gerencie seus horários e atendimentos de forma simples",
+        card_profissional_2_titulo: "Carteira de Clientes",
+        card_profissional_2_desc: "Histórico e acompanhamento dos seus pacientes/clientes",
+        card_profissional_3_titulo: "Financeiro Simplificado",
+        card_profissional_3_desc: "Controle de recebimentos e comissões automatizado",
+        card_profissional_4_titulo: "Indique e Ganhe",
+        card_profissional_4_desc: "Indique outros profissionais e receba bônus",
+        
+        // Serviços com Agendamento (NOVO)
+        hero_servicos_titulo: "Serviços com Agendamento",
+        hero_servicos_texto: "Salões de beleza, barbearias, clínicas de estética, oficinas e muito mais",
+        card_servicos_1_titulo: "Agendamento Online",
+        card_servicos_1_desc: "Clientes marcam horário direto pelo app",
+        card_servicos_2_titulo: "Lista de Espera",
+        card_servicos_2_desc: "Aproveite cancelamentos de última hora",
+        card_servicos_3_titulo: "Comprovante Digital",
+        card_servicos_3_desc: "Histórico de serviços realizados",
+        card_servicos_4_titulo: "Fidelidade",
+        card_servicos_4_desc: "Programa de pontos para clientes recorrentes",
+        
         rodape_texto: "© 2025 Valente Conecta | CNPJ: 52.816.565/0001-45"
     };
     
@@ -450,6 +470,7 @@
     
     function renderizarPagina(d) {
         const html = `
+            <!-- COMERCIANTE / PDV -->
             <div id="secao-comerciante" class="secao active-secao">
                 <div class="hero"><h2>🏪 ${d.hero_comerciante_titulo || 'PDV Colaborativo'}</h2><p>${d.hero_comerciante_texto || ''}</p><div class="hero-badge">Modo Espião | Integração com PDV</div><a href="#" class="btn">Começar agora →</a></div>
                 <div class="card-grid">
@@ -459,6 +480,8 @@
                     <div class="card"><div class="card-icon">🏷️</div><h3>${d.card_comerciante_4_titulo || 'SKU Universal'}</h3><p>${d.card_comerciante_4_desc || ''}</p><span class="badge">Colaborativo</span></div>
                 </div>
             </div>
+            
+            <!-- ACADEMIA -->
             <div id="secao-academia" class="secao"><div class="hero" style="background: linear-gradient(135deg,#1e293b,#0891b2);"><h2>🏋️ ${d.hero_academia_titulo || 'Módulo Academia'}</h2><p>${d.hero_academia_texto || ''}</p><div class="hero-badge">Geolocalização | Push + WhatsApp</div><a href="#" class="btn">Conhecer módulo →</a></div>
                 <div class="card-grid">
                     <div class="card"><div class="card-icon">📋</div><h3>${d.card_academia_1_titulo || 'Visualização de Treino'}</h3><p>${d.card_academia_1_desc || ''}</p><span class="badge">Individualizado</span></div>
@@ -466,6 +489,8 @@
                     <div class="card"><div class="card-icon">🔔</div><h3>${d.card_academia_3_titulo || 'Notificações Push'}</h3><p>${d.card_academia_3_desc || ''}</p><span class="badge">WhatsApp + Push</span></div>
                 </div>
             </div>
+            
+            <!-- USUÁRIO GERAL -->
             <div id="secao-usuario" class="secao"><div class="hero" style="background: linear-gradient(135deg,#1e293b,#eab308);"><h2>💰 ${d.hero_usuario_titulo || 'Criptomoeda Conecta'}</h2><p>${d.hero_usuario_texto || ''}</p><div class="hero-badge">Indique e Ganhe | Ofertas ilimitadas</div><a href="#" class="btn">Resgatar saldo →</a></div>
                 <div class="card-grid">
                     <div class="card"><div class="card-icon">🪙</div><h3>${d.card_usuario_1_titulo || 'Moeda Conecta'}</h3><p>${d.card_usuario_1_desc || ''}</p><span class="badge">Criptomoeda própria</span></div>
@@ -474,12 +499,24 @@
                     <div class="card"><div class="card-icon">🔍</div><h3>${d.card_usuario_4_titulo || 'Busca Inteligente'}</h3><p>${d.card_usuario_4_desc || ''}</p><span class="badge">Voz + Texto</span></div>
                 </div>
             </div>
-            <div id="secao-admin" class="secao"><div class="hero" style="background: linear-gradient(135deg,#1e293b,#dc2626);"><h2>👑 ${d.hero_admin_titulo || 'Admin Master'}</h2><p>${d.hero_admin_texto || ''}</p><div class="hero-badge">Dashboard | Liberação por plano</div><a href="#" class="btn">Acessar dashboard →</a></div>
+            
+            <!-- PROFISSIONAIS (NOVO) -->
+            <div id="secao-profissional" class="secao"><div class="hero" style="background: linear-gradient(135deg,#1e293b,#10b981);"><h2>👨‍⚕️ ${d.hero_profissional_titulo || 'Profissionais Liberais'}</h2><p>${d.hero_profissional_texto || ''}</p><div class="hero-badge">Agenda Online | Financeiro Simplificado</div><a href="#" class="btn">Quero me cadastrar →</a></div>
                 <div class="card-grid">
-                    <div class="card"><div class="card-icon">✅</div><h3>${d.card_admin_1_titulo || 'Aprovações'}</h3><p>${d.card_admin_1_desc || ''}</p><span class="badge">Pendências</span></div>
-                    <div class="card"><div class="card-icon">📈</div><h3>${d.card_admin_2_titulo || 'Relatório Dinâmico'}</h3><p>${d.card_admin_2_desc || ''}</p><span class="badge">Online</span></div>
-                    <div class="card"><div class="card-icon">🏢</div><h3>${d.card_admin_3_titulo || 'Cadastro de Empresas'}</h3><p>${d.card_admin_3_desc || ''}</p><span class="badge">Gestão</span></div>
-                    <div class="card"><div class="card-icon">🌍</div><h3>${d.card_admin_4_titulo || 'Desbloqueio de Cidades'}</h3><p>${d.card_admin_4_desc || ''}</p><span class="badge">Expansão</span></div>
+                    <div class="card"><div class="card-icon">📅</div><h3>${d.card_profissional_1_titulo || 'Agenda Online'}</h3><p>${d.card_profissional_1_desc || ''}</p><span class="badge">Organização</span></div>
+                    <div class="card"><div class="card-icon">👥</div><h3>${d.card_profissional_2_titulo || 'Carteira de Clientes'}</h3><p>${d.card_profissional_2_desc || ''}</p><span class="badge">Histórico</span></div>
+                    <div class="card"><div class="card-icon">💰</div><h3>${d.card_profissional_3_titulo || 'Financeiro Simplificado'}</h3><p>${d.card_profissional_3_desc || ''}</p><span class="badge">Controle</span></div>
+                    <div class="card"><div class="card-icon">🏆</div><h3>${d.card_profissional_4_titulo || 'Indique e Ganhe'}</h3><p>${d.card_profissional_4_desc || ''}</p><span class="badge">Bônus</span></div>
+                </div>
+            </div>
+            
+            <!-- SERVIÇOS COM AGENDAMENTO (NOVO) -->
+            <div id="secao-servicos" class="secao"><div class="hero" style="background: linear-gradient(135deg,#1e293b,#f59e0b);"><h2>📅 ${d.hero_servicos_titulo || 'Serviços com Agendamento'}</h2><p>${d.hero_servicos_texto || ''}</p><div class="hero-badge">Agende | Gerencie | Fidelize</div><a href="#" class="btn">Quero divulgar meu negócio →</a></div>
+                <div class="card-grid">
+                    <div class="card"><div class="card-icon">📆</div><h3>${d.card_servicos_1_titulo || 'Agendamento Online'}</h3><p>${d.card_servicos_1_desc || ''}</p><span class="badge">Prático</span></div>
+                    <div class="card"><div class="card-icon">⏰</div><h3>${d.card_servicos_2_titulo || 'Lista de Espera'}</h3><p>${d.card_servicos_2_desc || ''}</p><span class="badge">Oportunidade</span></div>
+                    <div class="card"><div class="card-icon">📄</div><h3>${d.card_servicos_3_titulo || 'Comprovante Digital'}</h3><p>${d.card_servicos_3_desc || ''}</p><span class="badge">Histórico</span></div>
+                    <div class="card"><div class="card-icon">⭐</div><h3>${d.card_servicos_4_titulo || 'Fidelidade'}</h3><p>${d.card_servicos_4_desc || ''}</p><span class="badge">Pontos</span></div>
                 </div>
             </div>
         `;
