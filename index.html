@@ -5,349 +5,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Valente Conecta - PDV Colaborativo e Criptomoeda</title>
     
-    <!-- Clicky Analytics - Instalado -->
-    <script async data-id="101504372" src="//static.getclicky.com/js"></script>
+    <!-- Clicky Analytics - Versão corrigida -->
+    <script>
+        var clicky_site_ids = clicky_site_ids || [];
+        clicky_site_ids.push(101504372);
+        (function() {
+            var s = document.createElement('script');
+            s.type = 'text/javascript';
+            s.async = true;
+            s.src = '//static.getclicky.com/js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(s);
+        })();
+    </script>
     <noscript><p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/101504372ns.gif" /></p></noscript>
     
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f8fafc;
-            color: #0f172a;
-            line-height: 1.5;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 100%;
-            margin: 0;
-            padding: 1rem;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f8fafc; color: #0f172a; line-height: 1.5; }
+        .container { width: 100%; max-width: 100%; margin: 0; padding: 1rem; }
         @media (min-width: 1024px) {
-            .container {
-                padding: 2rem 3rem;
-            }
-            
-            .logo {
-                width: 140px !important;
-                height: 140px !important;
-            }
-            
-            .site-title {
-                font-size: 3rem !important;
-            }
-            
-            .frase-motivacional p {
-                font-size: 2rem !important;
-            }
-            
-            .nav-btn {
-                padding: 1.2rem 2rem !important;
-                font-size: 1.3rem !important;
-            }
-            
-            .hero {
-                padding: 3rem !important;
-            }
-            
-            .hero h2 {
-                font-size: 2.8rem !important;
-            }
-            
-            .hero p {
-                font-size: 1.5rem !important;
-            }
-            
-            .card {
-                padding: 2rem !important;
-            }
-            
-            .card-icon {
-                font-size: 3.5rem !important;
-            }
-            
-            .card h3 {
-                font-size: 1.6rem !important;
-            }
-            
-            .card p {
-                font-size: 1.2rem !important;
-            }
-            
-            .badge {
-                font-size: 1rem !important;
-                padding: 0.5rem 1rem !important;
-            }
-            
-            .footer {
-                font-size: 1.1rem !important;
-            }
+            .container { padding: 2rem 3rem; }
+            .logo { width: 140px !important; height: 140px !important; }
+            .site-title { font-size: 3rem !important; }
+            .frase-motivacional p { font-size: 2rem !important; }
+            .nav-btn { padding: 1.2rem 2rem !important; font-size: 1.3rem !important; }
+            .hero { padding: 3rem !important; }
+            .hero h2 { font-size: 2.8rem !important; }
+            .hero p { font-size: 1.5rem !important; }
+            .card { padding: 2rem !important; }
+            .card-icon { font-size: 3.5rem !important; }
+            .card h3 { font-size: 1.6rem !important; }
+            .card p { font-size: 1.2rem !important; }
+            .badge { font-size: 1rem !important; padding: 0.5rem 1rem !important; }
+            .footer { font-size: 1.1rem !important; }
         }
-
-        .header {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            margin-bottom: 2rem;
-            padding-bottom: 1rem;
-            border-bottom: 2px solid #e2e8f0;
-        }
-
-        .header-top {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .logo-area {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .logo {
-            width: 80px;
-            height: 80px;
-            border-radius: 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-
-        .logo-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .site-title {
-            font-size: 2rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #1e293b, #7c3aed);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .frase-motivacional {
-            background: linear-gradient(135deg, #f0f9ff, #e0e7ff);
-            padding: 1.2rem;
-            border-radius: 1rem;
-            text-align: center;
-            margin-top: 0.5rem;
-            border-left: 5px solid #7c3aed;
-        }
-
-        .frase-motivacional p {
-            font-size: 1.3rem;
-            color: #1e293b;
-            line-height: 1.5;
-            font-weight: 500;
-        }
-
-        .publico-nav-wrapper {
-            margin-bottom: 2rem;
-            overflow-x: visible;
-        }
-
-        .publico-nav {
-            display: flex;
-            gap: 0.8rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .nav-btn {
-            background: white;
-            border: 2px solid #e2e8f0;
-            padding: 0.7rem 1rem;
-            border-radius: 2rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            color: #475569;
-            font-size: 0.85rem;
-            white-space: nowrap;
-            flex: 0 0 auto;
-        }
-
-        @media (min-width: 768px) {
-            .nav-btn {
-                padding: 0.8rem 1.3rem;
-                font-size: 0.95rem;
-            }
-        }
-
-        .nav-btn:hover {
-            border-color: #7c3aed;
-            color: #7c3aed;
-        }
-
-        .nav-btn.active {
-            background: #7c3aed;
-            border-color: #7c3aed;
-            color: white;
-        }
-
-        .secao {
-            display: none;
-            animation: fadeIn 0.5s ease;
-        }
-
-        .secao.active-secao {
-            display: block;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .hero {
-            background: linear-gradient(135deg, #1e293b 0%, #7c3aed 100%);
-            color: white;
-            padding: 1.5rem;
-            border-radius: 1.2rem;
-            margin-bottom: 2rem;
-            text-align: center;
-        }
-
-        .hero h2 {
-            font-size: 1.6rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .hero p {
-            font-size: 1rem;
-            max-width: 80%;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .hero-badge {
-            background: rgba(255,255,255,0.2);
-            display: inline-block;
-            padding: 0.4rem 0.9rem;
-            border-radius: 2rem;
-            font-size: 0.85rem;
-            margin-top: 1rem;
-        }
-
-        .btn {
-            display: inline-block;
-            background: white;
-            color: #7c3aed;
-            padding: 0.7rem 1.3rem;
-            border-radius: 2rem;
-            font-weight: 600;
-            text-decoration: none;
-            margin-top: 1rem;
-            font-size: 0.95rem;
-            transition: transform 0.2s;
-            cursor: pointer;
-        }
-
-        .btn:hover {
-            transform: scale(1.02);
-        }
-
-        .card-grid {
-            display: grid;
-            gap: 1.2rem;
-            margin-bottom: 2rem;
-        }
-
-        .card-grid {
-            grid-template-columns: 1fr;
-        }
-
-        @media (min-width: 640px) {
-            .card-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1.2rem;
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .card-grid {
-                grid-template-columns: repeat(4, 1fr);
-                gap: 1.5rem;
-            }
-        }
-
-        .card {
-            background: white;
-            border-radius: 1rem;
-            padding: 1rem;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-            border: 1px solid #e2e8f0;
-            cursor: pointer;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
-        }
-
-        .card-icon {
-            font-size: 2rem;
-            margin-bottom: 0.8rem;
-        }
-
-        .card h3 {
-            font-size: 1.1rem;
-            margin-bottom: 0.6rem;
-            color: #1e293b;
-        }
-
-        .card p {
-            color: #475569;
-            font-size: 0.85rem;
-            margin-bottom: 0.8rem;
-            flex-grow: 1;
-            line-height: 1.4;
-        }
-
-        .badge {
-            display: inline-block;
-            background: #e0e7ff;
-            color: #4338ca;
-            font-size: 0.7rem;
-            padding: 0.25rem 0.7rem;
-            border-radius: 999px;
-            font-weight: 600;
-            align-self: flex-start;
-        }
-
-        .footer {
-            margin-top: 2rem;
-            padding-top: 1.2rem;
-            border-top: 1px solid #e2e8f0;
-            text-align: center;
-            font-size: 0.8rem;
-            color: #64748b;
-        }
-
-        .loading {
-            text-align: center;
-            padding: 2rem;
-            color: #7c3aed;
-            font-size: 1.1rem;
-        }
+        .header { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 2px solid #e2e8f0; }
+        .header-top { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+        .logo-area { display: flex; align-items: center; gap: 1rem; }
+        .logo { width: 80px; height: 80px; border-radius: 1rem; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        .logo-img { width: 100%; height: 100%; object-fit: cover; }
+        .site-title { font-size: 2rem; font-weight: 700; background: linear-gradient(135deg, #1e293b, #7c3aed); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .frase-motivacional { background: linear-gradient(135deg, #f0f9ff, #e0e7ff); padding: 1.2rem; border-radius: 1rem; text-align: center; margin-top: 0.5rem; border-left: 5px solid #7c3aed; }
+        .frase-motivacional p { font-size: 1.3rem; color: #1e293b; line-height: 1.5; font-weight: 500; }
+        .publico-nav-wrapper { margin-bottom: 2rem; overflow-x: visible; }
+        .publico-nav { display: flex; gap: 0.8rem; justify-content: center; flex-wrap: wrap; }
+        .nav-btn { background: white; border: 2px solid #e2e8f0; padding: 0.7rem 1rem; border-radius: 2rem; font-weight: 600; cursor: pointer; transition: all 0.3s; color: #475569; font-size: 0.85rem; white-space: nowrap; flex: 0 0 auto; }
+        @media (min-width: 768px) { .nav-btn { padding: 0.8rem 1.3rem; font-size: 0.95rem; } }
+        .nav-btn:hover { border-color: #7c3aed; color: #7c3aed; }
+        .nav-btn.active { background: #7c3aed; border-color: #7c3aed; color: white; }
+        .secao { display: none; animation: fadeIn 0.5s ease; }
+        .secao.active-secao { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .hero { background: linear-gradient(135deg, #1e293b 0%, #7c3aed 100%); color: white; padding: 1.5rem; border-radius: 1.2rem; margin-bottom: 2rem; text-align: center; }
+        .hero h2 { font-size: 1.6rem; margin-bottom: 0.75rem; }
+        .hero p { font-size: 1rem; max-width: 80%; margin-left: auto; margin-right: auto; }
+        .hero-badge { background: rgba(255,255,255,0.2); display: inline-block; padding: 0.4rem 0.9rem; border-radius: 2rem; font-size: 0.85rem; margin-top: 1rem; }
+        .btn { display: inline-block; background: white; color: #7c3aed; padding: 0.7rem 1.3rem; border-radius: 2rem; font-weight: 600; text-decoration: none; margin-top: 1rem; font-size: 0.95rem; transition: transform 0.2s; cursor: pointer; }
+        .btn:hover { transform: scale(1.02); }
+        .card-grid { display: grid; gap: 1.2rem; margin-bottom: 2rem; grid-template-columns: 1fr; }
+        @media (min-width: 640px) { .card-grid { grid-template-columns: repeat(2, 1fr); gap: 1.2rem; } }
+        @media (min-width: 1024px) { .card-grid { grid-template-columns: repeat(4, 1fr); gap: 1.5rem; } }
+        .card { background: white; border-radius: 1rem; padding: 1rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); transition: transform 0.3s; border: 1px solid #e2e8f0; cursor: pointer; height: 100%; display: flex; flex-direction: column; }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); }
+        .card-icon { font-size: 2rem; margin-bottom: 0.8rem; }
+        .card h3 { font-size: 1.1rem; margin-bottom: 0.6rem; color: #1e293b; }
+        .card p { color: #475569; font-size: 0.85rem; margin-bottom: 0.8rem; flex-grow: 1; line-height: 1.4; }
+        .badge { display: inline-block; background: #e0e7ff; color: #4338ca; font-size: 0.7rem; padding: 0.25rem 0.7rem; border-radius: 999px; font-weight: 600; align-self: flex-start; }
+        .footer { margin-top: 2rem; padding-top: 1.2rem; border-top: 1px solid #e2e8f0; text-align: center; font-size: 0.8rem; color: #64748b; }
+        .loading { text-align: center; padding: 2rem; color: #7c3aed; font-size: 1.1rem; }
     </style>
 </head>
 <body>
@@ -355,13 +80,10 @@
     <div class="header">
         <div class="header-top">
             <div class="logo-area">
-                <div class="logo">
-                    <img src="logo.png" alt="Valente Conecta" class="logo-img">
-                </div>
+                <div class="logo"><img src="logo.png" alt="Valente Conecta" class="logo-img"></div>
                 <span class="site-title">Valente Conecta</span>
             </div>
         </div>
-        
         <div class="frase-motivacional">
             <p>✨ Tudo que você precisa no seu dia a dia aqui na sua cidade, em um só app.<br>
             Descubra como economizar, vender mais, GANHAR BÔNUS e facilitar sua rotina — comece navegando pelos cards abaixo.</p>
@@ -400,7 +122,6 @@
         card_comerciante_3_desc: "Dados de mercado e análise de vendas em tempo real",
         card_comerciante_4_titulo: "SKU Universal",
         card_comerciante_4_desc: "Produtos sem EAN recebem SKU único compartilhável",
-        
         hero_academia_titulo: "Módulo Academia",
         hero_academia_texto: "Controle de treinos, alunos e permanência",
         card_academia_1_titulo: "Visualização de Treino",
@@ -409,7 +130,6 @@
         card_academia_2_desc: "Geolocalização conta tempo de chegada e saída",
         card_academia_3_titulo: "Notificações Push",
         card_academia_3_desc: "Alertas de treino e novidades no celular",
-        
         hero_usuario_titulo: "Criptomoeda Conecta",
         hero_usuario_texto: "Transações comerciais com saldo inicial gratuito",
         card_usuario_1_titulo: "Moeda Conecta",
@@ -420,7 +140,6 @@
         card_usuario_3_desc: "R$10,50 por indicação, R$2 para empresas",
         card_usuario_4_titulo: "Busca Inteligente",
         card_usuario_4_desc: "5 consultas gratuitas/dia com mapa",
-        
         hero_profissional_titulo: "Profissionais Liberais",
         hero_profissional_texto: "Advogados, médicos, dentistas, psicólogos, personal trainers e muito mais",
         card_profissional_1_titulo: "Agenda Online",
@@ -431,7 +150,6 @@
         card_profissional_3_desc: "Controle de recebimentos e comissões automatizado",
         card_profissional_4_titulo: "Indique e Ganhe",
         card_profissional_4_desc: "Indique outros profissionais e receba bônus",
-        
         hero_servicos_titulo: "Serviços com Agendamento",
         hero_servicos_texto: "Salões de beleza, barbearias, clínicas de estética, oficinas e muito mais",
         card_servicos_1_titulo: "Agendamento Online",
@@ -442,9 +160,24 @@
         card_servicos_3_desc: "Histórico de serviços realizados",
         card_servicos_4_titulo: "Fidelidade",
         card_servicos_4_desc: "Programa de pontos para clientes recorrentes",
-        
         rodape_texto: "© 2025 Valente Conecta | CNPJ: 52.816.565/0001-45"
     };
+    
+    function registrarClique(cardNome) {
+        console.log('📊 Clique:', cardNome);
+        if (typeof clicky !== 'undefined') {
+            clicky.log(cardNome, 'click');
+            console.log('✅ Enviado para Clicky');
+        } else {
+            console.log('⚠️ Clicky não disponível - tentando novamente');
+            setTimeout(function() {
+                if (typeof clicky !== 'undefined') {
+                    clicky.log(cardNome, 'click');
+                    console.log('✅ Enviado na segunda tentativa');
+                }
+            }, 500);
+        }
+    }
     
     async function carregarDados() {
         const container = document.getElementById('conteudo-dinamico');
@@ -460,16 +193,8 @@
         }
     }
     
-    function registrarClique(cardNome) {
-        console.log('Clique registrado:', cardNome);
-        if (typeof clicky !== 'undefined') {
-            clicky.log(cardNome, 'click');
-        }
-    }
-    
     function renderizarPagina(d) {
         const html = `
-            <!-- COMERCIANTE / PDV -->
             <div id="secao-comerciante" class="secao">
                 <div class="hero"><h2>🏪 ${d.hero_comerciante_titulo || 'PDV Colaborativo'}</h2><p>${d.hero_comerciante_texto || ''}</p><div class="hero-badge">Modo Espião | Integração com PDV</div><a href="#" class="btn" onclick="registrarClique('Botão Comerciante')">📱 Baixe Grátis →</a></div>
                 <div class="card-grid">
@@ -479,8 +204,6 @@
                     <div class="card" onclick="registrarClique('Card: ${d.card_comerciante_4_titulo || 'SKU Universal'}')"><div class="card-icon">🏷️</div><h3>${d.card_comerciante_4_titulo || 'SKU Universal'}</h3><p>${d.card_comerciante_4_desc || ''}</p><span class="badge">Colaborativo</span></div>
                 </div>
             </div>
-            
-            <!-- ACADEMIA -->
             <div id="secao-academia" class="secao"><div class="hero" style="background: linear-gradient(135deg,#1e293b,#0891b2);"><h2>🏋️ ${d.hero_academia_titulo || 'Módulo Academia'}</h2><p>${d.hero_academia_texto || ''}</p><div class="hero-badge">Geolocalização | Push + WhatsApp</div><a href="#" class="btn" onclick="registrarClique('Botão Academia')">📱 Baixe Grátis →</a></div>
                 <div class="card-grid">
                     <div class="card" onclick="registrarClique('Card: ${d.card_academia_1_titulo || 'Visualização de Treino'}')"><div class="card-icon">📋</div><h3>${d.card_academia_1_titulo || 'Visualização de Treino'}</h3><p>${d.card_academia_1_desc || ''}</p><span class="badge">Individualizado</span></div>
@@ -488,8 +211,6 @@
                     <div class="card" onclick="registrarClique('Card: ${d.card_academia_3_titulo || 'Notificações Push'}')"><div class="card-icon">🔔</div><h3>${d.card_academia_3_titulo || 'Notificações Push'}</h3><p>${d.card_academia_3_desc || ''}</p><span class="badge">WhatsApp + Push</span></div>
                 </div>
             </div>
-            
-            <!-- USUÁRIO GERAL (PADRÃO) -->
             <div id="secao-usuario" class="secao active-secao"><div class="hero" style="background: linear-gradient(135deg,#1e293b,#eab308);"><h2>💰 ${d.hero_usuario_titulo || 'Criptomoeda Conecta'}</h2><p>${d.hero_usuario_texto || ''}</p><div class="hero-badge">Indique e Ganhe | Ofertas ilimitadas</div><a href="#" class="btn" onclick="registrarClique('Botão Usuário Geral')">📱 Baixe Grátis →</a></div>
                 <div class="card-grid">
                     <div class="card" onclick="registrarClique('Card: ${d.card_usuario_1_titulo || 'Moeda Conecta'}')"><div class="card-icon">🪙</div><h3>${d.card_usuario_1_titulo || 'Moeda Conecta'}</h3><p>${d.card_usuario_1_desc || ''}</p><span class="badge">Criptomoeda própria</span></div>
@@ -498,8 +219,6 @@
                     <div class="card" onclick="registrarClique('Card: ${d.card_usuario_4_titulo || 'Busca Inteligente'}')"><div class="card-icon">🔍</div><h3>${d.card_usuario_4_titulo || 'Busca Inteligente'}</h3><p>${d.card_usuario_4_desc || ''}</p><span class="badge">Voz + Texto</span></div>
                 </div>
             </div>
-            
-            <!-- PROFISSIONAIS -->
             <div id="secao-profissional" class="secao"><div class="hero" style="background: linear-gradient(135deg,#1e293b,#10b981);"><h2>👨‍⚕️ ${d.hero_profissional_titulo || 'Profissionais Liberais'}</h2><p>${d.hero_profissional_texto || ''}</p><div class="hero-badge">Agenda Online | Financeiro Simplificado</div><a href="#" class="btn" onclick="registrarClique('Botão Profissionais')">📱 Baixe Grátis →</a></div>
                 <div class="card-grid">
                     <div class="card" onclick="registrarClique('Card: ${d.card_profissional_1_titulo || 'Agenda Online'}')"><div class="card-icon">📅</div><h3>${d.card_profissional_1_titulo || 'Agenda Online'}</h3><p>${d.card_profissional_1_desc || ''}</p><span class="badge">Organização</span></div>
@@ -508,8 +227,6 @@
                     <div class="card" onclick="registrarClique('Card: ${d.card_profissional_4_titulo || 'Indique e Ganhe'}')"><div class="card-icon">🏆</div><h3>${d.card_profissional_4_titulo || 'Indique e Ganhe'}</h3><p>${d.card_profissional_4_desc || ''}</p><span class="badge">Bônus</span></div>
                 </div>
             </div>
-            
-            <!-- SERVIÇOS COM AGENDAMENTO -->
             <div id="secao-servicos" class="secao"><div class="hero" style="background: linear-gradient(135deg,#1e293b,#f59e0b);"><h2>📅 ${d.hero_servicos_titulo || 'Serviços com Agendamento'}</h2><p>${d.hero_servicos_texto || ''}</p><div class="hero-badge">Agende | Gerencie | Fidelize</div><a href="#" class="btn" onclick="registrarClique('Botão Serviços')">📱 Baixe Grátis →</a></div>
                 <div class="card-grid">
                     <div class="card" onclick="registrarClique('Card: ${d.card_servicos_1_titulo || 'Agendamento Online'}')"><div class="card-icon">📆</div><h3>${d.card_servicos_1_titulo || 'Agendamento Online'}</h3><p>${d.card_servicos_1_desc || ''}</p><span class="badge">Prático</span></div>
