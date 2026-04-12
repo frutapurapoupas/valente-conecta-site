@@ -18,7 +18,6 @@
             line-height: 1.5;
         }
 
-        /* CONTAINER - TELA CHEIA */
         .container {
             width: 100%;
             max-width: 100%;
@@ -38,7 +37,7 @@
             }
         }
 
-        /* HEADER COM LOGO E TÍTULO */
+        /* HEADER COM LOGO */
         .header {
             display: flex;
             flex-direction: column;
@@ -48,7 +47,6 @@
             border-bottom: 2px solid #e2e8f0;
         }
 
-        /* Topo com logo e título lado a lado */
         .header-top {
             display: flex;
             align-items: center;
@@ -66,29 +64,24 @@
         .logo {
             width: 60px;
             height: 60px;
-            background: linear-gradient(135deg, #7c3aed, #1e293b);
             border-radius: 1rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
-            color: white;
-        }
-
-        @media (min-width: 768px) {
-            .logo {
-                width: 80px;
-                height: 80px;
-                font-size: 2.5rem;
-                border-radius: 1.2rem;
-            }
+            overflow: hidden;
         }
 
         .logo-img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .logo {
+                width: 80px;
+                height: 80px;
+            }
         }
 
         .site-title {
@@ -106,7 +99,7 @@
             }
         }
 
-        /* Frase motivacional */
+        /* FRASE MOTIVACIONAL */
         .frase-motivacional {
             background: linear-gradient(135deg, #f0f9ff, #e0e7ff);
             padding: 1rem;
@@ -192,7 +185,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* HERO BANNER */
         .hero {
             background: linear-gradient(135deg, #1e293b 0%, #7c3aed 100%);
             color: white;
@@ -252,7 +244,6 @@
             transform: scale(1.02);
         }
 
-        /* CARDS GRID */
         .card-grid {
             display: grid;
             gap: 1.5rem;
@@ -277,7 +268,6 @@
             }
         }
 
-        /* CARDS */
         .card {
             background: white;
             border-radius: 1.25rem;
@@ -326,7 +316,6 @@
             align-self: flex-start;
         }
 
-        /* RODAPÉ */
         .footer {
             margin-top: 2.5rem;
             padding-top: 1.5rem;
@@ -346,25 +335,25 @@
 </head>
 <body>
 <div class="container">
-    <!-- HEADER COM LOGO -->
+    <!-- HEADER COM LOGO REAL -->
     <div class="header">
         <div class="header-top">
             <div class="logo-area">
                 <div class="logo">
-                    <span>VC</span>
+                    <img src="logo.png" alt="Valente Conecta" class="logo-img">
                 </div>
                 <span class="site-title">Valente Conecta</span>
             </div>
         </div>
         
-        <!-- NOVA FRASE MOTIVACIONAL -->
+        <!-- FRASE MOTIVACIONAL -->
         <div class="frase-motivacional">
             <p>✨ Tudo que você precisa no seu dia a dia aqui na sua cidade, em um só app.<br>
             Descubra como economizar, vender mais, GANHAR BÔNUS e facilitar sua rotina — comece navegando pelos cards abaixo.</p>
         </div>
     </div>
 
-    <!-- NAVEGAÇÃO POR PÚBLICO -->
+    <!-- NAVEGAÇÃO -->
     <div class="publico-nav-wrapper">
         <div class="publico-nav">
             <button class="nav-btn active" data-secao="comerciante">🏪 Comerciante / PDV</button>
@@ -374,10 +363,8 @@
         </div>
     </div>
 
-    <!-- CONTEÚDO DINÂMICO -->
     <div id="conteudo-dinamico"><div class="loading">🔄 Carregando dados da planilha...</div></div>
 
-    <!-- RODAPÉ -->
     <div class="footer" id="rodape-site">
         <p>© 2025 Valente Conecta | CNPJ: 52.816.565/0001-45</p>
         <p>Instalação via QR Code | Funciona offline | Ícone na tela do dispositivo</p>
