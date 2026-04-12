@@ -2,179 +2,448 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <title>Valente Conecta - Oficial</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galeria com Grid + Flexbox</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800;900&display=swap" rel="stylesheet">
     <style>
-        /* RESET básico para margens e padding */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --bg-gradient: radial-gradient(circle at 50% 30%, #4a2ec2 0%, #2e3192 45%, #1a1c61 100%);
+            --accent-red: #f85a5e;
+            --card-blue: #2e3192;
         }
 
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            padding: 40px 20px;
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background: var(--bg-gradient); color: white; min-height: 100vh; overflow-x: hidden; scroll-behavior: smooth; transition: background 0.5s ease; }
+
+        /* ========== HEADER COM FLEXBOX ========== */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(15px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .header-logo { font-weight: 900; font-size: 1.8rem; }
+        
+        nav {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        nav a { color: white; text-decoration: none; font-size: 1.2rem; cursor: pointer; font-weight: 700; }
+        
+        .btn-download-top {
+            background: var(--accent-red);
+            padding: 12px 30px;
+            border-radius: 30px;
+            border: none;
+            color: white;
+            font-weight: 800;
+            cursor: pointer;
+            font-size: 1rem;
         }
 
-        /* 
-            CSS GRID - Controle MACRO da página
-            Define a estrutura geral dos cards
-        */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            
-            /* ATIVA O GRID */
+        /* ========== HERO COM FLEXBOX ========== */
+        .hero { 
+            padding: 180px 20px 60px; 
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .hero h1 { font-size: 3.5rem; font-weight: 900; margin-bottom: 20px; max-width: 900px; }
+        .tagline-externa { font-size: 1.5rem; font-weight: 800; margin-bottom: 50px; max-width: 700px; }
+
+        /* ========== PALCO CENTRAL COM GRID ========== */
+        .stage { 
             display: grid;
-            
-            /* 
-               Controla a distribuição das colunas:
-               - auto-fit: ajusta automaticamente
-               - minmax(300px, 1fr): cada card tem mínimo 300px
-            */
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            
-            /* Espaçamento entre os cards */
-            gap: 30px;
-            
-            /* Padding interno */
-            padding: 20px;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: end;
+            gap: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
         }
-
-        /* 
-            CSS FLEXBOX - Controle MICRO de cada card
-            Cada card usa Flexbox para organizar imagem + texto
-        */
-        .card {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            
-            /* ATIVA O FLEXBOX */
-            display: flex;
-            
-            /* Empilha os elementos em coluna (imagem em cima, texto embaixo) */
-            flex-direction: column;
-            
-            /* Sombra suave para destaque */
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
+        
+        .char-left { 
+            justify-self: start;
+            align-self: end;
         }
+        .char-left img { width: 100%; max-width: 300px; height: auto; }
 
-        .card:hover {
-            transform: translateY(-5px);
+        .char-right { 
+            justify-self: end;
+            align-self: end;
         }
+        .char-right img { width: 100%; max-width: 300px; height: auto; }
 
-        /* 
-            CONTROLE DAS IMAGENS
-            O Flexbox garante que a imagem se comporte bem
-        */
-        .card img {
-            width: 100%;           /* Ocupa toda largura do card */
-            height: 250px;         /* Altura fixa para padronizar */
-            object-fit: cover;     /* Corta a imagem sem distorcer */
-            display: block;
+        .bg-map {
+            grid-column: 1 / -1;
+            grid-row: 1 / 2;
+            justify-self: center;
+            align-self: center;
+            width: 80%;
+            max-width: 600px;
+            opacity: 0.3;
+            pointer-events: none;
         }
-
-        /* 
-            ÁREA DE TEXTO
-            Também usa Flexbox internamente se necessário
-        */
-        .card-content {
-            padding: 20px;
-            
-            /* Flexbox dentro do texto (opcional) */
+        
+        .phone-moldure { 
+            grid-column: 2 / 3;
+            grid-row: 1 / 2;
+            width: 280px;
+            height: 560px;
+            background: #000;
+            border-radius: 50px;
+            padding: 15px;
+            z-index: 10;
+            border: 5px solid #333;
+            justify-self: center;
+        }
+        .phone-inner { 
+            background: #fff;
+            width: 100%;
+            height: 100%;
+            border-radius: 40px;
             display: flex;
             flex-direction: column;
-            gap: 12px;
-        }
-
-        .card h3 {
-            font-size: 1.5rem;
+            align-items: center;
+            justify-content: center;
+            padding: 30px 20px;
+            text-align: center;
             color: #333;
-            margin-bottom: 0;
+        }
+        
+        .phone-logo { width: 150px; margin-bottom: 20px; }
+        .phone-inner p { font-size: 1rem; font-weight: 600; color: #666; }
+
+        /* ========== CARDS COM GRID ========== */
+        .cards-section { 
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+            padding: 80px 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .card { 
+            background: white;
+            border-radius: 40px;
+            overflow: hidden;
+            color: #333;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
+        }
+        .card-header { 
+            background: var(--card-blue);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 900;
+        }
+        .card-body { 
+            padding: 40px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            gap: 30px;
+        }
+        .card-body p { 
+            color: #444;
+            font-size: 1.2rem;
+            font-weight: 600;
+            flex-grow: 1;
         }
 
-        .card p {
-            color: #666;
-            line-height: 1.5;
-            margin-bottom: 0;
+        /* ========== BOTÕES ========== */
+        .btn-back { 
+            background: #111;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 800;
+            width: 100%;
+        }
+        .btn-back-blue {
+            background: var(--card-blue);
         }
 
-        /* 
-            CONTROLE ESPECÍFICO com GRID
-            Exemplo: faz o PRIMEIRO card ser maior
-        */
-        .card:first-child {
-            /* O primeiro card ocupará 2 colunas de largura */
-            grid-column: span 2;
+        /* ========== SEÇÕES DE DETALHE ========== */
+        .detail-section { 
+            display: none;
+            padding: 150px 5% 80px;
+            background: white;
+            color: #333;
+            border-radius: 50px 50px 0 0;
+        }
+        
+        .detail-section h2 { 
+            font-size: 2.5rem;
+            color: var(--card-blue);
+            margin-bottom: 40px;
+            font-weight: 900;
+            text-align: center;
+        }
+        
+        /* Grid para os itens de função */
+        .functions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto 40px;
+        }
+        
+        .function-item { 
+            padding: 30px;
+            background: #f8faff;
+            border-radius: 30px;
+            border-left: 8px solid var(--card-blue);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .function-item strong { 
+            font-size: 1.5rem;
+            color: #000;
+            font-weight: 800;
+        }
+        .function-item span { 
+            font-size: 1rem;
+            line-height: 1.4;
+            color: #333;
         }
 
-        /* 
-            RESPONSIVIDADE
-            Em telas pequenas, o grid-column: span 2 é removido
-        */
-        @media (max-width: 768px) {
-            .card:first-child {
-                grid-column: span 1; /* Volta ao normal */
+        /* ========== MODAL ========== */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 30px;
+            text-align: center;
+            max-width: 350px;
+            width: 90%;
+        }
+        .modal-content img {
+            width: 100%;
+            max-width: 250px;
+            margin: 15px 0;
+        }
+        .modal-content h3 {
+            color: var(--card-blue);
+            font-size: 1.5rem;
+        }
+        .close-modal {
+            background: var(--accent-red);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        /* ========== RESPONSIVIDADE ========== */
+        @media (max-width: 900px) {
+            header {
+                flex-direction: column;
+                text-align: center;
             }
-            
-            .container {
+            nav {
+                justify-content: center;
                 gap: 20px;
             }
+            .hero h1 { font-size: 2.2rem; }
+            .tagline-externa { font-size: 1.2rem; }
+            
+            .stage {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .char-left, .char-right, .bg-map {
+                display: none;
+            }
+            .phone-moldure {
+                grid-column: 1 / 2;
+                width: 260px;
+                height: 520px;
+            }
+            .cards-section {
+                gap: 30px;
+                padding: 50px 20px;
+            }
+            .card-header { font-size: 1.5rem; padding: 20px; }
+            .card-body { padding: 25px; }
+            .detail-section h2 { font-size: 1.8rem; }
+            .function-item strong { font-size: 1.2rem; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        
-        <!-- CARD 1 - Será maior (grid-column: span 2) -->
-        <div class="card">
-            <img src="https://picsum.photos/id/1015/400/300" alt="Paisagem montanhosa">
-            <div class="card-content">
-                <h3>Montanhas Incríveis</h3>
-                <p>Este card é maior porque usamos <strong>grid-column: span 2</strong> no CSS. As imagens são controladas pelo Flexbox internamente.</p>
+
+    <header>
+        <div class="header-logo">VALENTE CONECTA</div>
+        <nav>
+            <a onclick="showSection('home')">Início</a>
+            <a onclick="showSection('usuarios')">Usuários</a>
+            <a onclick="showSection('empresas')">Empresas</a>
+        </nav>
+        <button class="btn-download-top" onclick="showQRCode()">Baixar App</button>
+    </header>
+
+    <main id="home-content">
+        <section class="hero">
+            <h1>Conectando Você ao que Precisa!</h1>
+            <p class="tagline-externa">Encontre o que você procura em segundos.</p>
+        </section>
+
+        <div class="stage">
+            <div class="char-left">
+                <img src="mulher.png" alt="Mulher" width="100%">
+            </div>
+            
+            <div class="phone-moldure">
+                <div class="phone-inner">
+                    <img src="logo.png" alt="Logo" class="phone-logo">
+                    <p>Tudo o que você precisa,<br>na palma da sua mão.</p>
+                </div>
+            </div>
+
+            <img src="mapa.png" class="bg-map" alt="Mapa">
+            
+            <div class="char-right">
+                <img src="homem.png" alt="Homem" width="100%">
             </div>
         </div>
 
-        <!-- CARD 2 -->
-        <div class="card">
-            <img src="https://picsum.photos/id/104/400/300" alt="Natureza">
-            <div class="card-content">
-                <h3>Natureza Viva</h3>
-                <p>Distribuição controlada pelo Grid. Cada card tem tamanho consistente graças ao Flexbox.</p>
+        <section class="cards-section">
+            <div class="card">
+                <div class="card-header">Para Usuários</div>
+                <div class="card-body">
+                    <p>Busca inteligente, anúncios grátis e saúde em um só lugar.</p>
+                    <button class="btn-back" onclick="showSection('usuarios')">DESCUBRA MAIS →</button>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">Para Empresas</div>
+                <div class="card-body">
+                    <p>Seja visto por toda a cidade e valorize seu serviço profissional.</p>
+                    <button class="btn-back btn-back-blue" onclick="showSection('empresas')">VER VANTAGENS →</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <section id="usuarios" class="detail-section">
+        <h2>Tudo para o Usuário</h2>
+        <div class="functions-grid">
+            <div class="function-item">
+                <strong>🔍 Busca Inteligente e Preço</strong>
+                <span>Encontre tudo que precisa. Anuncie grátis e encontre o melhor preço perto de você!</span>
+            </div>
+            <div class="function-item">
+                <strong>💪 Módulo Academia</strong>
+                <span>Ferramenta incrível para ajudar você a atingir seus objetivos de saúde.</span>
+            </div>
+            <div class="function-item">
+                <strong>📢 Anuncie Grátis</strong>
+                <span>Anuncie usando seu celular inteiramente grátis. Apareça para toda a cidade.</span>
             </div>
         </div>
+        <button class="btn-back" style="max-width: 300px; margin: 0 auto; display: block;" onclick="showSection('home')">VOLTAR AO INÍCIO</button>
+    </section>
 
-        <!-- CARD 3 -->
-        <div class="card">
-            <img src="https://picsum.photos/id/106/400/300" alt="Flores">
-            <div class="card-content">
-                <h3>Jardim Florido</h3>
-                <p>Texto e imagem perfeitamente alinhados sem JavaScript.</p>
+    <section id="empresas" class="detail-section">
+        <h2>Vantagens Parceiros</h2>
+        <div class="functions-grid">
+            <div class="function-item">
+                <strong>✨ Destaque seu estabelecimento</strong>
+                <span>Apareça nas buscas para manicure, borracheiros, diaristas, terapeutas, engenheiros, pedreiros e muito mais.</span>
+            </div>
+            <div class="function-item">
+                <strong>💰 Fortaleça o comércio local</strong>
+                <span>Use a moeda conecta e contribua para que não haja fuga de capital da nossa cidade.</span>
+            </div>
+            <div class="function-item">
+                <strong>📈 Vitrine 24 Horas</strong>
+                <span>Seu negócio visível para milhares de usuários mesmo após o fechamento.</span>
             </div>
         </div>
+        <button class="btn-back" style="max-width: 300px; margin: 0 auto; display: block;" onclick="showSection('home')">VOLTAR AO INÍCIO</button>
+    </section>
 
-        <!-- CARD 4 -->
-        <div class="card">
-            <img src="https://picsum.photos/id/107/400/300" alt="Gramado">
-            <div class="card-content">
-                <h3>Campos Verdes</h3>
-                <p>O Flexbox garante que o conteúdo se organize em coluna de forma previsível.</p>
-            </div>
+    <!-- Modal QR Code -->
+    <div id="qrModal" class="modal">
+        <div class="modal-content">
+            <h3>📱 Baixe o App</h3>
+            <p>Escaneie o QR Code com seu celular</p>
+            <img src="qr_code.png" alt="QR Code">
+            <button class="close-modal" onclick="closeQRCode()">Fechar</button>
         </div>
-
-        <!-- CARD 5 -->
-        <div class="card">
-            <img src="https://picsum.photos/id/116/400/300" alt="Lago">
-            <div class="card-content">
-                <h3>Lago Sereno</h3>
-                <p>Mais um exemplo de como Grid + Flexbox trabalham juntos.</p>
-            </div>
-        </div>
-
     </div>
+
+    <script>
+        function showSection(id) {
+            document.getElementById('home-content').style.display = 'none';
+            document.getElementById('usuarios').style.display = 'none';
+            document.getElementById('empresas').style.display = 'none';
+            
+            const target = document.getElementById(id === 'home' ? 'home-content' : id);
+            if (target) target.style.display = 'block';
+            
+            if (id !== 'home') {
+                document.body.style.background = "white";
+                document.querySelectorAll('nav a').forEach(a => a.style.color = "#333");
+                document.querySelector('.header-logo').style.color = "#333";
+                document.querySelector('.btn-download-top').style.background = "var(--accent-red)";
+            } else {
+                document.body.style.background = "var(--bg-gradient)";
+                document.querySelectorAll('nav a').forEach(a => a.style.color = "white");
+                document.querySelector('.header-logo').style.color = "white";
+            }
+            window.scrollTo(0, 0);
+        }
+
+        function showQRCode() {
+            document.getElementById('qrModal').style.display = 'flex';
+        }
+
+        function closeQRCode() {
+            document.getElementById('qrModal').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('qrModal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
 </body>
 </html>
