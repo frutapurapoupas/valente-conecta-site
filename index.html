@@ -18,6 +18,7 @@
             line-height: 1.5;
         }
 
+        /* CONTAINER - TELA CHEIA SEM SOBRAS */
         .container {
             width: 100%;
             max-width: 100%;
@@ -25,15 +26,16 @@
             padding: 1rem;
         }
 
+        /* Notebook/Desktop: menos padding lateral */
         @media (min-width: 1024px) {
             .container {
-                padding: 2rem 3rem;
+                padding: 1.5rem 2rem;
             }
         }
 
-        @media (min-width: 1600px) {
+        @media (min-width: 1440px) {
             .container {
-                padding: 2rem 5rem;
+                padding: 2rem 3rem;
             }
         }
 
@@ -79,8 +81,8 @@
 
         @media (min-width: 768px) {
             .logo {
-                width: 80px;
-                height: 80px;
+                width: 70px;
+                height: 70px;
             }
         }
 
@@ -95,11 +97,11 @@
 
         @media (min-width: 768px) {
             .site-title {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
         }
 
-        /* FRASE MOTIVACIONAL - TEXTO MAIOR (DESTAQUE) */
+        /* FRASE MOTIVACIONAL */
         .frase-motivacional {
             background: linear-gradient(135deg, #f0f9ff, #e0e7ff);
             padding: 1.2rem;
@@ -118,53 +120,54 @@
 
         @media (min-width: 768px) {
             .frase-motivacional p {
-                font-size: 1.6rem;
+                font-size: 1.5rem;
             }
         }
 
         @media (min-width: 1280px) {
             .frase-motivacional p {
-                font-size: 1.8rem;
+                font-size: 1.6rem;
             }
         }
 
-        /* NAVEGAÇÃO */
+        /* NAVEGAÇÃO - SEM SCROLL, BOTÕES AJUSTADOS */
         .publico-nav-wrapper {
-            overflow-x: auto;
             margin-bottom: 2rem;
-            -webkit-overflow-scrolling: touch;
+            overflow-x: visible;
         }
 
         .publico-nav {
             display: flex;
-            gap: 1rem;
+            gap: 0.8rem;
             justify-content: center;
             flex-wrap: wrap;
-        }
-
-        @media (max-width: 768px) {
-            .publico-nav {
-                justify-content: flex-start;
-            }
         }
 
         .nav-btn {
             background: white;
             border: 2px solid #e2e8f0;
-            padding: 0.8rem 1.5rem;
+            padding: 0.7rem 1.2rem;
             border-radius: 2rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s;
             color: #475569;
-            font-size: 1rem;
+            font-size: 0.9rem;
             white-space: nowrap;
+            flex: 0 0 auto;
         }
 
-        @media (min-width: 768px) {
+        @media (min-width: 640px) {
             .nav-btn {
-                padding: 1rem 2rem;
-                font-size: 1.2rem;
+                padding: 0.8rem 1.5rem;
+                font-size: 1rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .nav-btn {
+                padding: 0.9rem 1.8rem;
+                font-size: 1.1rem;
             }
         }
 
@@ -196,31 +199,31 @@
         .hero {
             background: linear-gradient(135deg, #1e293b 0%, #7c3aed 100%);
             color: white;
-            padding: 2rem;
-            border-radius: 1.5rem;
+            padding: 1.8rem;
+            border-radius: 1.2rem;
             margin-bottom: 2rem;
             text-align: center;
         }
 
         @media (min-width: 768px) {
             .hero {
-                padding: 2.5rem;
+                padding: 2rem;
             }
         }
 
         .hero h2 {
-            font-size: 2rem;
+            font-size: 1.8rem;
             margin-bottom: 0.75rem;
         }
 
         @media (min-width: 768px) {
             .hero h2 {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
             }
         }
 
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             max-width: 80%;
             margin-left: auto;
             margin-right: auto;
@@ -229,9 +232,9 @@
         .hero-badge {
             background: rgba(255,255,255,0.2);
             display: inline-block;
-            padding: 0.5rem 1rem;
+            padding: 0.4rem 0.9rem;
             border-radius: 2rem;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             margin-top: 1rem;
         }
 
@@ -239,12 +242,12 @@
             display: inline-block;
             background: white;
             color: #7c3aed;
-            padding: 0.8rem 1.5rem;
+            padding: 0.7rem 1.3rem;
             border-radius: 2rem;
             font-weight: 600;
             text-decoration: none;
             margin-top: 1rem;
-            font-size: 1rem;
+            font-size: 0.95rem;
             transition: transform 0.2s;
         }
 
@@ -252,9 +255,10 @@
             transform: scale(1.02);
         }
 
+        /* CARDS GRID - MELHOR APROVEITAMENTO */
         .card-grid {
             display: grid;
-            gap: 1.5rem;
+            gap: 1.2rem;
             margin-bottom: 2rem;
         }
 
@@ -265,21 +269,21 @@
         @media (min-width: 640px) {
             .card-grid {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 1.5rem;
+                gap: 1.2rem;
             }
         }
 
         @media (min-width: 1024px) {
             .card-grid {
                 grid-template-columns: repeat(4, 1fr);
-                gap: 2rem;
+                gap: 1.5rem;
             }
         }
 
         .card {
             background: white;
-            border-radius: 1.25rem;
-            padding: 1.5rem;
+            border-radius: 1rem;
+            padding: 1.2rem;
             box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
             transition: transform 0.3s;
             border: 1px solid #e2e8f0;
@@ -289,26 +293,32 @@
             flex-direction: column;
         }
 
+        @media (min-width: 768px) {
+            .card {
+                padding: 1.3rem;
+            }
+        }
+
         .card:hover {
             transform: translateY(-5px);
             box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
         }
 
         .card-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
+            font-size: 2.2rem;
+            margin-bottom: 0.8rem;
         }
 
         .card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.75rem;
+            font-size: 1.2rem;
+            margin-bottom: 0.6rem;
             color: #1e293b;
         }
 
         .card p {
             color: #475569;
-            font-size: 1rem;
-            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            margin-bottom: 0.8rem;
             flex-grow: 1;
             line-height: 1.4;
         }
@@ -317,27 +327,27 @@
             display: inline-block;
             background: #e0e7ff;
             color: #4338ca;
-            font-size: 0.85rem;
-            padding: 0.3rem 0.8rem;
+            font-size: 0.75rem;
+            padding: 0.25rem 0.7rem;
             border-radius: 999px;
             font-weight: 600;
             align-self: flex-start;
         }
 
         .footer {
-            margin-top: 2.5rem;
-            padding-top: 1.5rem;
+            margin-top: 2rem;
+            padding-top: 1.2rem;
             border-top: 1px solid #e2e8f0;
             text-align: center;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: #64748b;
         }
 
         .loading {
             text-align: center;
-            padding: 3rem;
+            padding: 2rem;
             color: #7c3aed;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
         }
     </style>
 </head>
@@ -354,14 +364,14 @@
             </div>
         </div>
         
-        <!-- FRASE MOTIVACIONAL - MAIOR E DESTACADA -->
+        <!-- FRASE MOTIVACIONAL -->
         <div class="frase-motivacional">
             <p>✨ Tudo que você precisa no seu dia a dia aqui na sua cidade, em um só app.<br>
             Descubra como economizar, vender mais, GANHAR BÔNUS e facilitar sua rotina — comece navegando pelos cards abaixo.</p>
         </div>
     </div>
 
-    <!-- NAVEGAÇÃO -->
+    <!-- NAVEGAÇÃO - BOTÕES EM LINHA SEM SCROLL -->
     <div class="publico-nav-wrapper">
         <div class="publico-nav">
             <button class="nav-btn active" data-secao="comerciante">🏪 Comerciante / PDV</button>
