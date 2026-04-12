@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Valente Conecta - PDV Colaborativo e Criptomoeda</title>
     
-    <!-- Clicky Analytics - Versão corrigida -->
+    <!-- Clicky Analytics -->
     <script>
         var clicky_site_ids = clicky_site_ids || [];
         clicky_site_ids.push(101504372);
@@ -112,6 +112,7 @@
     const URL_API = 'https://script.google.com/macros/s/AKfycbz9tb16wyEhCOQxV0h_jHwKfg-aB6eRTeVvq3S6FwJHRq14wwIiXDnS2_JVCipLw2Pm/exec';
     
     const DADOS_PADRAO = {
+        // PDV COLABORATIVO
         hero_comerciante_titulo: "PDV Colaborativo",
         hero_comerciante_texto: "Gerencie vendas, estoque e clientes em um só lugar",
         card_comerciante_1_titulo: "PDV Completo",
@@ -122,6 +123,8 @@
         card_comerciante_3_desc: "Dados de mercado e análise de vendas em tempo real",
         card_comerciante_4_titulo: "SKU Universal",
         card_comerciante_4_desc: "Produtos sem EAN recebem SKU único compartilhável",
+        
+        // ACADEMIA
         hero_academia_titulo: "Módulo Academia",
         hero_academia_texto: "Controle de treinos, alunos e permanência",
         card_academia_1_titulo: "Visualização de Treino",
@@ -130,6 +133,8 @@
         card_academia_2_desc: "Geolocalização conta tempo de chegada e saída",
         card_academia_3_titulo: "Notificações Push",
         card_academia_3_desc: "Alertas de treino e novidades no celular",
+        
+        // USUÁRIO GERAL
         hero_usuario_titulo: "Criptomoeda Conecta",
         hero_usuario_texto: "Transações comerciais com saldo inicial gratuito",
         card_usuario_1_titulo: "Moeda Conecta",
@@ -140,16 +145,20 @@
         card_usuario_3_desc: "R$10,50 por indicação, R$2 para empresas",
         card_usuario_4_titulo: "Busca Inteligente",
         card_usuario_4_desc: "5 consultas gratuitas/dia com mapa",
+        
+        // PROFISSIONAIS
         hero_profissional_titulo: "Profissionais Liberais",
         hero_profissional_texto: "Advogados, médicos, dentistas, psicólogos, personal trainers e muito mais",
         card_profissional_1_titulo: "Agenda Online",
         card_profissional_1_desc: "Gerencie seus horários e atendimentos de forma simples",
         card_profissional_2_titulo: "Carteira de Clientes",
         card_profissional_2_desc: "Histórico e acompanhamento dos seus pacientes/clientes",
-        card_profissional_3_titulo: "Financeiro Simplificado",
-        card_profissional_3_desc: "Controle de recebimentos e comissões automatizado",
+        card_profissional_3_titulo: "Catálogo Online Grátis",
+        card_profissional_3_desc: "Seu catálogo online trabalhando por você 24h",
         card_profissional_4_titulo: "Indique e Ganhe",
         card_profissional_4_desc: "Indique outros profissionais e receba bônus",
+        
+        // SERVIÇOS COM AGENDAMENTO
         hero_servicos_titulo: "Serviços com Agendamento",
         hero_servicos_texto: "Salões de beleza, barbearias, clínicas de estética, oficinas e muito mais",
         card_servicos_1_titulo: "Agendamento Online",
@@ -160,6 +169,19 @@
         card_servicos_3_desc: "Histórico de serviços realizados",
         card_servicos_4_titulo: "Fidelidade",
         card_servicos_4_desc: "Programa de pontos para clientes recorrentes",
+        
+        // ADMIN MASTER
+        hero_admin_titulo: "Admin Master",
+        hero_admin_texto: "Gestão completa de empresas, produtos e usuários",
+        card_admin_1_titulo: "Aprovações",
+        card_admin_1_desc: "Produtos pendentes e novas empresas",
+        card_admin_2_titulo: "Relatório Dinâmico",
+        card_admin_2_desc: "Dados de mercado em tempo real",
+        card_admin_3_titulo: "Cadastro de Empresas",
+        card_admin_3_desc: "Edição de logomarca e liberação de uso",
+        card_admin_4_titulo: "Desbloqueio de Cidades",
+        card_admin_4_desc: "30 dias por R$30 para expansão",
+        
         rodape_texto: "© 2025 Valente Conecta | CNPJ: 52.816.565/0001-45"
     };
     
@@ -195,6 +217,7 @@
     
     function renderizarPagina(d) {
         const html = `
+            <!-- COMERCIANTE / PDV -->
             <div id="secao-comerciante" class="secao">
                 <div class="hero"><h2>🏪 ${d.hero_comerciante_titulo || 'PDV Colaborativo'}</h2><p>${d.hero_comerciante_texto || ''}</p><div class="hero-badge">Modo Espião | Integração com PDV</div><a href="#" class="btn" onclick="registrarClique('Botão Comerciante')">📱 Baixe Grátis →</a></div>
                 <div class="card-grid">
@@ -204,6 +227,8 @@
                     <div class="card" onclick="registrarClique('Card: ${d.card_comerciante_4_titulo || 'SKU Universal'}')"><div class="card-icon">🏷️</div><h3>${d.card_comerciante_4_titulo || 'SKU Universal'}</h3><p>${d.card_comerciante_4_desc || ''}</p><span class="badge">Colaborativo</span></div>
                 </div>
             </div>
+            
+            <!-- ACADEMIA -->
             <div id="secao-academia" class="secao"><div class="hero" style="background: linear-gradient(135deg,#1e293b,#0891b2);"><h2>🏋️ ${d.hero_academia_titulo || 'Módulo Academia'}</h2><p>${d.hero_academia_texto || ''}</p><div class="hero-badge">Geolocalização | Push + WhatsApp</div><a href="#" class="btn" onclick="registrarClique('Botão Academia')">📱 Baixe Grátis →</a></div>
                 <div class="card-grid">
                     <div class="card" onclick="registrarClique('Card: ${d.card_academia_1_titulo || 'Visualização de Treino'}')"><div class="card-icon">📋</div><h3>${d.card_academia_1_titulo || 'Visualização de Treino'}</h3><p>${d.card_academia_1_desc || ''}</p><span class="badge">Individualizado</span></div>
@@ -211,7 +236,9 @@
                     <div class="card" onclick="registrarClique('Card: ${d.card_academia_3_titulo || 'Notificações Push'}')"><div class="card-icon">🔔</div><h3>${d.card_academia_3_titulo || 'Notificações Push'}</h3><p>${d.card_academia_3_desc || ''}</p><span class="badge">WhatsApp + Push</span></div>
                 </div>
             </div>
-            <div id="secao-usuario" class="secao active-secao"><div class="hero" style="background: linear-gradient(135deg,#1e293b,#eab308);"><h2>💰 ${d.hero_usuario_titulo || 'Criptomoeda Conecta'}</h2><p>${d.hero_usuario_texto || ''}</p><div class="hero-badge">Indique e Ganhe | BREVE-Ofertas ilimitadas</div><a href="#" class="btn" onclick="registrarClique('Botão Usuário Geral')">📱 Baixe Grátis →</a></div>
+            
+            <!-- USUÁRIO GERAL -->
+            <div id="secao-usuario" class="secao active-secao"><div class="hero" style="background: linear-gradient(135deg,#1e293b,#eab308);"><h2>💰 ${d.hero_usuario_titulo || 'Criptomoeda Conecta'}</h2><p>${d.hero_usuario_texto || ''}</p><div class="hero-badge">Indique e Ganhe | Ofertas ilimitadas</div><a href="#" class="btn" onclick="registrarClique('Botão Usuário Geral')">📱 Baixe Grátis →</a></div>
                 <div class="card-grid">
                     <div class="card" onclick="registrarClique('Card: ${d.card_usuario_1_titulo || 'Moeda Conecta'}')"><div class="card-icon">🪙</div><h3>${d.card_usuario_1_titulo || 'Moeda Conecta'}</h3><p>${d.card_usuario_1_desc || ''}</p><span class="badge">Criptomoeda própria</span></div>
                     <div class="card" onclick="registrarClique('Card: ${d.card_usuario_2_titulo || 'Publicar Ofertas'}')"><div class="card-icon">📢</div><h3>${d.card_usuario_2_titulo || 'Publicar Ofertas'}</h3><p>${d.card_usuario_2_desc || ''}</p><span class="badge">Grátis</span></div>
@@ -219,14 +246,18 @@
                     <div class="card" onclick="registrarClique('Card: ${d.card_usuario_4_titulo || 'Busca Inteligente'}')"><div class="card-icon">🔍</div><h3>${d.card_usuario_4_titulo || 'Busca Inteligente'}</h3><p>${d.card_usuario_4_desc || ''}</p><span class="badge">Voz + Texto</span></div>
                 </div>
             </div>
-            <div id="secao-profissional" class="secao"><div class="hero" style="background: linear-gradient(135deg,#1e293b,#10b981);"><h2>👨‍⚕️ ${d.hero_profissional_titulo || 'Profissionais Liberais'}</h2><p>${d.hero_profissional_texto || ''}</p><div class="hero-badge">Agenda Online | CATALOGO ONLINE</div><a href="#" class="btn" onclick="registrarClique('Botão Profissionais')">📱 Baixe Grátis →</a></div>
+            
+            <!-- PROFISSIONAIS -->
+            <div id="secao-profissional" class="secao"><div class="hero" style="background: linear-gradient(135deg,#1e293b,#10b981);"><h2>👨‍⚕️ ${d.hero_profissional_titulo || 'Profissionais Liberais'}</h2><p>${d.hero_profissional_texto || ''}</p><div class="hero-badge">Agenda Online | Catálogo Online Grátis</div><a href="#" class="btn" onclick="registrarClique('Botão Profissionais')">📱 Baixe Grátis →</a></div>
                 <div class="card-grid">
                     <div class="card" onclick="registrarClique('Card: ${d.card_profissional_1_titulo || 'Agenda Online'}')"><div class="card-icon">📅</div><h3>${d.card_profissional_1_titulo || 'Agenda Online'}</h3><p>${d.card_profissional_1_desc || ''}</p><span class="badge">Organização</span></div>
                     <div class="card" onclick="registrarClique('Card: ${d.card_profissional_2_titulo || 'Carteira de Clientes'}')"><div class="card-icon">👥</div><h3>${d.card_profissional_2_titulo || 'Carteira de Clientes'}</h3><p>${d.card_profissional_2_desc || ''}</p><span class="badge">Histórico</span></div>
-                    <div class="card" onclick="registrarClique('Card: ${d.card_profissional_3_titulo || 'Financeiro Simplificado'}')"><div class="card-icon">💰</div><h3>${d.card_profissional_3_titulo || 'Financeiro Simplificado'}</h3><p>${d.card_profissional_3_desc || ''}</p><span class="badge">Controle</span></div>
+                    <div class="card" onclick="registrarClique('Card: ${d.card_profissional_3_titulo || 'Catálogo Online Grátis'}')"><div class="card-icon">📘</div><h3>${d.card_profissional_3_titulo || 'Catálogo Online Grátis'}</h3><p>${d.card_profissional_3_desc || ''}</p><span class="badge">Destaque</span></div>
                     <div class="card" onclick="registrarClique('Card: ${d.card_profissional_4_titulo || 'Indique e Ganhe'}')"><div class="card-icon">🏆</div><h3>${d.card_profissional_4_titulo || 'Indique e Ganhe'}</h3><p>${d.card_profissional_4_desc || ''}</p><span class="badge">Bônus</span></div>
                 </div>
             </div>
+            
+            <!-- SERVIÇOS COM AGENDAMENTO -->
             <div id="secao-servicos" class="secao"><div class="hero" style="background: linear-gradient(135deg,#1e293b,#f59e0b);"><h2>📅 ${d.hero_servicos_titulo || 'Serviços com Agendamento'}</h2><p>${d.hero_servicos_texto || ''}</p><div class="hero-badge">Agende | Gerencie | Fidelize</div><a href="#" class="btn" onclick="registrarClique('Botão Serviços')">📱 Baixe Grátis →</a></div>
                 <div class="card-grid">
                     <div class="card" onclick="registrarClique('Card: ${d.card_servicos_1_titulo || 'Agendamento Online'}')"><div class="card-icon">📆</div><h3>${d.card_servicos_1_titulo || 'Agendamento Online'}</h3><p>${d.card_servicos_1_desc || ''}</p><span class="badge">Prático</span></div>
