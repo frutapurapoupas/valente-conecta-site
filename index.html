@@ -19,50 +19,104 @@
         }
 
         .container {
+            width: 100%;
             max-width: 1400px;
             margin: 0 auto;
-            padding: 2rem;
+            padding: 1rem;
         }
 
-        /* Header */
+        /* Ajuste para telas pequenas */
+        @media (min-width: 640px) {
+            .container {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .container {
+                padding: 2rem;
+            }
+        }
+
         .header {
             text-align: center;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             padding-bottom: 1rem;
             border-bottom: 2px solid #e2e8f0;
         }
 
         .header h1 {
-            font-size: 2.5rem;
+            font-size: 1.75rem;
             background: linear-gradient(135deg, #1e293b, #7c3aed);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
         }
 
+        @media (min-width: 640px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .header h1 {
+                font-size: 2.5rem;
+            }
+        }
+
         .header p {
             color: #475569;
+            font-size: 0.875rem;
             margin-top: 0.5rem;
         }
 
-        /* Navegação */
+        @media (min-width: 640px) {
+            .header p {
+                font-size: 1rem;
+            }
+        }
+
+        /* Navegação - responsiva com scroll horizontal em telas pequenas */
+        .publico-nav-wrapper {
+            overflow-x: auto;
+            margin-bottom: 1.5rem;
+            -webkit-overflow-scrolling: touch;
+        }
+
         .publico-nav {
             display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-            justify-content: center;
-            margin-bottom: 2rem;
+            gap: 0.5rem;
+            justify-content: flex-start;
+            min-width: min-content;
+            padding-bottom: 0.5rem;
+        }
+
+        @media (min-width: 640px) {
+            .publico-nav {
+                justify-content: center;
+                gap: 0.75rem;
+            }
         }
 
         .nav-btn {
             background: white;
             border: 2px solid #e2e8f0;
-            padding: 0.75rem 1.5rem;
+            padding: 0.6rem 1rem;
             border-radius: 2rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s;
             color: #475569;
+            font-size: 0.75rem;
+            white-space: nowrap;
+        }
+
+        @media (min-width: 640px) {
+            .nav-btn {
+                padding: 0.75rem 1.5rem;
+                font-size: 0.875rem;
+            }
         }
 
         .nav-btn:hover {
@@ -76,7 +130,6 @@
             color: white;
         }
 
-        /* Seções */
         .secao {
             display: none;
             animation: fadeIn 0.5s ease;
@@ -91,114 +144,242 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Cards */
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .card {
-            background: white;
-            border-radius: 1.5rem;
-            padding: 1.5rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-            border: 1px solid #e2e8f0;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-        }
-
-        .card-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .card h3 {
-            font-size: 1.25rem;
-            margin-bottom: 0.75rem;
-            color: #1e293b;
-        }
-
-        .card p {
-            color: #475569;
-            font-size: 0.875rem;
-            margin-bottom: 1rem;
-        }
-
-        .badge {
-            display: inline-block;
-            background: #e0e7ff;
-            color: #4338ca;
-            font-size: 0.75rem;
-            padding: 0.25rem 0.75rem;
-            border-radius: 999px;
-            font-weight: 600;
-        }
-
-        /* Hero */
         .hero {
             background: linear-gradient(135deg, #1e293b 0%, #7c3aed 100%);
             color: white;
-            padding: 2rem;
-            border-radius: 1.5rem;
-            margin-bottom: 2rem;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            margin-bottom: 1.5rem;
             text-align: center;
         }
 
+        @media (min-width: 640px) {
+            .hero {
+                padding: 2rem;
+                border-radius: 1.5rem;
+                margin-bottom: 2rem;
+            }
+        }
+
         .hero h2 {
-            font-size: 1.75rem;
+            font-size: 1.25rem;
             margin-bottom: 0.5rem;
+        }
+
+        @media (min-width: 640px) {
+            .hero h2 {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .hero h2 {
+                font-size: 1.75rem;
+            }
+        }
+
+        .hero p {
+            font-size: 0.875rem;
+        }
+
+        @media (min-width: 640px) {
+            .hero p {
+                font-size: 1rem;
+            }
         }
 
         .hero-badge {
             background: rgba(255,255,255,0.2);
             display: inline-block;
-            padding: 0.25rem 1rem;
+            padding: 0.25rem 0.75rem;
             border-radius: 2rem;
-            font-size: 0.75rem;
-            margin-top: 1rem;
+            font-size: 0.7rem;
+            margin-top: 0.75rem;
+        }
+
+        @media (min-width: 640px) {
+            .hero-badge {
+                font-size: 0.75rem;
+                margin-top: 1rem;
+            }
         }
 
         .btn {
             display: inline-block;
             background: white;
             color: #7c3aed;
-            padding: 0.6rem 1.2rem;
+            padding: 0.5rem 1rem;
             border-radius: 2rem;
             font-weight: 600;
             text-decoration: none;
-            margin-top: 1rem;
+            margin-top: 0.75rem;
+            font-size: 0.875rem;
             transition: transform 0.2s;
+        }
+
+        @media (min-width: 640px) {
+            .btn {
+                padding: 0.6rem 1.2rem;
+                margin-top: 1rem;
+            }
         }
 
         .btn:hover {
             transform: scale(1.02);
         }
 
+        .card-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        @media (min-width: 480px) {
+            .card-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .card-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.25rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .card-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 1.5rem;
+                margin-bottom: 2rem;
+            }
+        }
+
+        .card {
+            background: white;
+            border-radius: 1rem;
+            padding: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            border: 1px solid #e2e8f0;
+            cursor: pointer;
+        }
+
+        @media (min-width: 640px) {
+            .card {
+                padding: 1.25rem;
+                border-radius: 1.25rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .card {
+                padding: 1.5rem;
+                border-radius: 1.5rem;
+            }
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+        }
+
+        .card-icon {
+            font-size: 1.75rem;
+            margin-bottom: 0.75rem;
+        }
+
+        @media (min-width: 640px) {
+            .card-icon {
+                font-size: 2rem;
+                margin-bottom: 1rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .card-icon {
+                font-size: 2.5rem;
+            }
+        }
+
+        .card h3 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            color: #1e293b;
+        }
+
+        @media (min-width: 640px) {
+            .card h3 {
+                font-size: 1.125rem;
+                margin-bottom: 0.75rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .card h3 {
+                font-size: 1.25rem;
+            }
+        }
+
+        .card p {
+            color: #475569;
+            font-size: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
+
+        @media (min-width: 640px) {
+            .card p {
+                font-size: 0.875rem;
+                margin-bottom: 1rem;
+            }
+        }
+
+        .badge {
+            display: inline-block;
+            background: #e0e7ff;
+            color: #4338ca;
+            font-size: 0.65rem;
+            padding: 0.2rem 0.6rem;
+            border-radius: 999px;
+            font-weight: 600;
+        }
+
+        @media (min-width: 640px) {
+            .badge {
+                font-size: 0.75rem;
+                padding: 0.25rem 0.75rem;
+            }
+        }
+
         .footer {
-            margin-top: 3rem;
-            padding-top: 1.5rem;
+            margin-top: 2rem;
+            padding-top: 1rem;
             border-top: 1px solid #e2e8f0;
             text-align: center;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             color: #64748b;
+        }
+
+        @media (min-width: 640px) {
+            .footer {
+                margin-top: 2.5rem;
+                padding-top: 1.5rem;
+                font-size: 0.75rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .footer {
+                margin-top: 3rem;
+            }
         }
 
         .loading {
             text-align: center;
             padding: 2rem;
             color: #7c3aed;
-        }
-
-        @media (max-width: 640px) {
-            .container { padding: 1rem; }
-            .header h1 { font-size: 1.75rem; }
-            .nav-btn { padding: 0.5rem 1rem; font-size: 0.875rem; }
         }
     </style>
 </head>
@@ -209,30 +390,27 @@
         <p>PDV Colaborativo | Plataforma Multiuso | Criptomoeda Conecta</p>
     </div>
 
-    <div class="publico-nav">
-        <button class="nav-btn active" data-secao="comerciante">🏪 Comerciante / PDV</button>
-        <button class="nav-btn" data-secao="academia">🏋️ Academia</button>
-        <button class="nav-btn" data-secao="usuario">👥 Usuário Geral</button>
-        <button class="nav-btn" data-secao="admin">👑 Admin Master</button>
+    <div class="publico-nav-wrapper">
+        <div class="publico-nav">
+            <button class="nav-btn active" data-secao="comerciante">🏪 Comerciante / PDV</button>
+            <button class="nav-btn" data-secao="academia">🏋️ Academia</button>
+            <button class="nav-btn" data-secao="usuario">👥 Usuário Geral</button>
+            <button class="nav-btn" data-secao="admin">👑 Admin Master</button>
+        </div>
     </div>
 
-    <div id="conteudo-dinamico">
-        <div class="loading">🔄 Carregando dados da planilha...</div>
-    </div>
+    <div id="conteudo-dinamico"><div class="loading">🔄 Carregando dados da planilha...</div></div>
 
     <div class="footer" id="rodape-site">
         <p>© 2025 Valente Conecta | CNPJ: 52.816.565/0001-45</p>
-        <p style="margin-top: 0.5rem;">Instalação via QR Code | Funciona offline | Ícone na tela do dispositivo</p>
+        <p>Instalação via QR Code | Funciona offline | Ícone na tela do dispositivo</p>
     </div>
 </div>
 
 <script>
-    // 🔁 COLE AQUI O SEU URL DO GOOGLE APPS SCRIPT
     const URL_API = 'https://script.google.com/macros/s/AKfycbz9tb16wyEhCOQxV0h_jHwKfg-aB6eRTeVvq3S6FwJHRq14wwIiXDnS2_JVCipLw2Pm/exec';
     
-    // Dados padrão (fallback)
     const DADOS_PADRAO = {
-        // Heroes
         hero_comerciante_titulo: "PDV Colaborativo",
         hero_comerciante_texto: "Gerencie vendas, estoque e clientes em um só lugar",
         hero_academia_titulo: "Módulo Academia",
@@ -241,7 +419,6 @@
         hero_usuario_texto: "Transações comerciais com saldo inicial gratuito",
         hero_admin_titulo: "Admin Master",
         hero_admin_texto: "Gestão completa de empresas, produtos e usuários",
-        // Cards Comerciante
         card_comerciante_1_titulo: "PDV Completo",
         card_comerciante_1_desc: "Opere em celulares, notebooks ou terminais fixos",
         card_comerciante_2_titulo: "Modo Espião",
@@ -250,23 +427,20 @@
         card_comerciante_3_desc: "Dados de mercado e análise de vendas em tempo real",
         card_comerciante_4_titulo: "SKU Universal",
         card_comerciante_4_desc: "Produtos sem EAN recebem SKU único compartilhável",
-        // Cards Academia
         card_academia_1_titulo: "Visualização de Treino",
         card_academia_1_desc: "Alunos acessam treino e biblioteca de exercícios",
         card_academia_2_titulo: "Controle de Permanência",
         card_academia_2_desc: "Geolocalização conta tempo de chegada e saída",
         card_academia_3_titulo: "Notificações Push",
         card_academia_3_desc: "Alertas de treino e novidades no celular",
-        // Cards Usuário
         card_usuario_1_titulo: "Moeda Conecta",
         card_usuario_1_desc: "Saldo inicial gratuito para transações",
         card_usuario_2_titulo: "Publicar Ofertas",
         card_usuario_2_desc: "Ilimitado e sem custo com localização",
         card_usuario_3_titulo: "Indique e Ganhe",
-        card_usuario_3_desc: "R$1 por indicação, R$2 para empresas",
+        card_usuario_3_desc: "R$10,50 por indicação, R$2 para empresas R$0,50 para profissional liberal",
         card_usuario_4_titulo: "Busca Inteligente",
         card_usuario_4_desc: "5 consultas gratuitas/dia com mapa",
-        // Cards Admin
         card_admin_1_titulo: "Aprovações",
         card_admin_1_desc: "Produtos pendentes e novas empresas",
         card_admin_2_titulo: "Relatório Dinâmico",
@@ -280,137 +454,65 @@
     
     async function carregarDados() {
         const container = document.getElementById('conteudo-dinamico');
-        
         try {
-            console.log('Carregando da planilha...');
             const response = await fetch(URL_API);
-            
-            if (!response.ok) {
-                throw new Error(`HTTP ${response.status}`);
-            }
-            
+            if (!response.ok) throw new Error(`HTTP ${response.status}`);
             const dadosArray = await response.json();
-            console.log('Dados recebidos:', dadosArray);
-            
             const dados = {};
-            dadosArray.forEach(item => {
-                const chave = `${item.local}_${item.tipo}`;
-                dados[chave] = item.conteudo;
-            });
-            
-            if (Object.keys(dados).length === 0) {
-                renderizarPagina(DADOS_PADRAO);
-            } else {
-                renderizarPagina(dados);
-            }
-            
+            dadosArray.forEach(item => { dados[`${item.local}_${item.tipo}`] = item.conteudo; });
+            renderizarPagina(Object.keys(dados).length === 0 ? DADOS_PADRAO : dados);
         } catch (error) {
-            console.error('Erro, usando dados padrão:', error);
             renderizarPagina(DADOS_PADRAO);
         }
     }
     
-    function renderizarPagina(dados) {
+    function renderizarPagina(d) {
         const html = `
-            <!-- SEÇÃO COMERCIANTE -->
             <div id="secao-comerciante" class="secao active-secao">
-                <div class="hero">
-                    <h2>🏪 ${dados['hero_comerciante_titulo'] || 'PDV Colaborativo'}</h2>
-                    <p>${dados['hero_comerciante_texto'] || 'Gerencie vendas, estoque e clientes'}</p>
-                    <div class="hero-badge">Modo Espião disponível | Integração com PDV existente</div>
-                    <a href="#" class="btn">Começar agora →</a>
-                </div>
+                <div class="hero"><h2>🏪 ${d.hero_comerciante_titulo || 'PDV Colaborativo'}</h2><p>${d.hero_comerciante_texto || ''}</p><div class="hero-badge">Modo Espião | Integração com PDV</div><a href="#" class="btn">Começar agora →</a></div>
                 <div class="card-grid">
-                    <div class="card"><div class="card-icon">📱</div><h3>${dados['card_comerciante_1_titulo'] || 'PDV Completo'}</h3><p>${dados['card_comerciante_1_desc'] || 'Opere em celulares, notebooks ou terminais fixos'}</p><span class="badge">Imediato</span></div>
-                    <div class="card"><div class="card-icon">🕵️</div><h3>${dados['card_comerciante_2_titulo'] || 'Modo Espião'}</h3><p>${dados['card_comerciante_2_desc'] || 'Continue usando seu PDV atual enquanto coleta dados'}</p><span class="badge">Integração</span></div>
-                    <div class="card"><div class="card-icon">📊</div><h3>${dados['card_comerciante_3_titulo'] || 'Relatórios Inteligentes'}</h3><p>${dados['card_comerciante_3_desc'] || 'Dados de mercado e análise de vendas em tempo real'}</p><span class="badge">Dashboard</span></div>
-                    <div class="card"><div class="card-icon">🏷️</div><h3>${dados['card_comerciante_4_titulo'] || 'SKU Universal'}</h3><p>${dados['card_comerciante_4_desc'] || 'Produtos sem EAN recebem SKU único compartilhável'}</p><span class="badge">Colaborativo</span></div>
+                    <div class="card"><div class="card-icon">📱</div><h3>${d.card_comerciante_1_titulo || 'PDV Completo'}</h3><p>${d.card_comerciante_1_desc || ''}</p><span class="badge">Imediato</span></div>
+                    <div class="card"><div class="card-icon">🕵️</div><h3>${d.card_comerciante_2_titulo || 'Modo Espião'}</h3><p>${d.card_comerciante_2_desc || ''}</p><span class="badge">Integração</span></div>
+                    <div class="card"><div class="card-icon">📊</div><h3>${d.card_comerciante_3_titulo || 'Relatórios Inteligentes'}</h3><p>${d.card_comerciante_3_desc || ''}</p><span class="badge">Dashboard</span></div>
+                    <div class="card"><div class="card-icon">🏷️</div><h3>${d.card_comerciante_4_titulo || 'SKU Universal'}</h3><p>${d.card_comerciante_4_desc || ''}</p><span class="badge">Colaborativo</span></div>
                 </div>
             </div>
-            
-            <!-- SEÇÃO ACADEMIA -->
-            <div id="secao-academia" class="secao">
-                <div class="hero" style="background: linear-gradient(135deg, #1e293b, #0891b2);">
-                    <h2>🏋️ ${dados['hero_academia_titulo'] || 'Módulo Academia'}</h2>
-                    <p>${dados['hero_academia_texto'] || 'Controle de treinos, alunos e permanência'}</p>
-                    <div class="hero-badge">Geolocalização | Notificações push e WhatsApp</div>
-                    <a href="#" class="btn">Conhecer módulo →</a>
-                </div>
+            <div id="secao-academia" class="secao"><div class="hero" style="background: linear-gradient(135deg,#1e293b,#0891b2);"><h2>🏋️ ${d.hero_academia_titulo || 'Módulo Academia'}</h2><p>${d.hero_academia_texto || ''}</p><div class="hero-badge">Geolocalização | Push + WhatsApp</div><a href="#" class="btn">Conhecer módulo →</a></div>
                 <div class="card-grid">
-                    <div class="card"><div class="card-icon">📋</div><h3>${dados['card_academia_1_titulo'] || 'Visualização de Treino'}</h3><p>${dados['card_academia_1_desc'] || 'Alunos acessam treino e biblioteca de exercícios'}</p><span class="badge">Individualizado</span></div>
-                    <div class="card"><div class="card-icon">📍</div><h3>${dados['card_academia_2_titulo'] || 'Controle de Permanência'}</h3><p>${dados['card_academia_2_desc'] || 'Geolocalização conta tempo de chegada e saída'}</p><span class="badge">Automatizado</span></div>
-                    <div class="card"><div class="card-icon">🔔</div><h3>${dados['card_academia_3_titulo'] || 'Notificações Push'}</h3><p>${dados['card_academia_3_desc'] || 'Alertas de treino e novidades no celular'}</p><span class="badge">WhatsApp + Push</span></div>
+                    <div class="card"><div class="card-icon">📋</div><h3>${d.card_academia_1_titulo || 'Visualização de Treino'}</h3><p>${d.card_academia_1_desc || ''}</p><span class="badge">Individualizado</span></div>
+                    <div class="card"><div class="card-icon">📍</div><h3>${d.card_academia_2_titulo || 'Controle de Permanência'}</h3><p>${d.card_academia_2_desc || ''}</p><span class="badge">Automatizado</span></div>
+                    <div class="card"><div class="card-icon">🔔</div><h3>${d.card_academia_3_titulo || 'Notificações Push'}</h3><p>${d.card_academia_3_desc || ''}</p><span class="badge">WhatsApp + Push</span></div>
                 </div>
             </div>
-            
-            <!-- SEÇÃO USUÁRIO GERAL -->
-            <div id="secao-usuario" class="secao">
-                <div class="hero" style="background: linear-gradient(135deg, #1e293b, #eab308);">
-                    <h2>💰 ${dados['hero_usuario_titulo'] || 'Criptomoeda Conecta'}</h2>
-                    <p>${dados['hero_usuario_texto'] || 'Transações comerciais com saldo inicial gratuito'}</p>
-                    <div class="hero-badge">Indique e Ganhe | Ofertas ilimitadas</div>
-                    <a href="#" class="btn">Resgatar saldo inicial →</a>
-                </div>
+            <div id="secao-usuario" class="secao"><div class="hero" style="background: linear-gradient(135deg,#1e293b,#eab308);"><h2>💰 ${d.hero_usuario_titulo || 'Criptomoeda Conecta'}</h2><p>${d.hero_usuario_texto || ''}</p><div class="hero-badge">Indique e Ganhe | Ofertas ilimitadas</div><a href="#" class="btn">Resgatar saldo →</a></div>
                 <div class="card-grid">
-                    <div class="card"><div class="card-icon">🪙</div><h3>${dados['card_usuario_1_titulo'] || 'Moeda Conecta'}</h3><p>${dados['card_usuario_1_desc'] || 'Saldo inicial gratuito para transações'}</p><span class="badge">Criptomoeda própria</span></div>
-                    <div class="card"><div class="card-icon">📢</div><h3>${dados['card_usuario_2_titulo'] || 'Publicar Ofertas'}</h3><p>${dados['card_usuario_2_desc'] || 'Ilimitado e sem custo com localização'}</p><span class="badge">Grátis</span></div>
-                    <div class="card"><div class="card-icon">👥</div><h3>${dados['card_usuario_3_titulo'] || 'Indique e Ganhe'}</h3><p>${dados['card_usuario_3_desc'] || 'R$1 por indicação, R$2 para empresas'}</p><span class="badge">Configurável</span></div>
-                    <div class="card"><div class="card-icon">🔍</div><h3>${dados['card_usuario_4_titulo'] || 'Busca Inteligente'}</h3><p>${dados['card_usuario_4_desc'] || '5 consultas gratuitas/dia com mapa'}</p><span class="badge">Voz + Texto</span></div>
+                    <div class="card"><div class="card-icon">🪙</div><h3>${d.card_usuario_1_titulo || 'Moeda Conecta'}</h3><p>${d.card_usuario_1_desc || ''}</p><span class="badge">Criptomoeda própria</span></div>
+                    <div class="card"><div class="card-icon">📢</div><h3>${d.card_usuario_2_titulo || 'Publicar Ofertas'}</h3><p>${d.card_usuario_2_desc || ''}</p><span class="badge">Grátis</span></div>
+                    <div class="card"><div class="card-icon">👥</div><h3>${d.card_usuario_3_titulo || 'Indique e Ganhe'}</h3><p>${d.card_usuario_3_desc || ''}</p><span class="badge">Configurável</span></div>
+                    <div class="card"><div class="card-icon">🔍</div><h3>${d.card_usuario_4_titulo || 'Busca Inteligente'}</h3><p>${d.card_usuario_4_desc || ''}</p><span class="badge">Voz + Texto</span></div>
                 </div>
             </div>
-            
-            <!-- SEÇÃO ADMIN MASTER -->
-            <div id="secao-admin" class="secao">
-                <div class="hero" style="background: linear-gradient(135deg, #1e293b, #dc2626);">
-                    <h2>👑 ${dados['hero_admin_titulo'] || 'Admin Master'}</h2>
-                    <p>${dados['hero_admin_texto'] || 'Gestão completa de empresas, produtos e usuários'}</p>
-                    <div class="hero-badge">Dashboard centralizado | Liberação por plano</div>
-                    <a href="#" class="btn">Acessar dashboard →</a>
-                </div>
+            <div id="secao-admin" class="secao"><div class="hero" style="background: linear-gradient(135deg,#1e293b,#dc2626);"><h2>👑 ${d.hero_admin_titulo || 'Admin Master'}</h2><p>${d.hero_admin_texto || ''}</p><div class="hero-badge">Dashboard | Liberação por plano</div><a href="#" class="btn">Acessar dashboard →</a></div>
                 <div class="card-grid">
-                    <div class="card"><div class="card-icon">✅</div><h3>${dados['card_admin_1_titulo'] || 'Aprovações'}</h3><p>${dados['card_admin_1_desc'] || 'Produtos pendentes e novas empresas'}</p><span class="badge">Pendências</span></div>
-                    <div class="card"><div class="card-icon">📈</div><h3>${dados['card_admin_2_titulo'] || 'Relatório Dinâmico'}</h3><p>${dados['card_admin_2_desc'] || 'Dados de mercado em tempo real'}</p><span class="badge">Online</span></div>
-                    <div class="card"><div class="card-icon">🏢</div><h3>${dados['card_admin_3_titulo'] || 'Cadastro de Empresas'}</h3><p>${dados['card_admin_3_desc'] || 'Edição de logomarca e liberação de uso'}</p><span class="badge">Gestão</span></div>
-                    <div class="card"><div class="card-icon">🌍</div><h3>${dados['card_admin_4_titulo'] || 'Desbloqueio de Cidades'}</h3><p>${dados['card_admin_4_desc'] || '30 dias por R$30 para expansão'}</p><span class="badge">Expansão</span></div>
+                    <div class="card"><div class="card-icon">✅</div><h3>${d.card_admin_1_titulo || 'Aprovações'}</h3><p>${d.card_admin_1_desc || ''}</p><span class="badge">Pendências</span></div>
+                    <div class="card"><div class="card-icon">📈</div><h3>${d.card_admin_2_titulo || 'Relatório Dinâmico'}</h3><p>${d.card_admin_2_desc || ''}</p><span class="badge">Online</span></div>
+                    <div class="card"><div class="card-icon">🏢</div><h3>${d.card_admin_3_titulo || 'Cadastro de Empresas'}</h3><p>${d.card_admin_3_desc || ''}</p><span class="badge">Gestão</span></div>
+                    <div class="card"><div class="card-icon">🌍</div><h3>${d.card_admin_4_titulo || 'Desbloqueio de Cidades'}</h3><p>${d.card_admin_4_desc || ''}</p><span class="badge">Expansão</span></div>
                 </div>
             </div>
         `;
-        
         document.getElementById('conteudo-dinamico').innerHTML = html;
-        
-        // Atualiza rodapé se veio da planilha
-        if (dados['rodape_texto']) {
-            document.getElementById('rodape-site').innerHTML = `<p>${dados['rodape_texto']}</p><p style="margin-top: 0.5rem;">Instalação via QR Code | Funciona offline | Ícone na tela do dispositivo</p>`;
-        }
-        
-        // Reativa navegação
-        ativarNavegacao();
-    }
-    
-    function ativarNavegacao() {
-        const botoes = document.querySelectorAll('.nav-btn');
-        const secoes = {
-            comerciante: document.getElementById('secao-comerciante'),
-            academia: document.getElementById('secao-academia'),
-            usuario: document.getElementById('secao-usuario'),
-            admin: document.getElementById('secao-admin')
-        };
-        
-        botoes.forEach(botao => {
-            botao.addEventListener('click', () => {
-                const secaoId = botao.getAttribute('data-secao');
-                botoes.forEach(btn => btn.classList.remove('active'));
-                botao.classList.add('active');
-                Object.values(secoes).forEach(secao => {
-                    if (secao) secao.classList.remove('active-secao');
-                });
-                if (secoes[secaoId]) {
-                    secoes[secaoId].classList.add('active-secao');
-                }
+        if (d.rodape_texto) document.getElementById('rodape-site').innerHTML = `<p>${d.rodape_texto}</p><p>Instalação via QR Code | Funciona offline | Ícone na tela do dispositivo</p>`;
+        document.querySelectorAll('.nav-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const secaoId = btn.dataset.secao;
+                document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                document.querySelectorAll('.secao').forEach(s => s.classList.remove('active-secao'));
+                document.getElementById(`secao-${secaoId}`).classList.add('active-secao');
             });
         });
     }
-    
     carregarDados();
 </script>
 </body>
