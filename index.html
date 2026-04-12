@@ -18,7 +18,6 @@
             line-height: 1.5;
         }
 
-        /* Container principal - OCUPA TELA INTEIRA no notebook */
         .container {
             width: 100%;
             max-width: 100%;
@@ -26,36 +25,28 @@
             padding: 1rem;
         }
 
-        /* Para telas médias (tablet/notebook pequeno) */
         @media (min-width: 768px) {
             .container {
                 padding: 1.5rem 2rem;
             }
         }
 
-        /* Para telas grandes (notebook/desktop) */
         @media (min-width: 1280px) {
             .container {
                 padding: 2rem 3rem;
             }
         }
 
-        /* Para telas muito largas (monitor) */
-        @media (min-width: 1600px) {
-            .container {
-                padding: 2rem 5rem;
-            }
-        }
-
+        /* HEADER - TEXTOS MAIORES */
         .header {
             text-align: center;
-            margin-bottom: 1.5rem;
-            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
             border-bottom: 2px solid #e2e8f0;
         }
 
         .header h1 {
-            font-size: 1.75rem;
+            font-size: 2.5rem;
             background: linear-gradient(135deg, #1e293b, #7c3aed);
             -webkit-background-clip: text;
             background-clip: text;
@@ -64,41 +55,28 @@
 
         @media (min-width: 768px) {
             .header h1 {
-                font-size: 2.2rem;
-            }
-        }
-
-        @media (min-width: 1280px) {
-            .header h1 {
-                font-size: 2.5rem;
+                font-size: 3.5rem;
             }
         }
 
         .header p {
             color: #475569;
-            font-size: 0.875rem;
-            margin-top: 0.5rem;
+            font-size: 1.2rem;
+            margin-top: 0.75rem;
         }
 
-        @media (min-width: 768px) {
-            .header p {
-                font-size: 1rem;
-            }
-        }
-
-        /* Navegação - responsiva */
+        /* NAVEGAÇÃO */
         .publico-nav-wrapper {
             overflow-x: auto;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
             -webkit-overflow-scrolling: touch;
         }
 
         .publico-nav {
             display: flex;
-            gap: 0.5rem;
+            gap: 1rem;
             justify-content: center;
             flex-wrap: wrap;
-            min-width: min-content;
         }
 
         @media (max-width: 640px) {
@@ -110,27 +88,20 @@
         .nav-btn {
             background: white;
             border: 2px solid #e2e8f0;
-            padding: 0.6rem 1rem;
+            padding: 0.8rem 1.5rem;
             border-radius: 2rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s;
             color: #475569;
-            font-size: 0.75rem;
+            font-size: 1rem;
             white-space: nowrap;
         }
 
         @media (min-width: 768px) {
             .nav-btn {
-                padding: 0.75rem 1.5rem;
-                font-size: 0.9rem;
-            }
-        }
-
-        @media (min-width: 1280px) {
-            .nav-btn {
-                padding: 0.85rem 1.8rem;
-                font-size: 1rem;
+                padding: 1rem 2rem;
+                font-size: 1.1rem;
             }
         }
 
@@ -159,108 +130,66 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
+        /* HERO BANNER */
         .hero {
             background: linear-gradient(135deg, #1e293b 0%, #7c3aed 100%);
             color: white;
-            padding: 1.5rem;
-            border-radius: 1rem;
-            margin-bottom: 1.5rem;
+            padding: 2rem;
+            border-radius: 1.5rem;
+            margin-bottom: 2rem;
             text-align: center;
         }
 
         @media (min-width: 768px) {
             .hero {
-                padding: 2rem 3rem;
-                border-radius: 1.5rem;
-                margin-bottom: 2rem;
-            }
-        }
-
-        @media (min-width: 1280px) {
-            .hero {
-                padding: 2.5rem 4rem;
+                padding: 2.5rem 3rem;
             }
         }
 
         .hero h2 {
-            font-size: 1.25rem;
-            margin-bottom: 0.5rem;
+            font-size: 1.8rem;
+            margin-bottom: 0.75rem;
         }
 
         @media (min-width: 768px) {
             .hero h2 {
-                font-size: 1.6rem;
-            }
-        }
-
-        @media (min-width: 1280px) {
-            .hero h2 {
-                font-size: 1.9rem;
+                font-size: 2.2rem;
             }
         }
 
         .hero p {
-            font-size: 0.875rem;
+            font-size: 1.1rem;
             max-width: 80%;
             margin-left: auto;
             margin-right: auto;
         }
 
-        @media (min-width: 768px) {
-            .hero p {
-                font-size: 1rem;
-                max-width: 70%;
-            }
-        }
-
-        @media (min-width: 1280px) {
-            .hero p {
-                font-size: 1.1rem;
-                max-width: 60%;
-            }
-        }
-
         .hero-badge {
             background: rgba(255,255,255,0.2);
             display: inline-block;
-            padding: 0.25rem 0.75rem;
+            padding: 0.5rem 1rem;
             border-radius: 2rem;
-            font-size: 0.7rem;
-            margin-top: 0.75rem;
-        }
-
-        @media (min-width: 768px) {
-            .hero-badge {
-                font-size: 0.8rem;
-                margin-top: 1rem;
-            }
+            font-size: 0.9rem;
+            margin-top: 1rem;
         }
 
         .btn {
             display: inline-block;
             background: white;
             color: #7c3aed;
-            padding: 0.5rem 1rem;
+            padding: 0.8rem 1.5rem;
             border-radius: 2rem;
             font-weight: 600;
             text-decoration: none;
-            margin-top: 0.75rem;
-            font-size: 0.875rem;
+            margin-top: 1rem;
+            font-size: 1rem;
             transition: transform 0.2s;
         }
 
         @media (min-width: 768px) {
             .btn {
-                padding: 0.7rem 1.5rem;
-                font-size: 0.95rem;
-                margin-top: 1rem;
-            }
-        }
-
-        @media (min-width: 1280px) {
-            .btn {
-                padding: 0.8rem 1.8rem;
-                font-size: 1rem;
+                padding: 1rem 2rem;
+                font-size: 1.1rem;
             }
         }
 
@@ -268,45 +197,36 @@
             transform: scale(1.02);
         }
 
-        /* Grid de cards - OTIMIZADO para notebook */
+        /* CARDS GRID */
         .card-grid {
             display: grid;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
         }
 
-        /* Celular: 1 card */
         .card-grid {
             grid-template-columns: 1fr;
         }
 
-        /* Tablet: 2 cards */
         @media (min-width: 640px) {
             .card-grid {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 1.25rem;
-            }
-        }
-
-        /* Notebook/Desktop: 4 cards ocupando toda a largura */
-        @media (min-width: 1024px) {
-            .card-grid {
-                grid-template-columns: repeat(4, 1fr);
                 gap: 1.5rem;
             }
         }
 
-        /* Monitor muito largo: ainda 4 cards, mas com mais espaçamento */
-        @media (min-width: 1600px) {
+        @media (min-width: 1024px) {
             .card-grid {
-                gap: 2rem;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 1.8rem;
             }
         }
 
+        /* CARDS - TEXTOS MAIORES */
         .card {
             background: white;
-            border-radius: 1rem;
-            padding: 1rem;
+            border-radius: 1.25rem;
+            padding: 1.5rem;
             box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
             transition: transform 0.3s;
             border: 1px solid #e2e8f0;
@@ -318,14 +238,7 @@
 
         @media (min-width: 768px) {
             .card {
-                padding: 1.25rem;
-                border-radius: 1.25rem;
-            }
-        }
-
-        @media (min-width: 1280px) {
-            .card {
-                padding: 1.5rem;
+                padding: 1.8rem;
                 border-radius: 1.5rem;
             }
         }
@@ -336,53 +249,39 @@
         }
 
         .card-icon {
-            font-size: 1.75rem;
-            margin-bottom: 0.75rem;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
         }
 
         @media (min-width: 768px) {
             .card-icon {
-                font-size: 2.2rem;
-                margin-bottom: 1rem;
-            }
-        }
-
-        @media (min-width: 1280px) {
-            .card-icon {
-                font-size: 2.8rem;
+                font-size: 3rem;
             }
         }
 
         .card h3 {
-            font-size: 1rem;
-            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+            margin-bottom: 0.75rem;
             color: #1e293b;
         }
 
         @media (min-width: 768px) {
             .card h3 {
-                font-size: 1.125rem;
-                margin-bottom: 0.75rem;
-            }
-        }
-
-        @media (min-width: 1280px) {
-            .card h3 {
-                font-size: 1.25rem;
+                font-size: 1.5rem;
             }
         }
 
         .card p {
             color: #475569;
-            font-size: 0.75rem;
-            margin-bottom: 0.75rem;
+            font-size: 1rem;
+            margin-bottom: 1rem;
             flex-grow: 1;
+            line-height: 1.4;
         }
 
         @media (min-width: 768px) {
             .card p {
-                font-size: 0.875rem;
-                margin-bottom: 1rem;
+                font-size: 1.05rem;
             }
         }
 
@@ -390,47 +289,35 @@
             display: inline-block;
             background: #e0e7ff;
             color: #4338ca;
-            font-size: 0.65rem;
-            padding: 0.2rem 0.6rem;
+            font-size: 0.85rem;
+            padding: 0.3rem 0.8rem;
             border-radius: 999px;
             font-weight: 600;
             align-self: flex-start;
         }
 
-        @media (min-width: 768px) {
-            .badge {
-                font-size: 0.75rem;
-                padding: 0.25rem 0.75rem;
-            }
-        }
-
+        /* RODAPÉ */
         .footer {
-            margin-top: 2rem;
-            padding-top: 1rem;
+            margin-top: 2.5rem;
+            padding-top: 1.5rem;
             border-top: 1px solid #e2e8f0;
             text-align: center;
-            font-size: 0.7rem;
+            font-size: 0.9rem;
             color: #64748b;
         }
 
         @media (min-width: 768px) {
             .footer {
-                margin-top: 2.5rem;
-                padding-top: 1.5rem;
-                font-size: 0.8rem;
-            }
-        }
-
-        @media (min-width: 1280px) {
-            .footer {
                 margin-top: 3rem;
+                font-size: 1rem;
             }
         }
 
         .loading {
             text-align: center;
-            padding: 2rem;
+            padding: 3rem;
             color: #7c3aed;
+            font-size: 1.2rem;
         }
     </style>
 </head>
