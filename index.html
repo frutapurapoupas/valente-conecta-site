@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Valente Conecta - PDV Colaborativo e Criptomoeda</title>
+    
+    <!-- Clicky Analytics - Instalado -->
+    <script async data-id="101504372" src="//static.getclicky.com/js"></script>
+    <noscript><p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/101504372ns.gif" /></p></noscript>
+    
     <style>
         * {
             margin: 0;
@@ -18,7 +23,6 @@
             line-height: 1.5;
         }
 
-        /* CONTAINER - TELA CHEIA */
         .container {
             width: 100%;
             max-width: 100%;
@@ -26,7 +30,6 @@
             padding: 1rem;
         }
 
-        /* Notebook/Desktop: tudo em dobro */
         @media (min-width: 1024px) {
             .container {
                 padding: 2rem 3rem;
@@ -251,6 +254,7 @@
             margin-top: 1rem;
             font-size: 0.95rem;
             transition: transform 0.2s;
+            cursor: pointer;
         }
 
         .btn:hover {
@@ -456,55 +460,62 @@
         }
     }
     
+    function registrarClique(cardNome) {
+        console.log('Clique registrado:', cardNome);
+        if (typeof clicky !== 'undefined') {
+            clicky.log(cardNome, 'click');
+        }
+    }
+    
     function renderizarPagina(d) {
         const html = `
             <!-- COMERCIANTE / PDV -->
             <div id="secao-comerciante" class="secao">
-                <div class="hero"><h2>🏪 ${d.hero_comerciante_titulo || 'PDV Colaborativo'}</h2><p>${d.hero_comerciante_texto || ''}</p><div class="hero-badge">Modo Espião | Integração com PDV</div><a href="#" class="btn">📱 Baixe Grátis →</a></div>
+                <div class="hero"><h2>🏪 ${d.hero_comerciante_titulo || 'PDV Colaborativo'}</h2><p>${d.hero_comerciante_texto || ''}</p><div class="hero-badge">Modo Espião | Integração com PDV</div><a href="#" class="btn" onclick="registrarClique('Botão Comerciante')">📱 Baixe Grátis →</a></div>
                 <div class="card-grid">
-                    <div class="card"><div class="card-icon">📱</div><h3>${d.card_comerciante_1_titulo || 'PDV Completo'}</h3><p>${d.card_comerciante_1_desc || ''}</p><span class="badge">Imediato</span></div>
-                    <div class="card"><div class="card-icon">🕵️</div><h3>${d.card_comerciante_2_titulo || 'Modo Espião'}</h3><p>${d.card_comerciante_2_desc || ''}</p><span class="badge">Integração</span></div>
-                    <div class="card"><div class="card-icon">📊</div><h3>${d.card_comerciante_3_titulo || 'Relatórios Inteligentes'}</h3><p>${d.card_comerciante_3_desc || ''}</p><span class="badge">Dashboard</span></div>
-                    <div class="card"><div class="card-icon">🏷️</div><h3>${d.card_comerciante_4_titulo || 'SKU Universal'}</h3><p>${d.card_comerciante_4_desc || ''}</p><span class="badge">Colaborativo</span></div>
+                    <div class="card" onclick="registrarClique('Card: ${d.card_comerciante_1_titulo || 'PDV Completo'}')"><div class="card-icon">📱</div><h3>${d.card_comerciante_1_titulo || 'PDV Completo'}</h3><p>${d.card_comerciante_1_desc || ''}</p><span class="badge">Imediato</span></div>
+                    <div class="card" onclick="registrarClique('Card: ${d.card_comerciante_2_titulo || 'Modo Espião'}')"><div class="card-icon">🕵️</div><h3>${d.card_comerciante_2_titulo || 'Modo Espião'}</h3><p>${d.card_comerciante_2_desc || ''}</p><span class="badge">Integração</span></div>
+                    <div class="card" onclick="registrarClique('Card: ${d.card_comerciante_3_titulo || 'Relatórios Inteligentes'}')"><div class="card-icon">📊</div><h3>${d.card_comerciante_3_titulo || 'Relatórios Inteligentes'}</h3><p>${d.card_comerciante_3_desc || ''}</p><span class="badge">Dashboard</span></div>
+                    <div class="card" onclick="registrarClique('Card: ${d.card_comerciante_4_titulo || 'SKU Universal'}')"><div class="card-icon">🏷️</div><h3>${d.card_comerciante_4_titulo || 'SKU Universal'}</h3><p>${d.card_comerciante_4_desc || ''}</p><span class="badge">Colaborativo</span></div>
                 </div>
             </div>
             
             <!-- ACADEMIA -->
-            <div id="secao-academia" class="secao"><div class="hero" style="background: linear-gradient(135deg,#1e293b,#0891b2);"><h2>🏋️ ${d.hero_academia_titulo || 'Módulo Academia'}</h2><p>${d.hero_academia_texto || ''}</p><div class="hero-badge">Geolocalização | Push + WhatsApp</div><a href="#" class="btn">📱 Baixe Grátis →</a></div>
+            <div id="secao-academia" class="secao"><div class="hero" style="background: linear-gradient(135deg,#1e293b,#0891b2);"><h2>🏋️ ${d.hero_academia_titulo || 'Módulo Academia'}</h2><p>${d.hero_academia_texto || ''}</p><div class="hero-badge">Geolocalização | Push + WhatsApp</div><a href="#" class="btn" onclick="registrarClique('Botão Academia')">📱 Baixe Grátis →</a></div>
                 <div class="card-grid">
-                    <div class="card"><div class="card-icon">📋</div><h3>${d.card_academia_1_titulo || 'Visualização de Treino'}</h3><p>${d.card_academia_1_desc || ''}</p><span class="badge">Individualizado</span></div>
-                    <div class="card"><div class="card-icon">📍</div><h3>${d.card_academia_2_titulo || 'Controle de Permanência'}</h3><p>${d.card_academia_2_desc || ''}</p><span class="badge">Automatizado</span></div>
-                    <div class="card"><div class="card-icon">🔔</div><h3>${d.card_academia_3_titulo || 'Notificações Push'}</h3><p>${d.card_academia_3_desc || ''}</p><span class="badge">WhatsApp + Push</span></div>
+                    <div class="card" onclick="registrarClique('Card: ${d.card_academia_1_titulo || 'Visualização de Treino'}')"><div class="card-icon">📋</div><h3>${d.card_academia_1_titulo || 'Visualização de Treino'}</h3><p>${d.card_academia_1_desc || ''}</p><span class="badge">Individualizado</span></div>
+                    <div class="card" onclick="registrarClique('Card: ${d.card_academia_2_titulo || 'Controle de Permanência'}')"><div class="card-icon">📍</div><h3>${d.card_academia_2_titulo || 'Controle de Permanência'}</h3><p>${d.card_academia_2_desc || ''}</p><span class="badge">Automatizado</span></div>
+                    <div class="card" onclick="registrarClique('Card: ${d.card_academia_3_titulo || 'Notificações Push'}')"><div class="card-icon">🔔</div><h3>${d.card_academia_3_titulo || 'Notificações Push'}</h3><p>${d.card_academia_3_desc || ''}</p><span class="badge">WhatsApp + Push</span></div>
                 </div>
             </div>
             
-            <!-- USUÁRIO GERAL (PADRÃO - ATIVA) -->
-            <div id="secao-usuario" class="secao active-secao"><div class="hero" style="background: linear-gradient(135deg,#1e293b,#eab308);"><h2>💰 ${d.hero_usuario_titulo || 'Criptomoeda Conecta'}</h2><p>${d.hero_usuario_texto || ''}</p><div class="hero-badge">Indique e Ganhe | Ofertas ilimitadas</div><a href="#" class="btn">📱 Baixe Grátis →</a></div>
+            <!-- USUÁRIO GERAL (PADRÃO) -->
+            <div id="secao-usuario" class="secao active-secao"><div class="hero" style="background: linear-gradient(135deg,#1e293b,#eab308);"><h2>💰 ${d.hero_usuario_titulo || 'Criptomoeda Conecta'}</h2><p>${d.hero_usuario_texto || ''}</p><div class="hero-badge">Indique e Ganhe | Ofertas ilimitadas</div><a href="#" class="btn" onclick="registrarClique('Botão Usuário Geral')">📱 Baixe Grátis →</a></div>
                 <div class="card-grid">
-                    <div class="card"><div class="card-icon">🪙</div><h3>${d.card_usuario_1_titulo || 'Moeda Conecta'}</h3><p>${d.card_usuario_1_desc || ''}</p><span class="badge">Criptomoeda própria</span></div>
-                    <div class="card"><div class="card-icon">📢</div><h3>${d.card_usuario_2_titulo || 'Publicar Ofertas'}</h3><p>${d.card_usuario_2_desc || ''}</p><span class="badge">Grátis</span></div>
-                    <div class="card"><div class="card-icon">👥</div><h3>${d.card_usuario_3_titulo || 'Indique e Ganhe'}</h3><p>${d.card_usuario_3_desc || ''}</p><span class="badge">Configurável</span></div>
-                    <div class="card"><div class="card-icon">🔍</div><h3>${d.card_usuario_4_titulo || 'Busca Inteligente'}</h3><p>${d.card_usuario_4_desc || ''}</p><span class="badge">Voz + Texto</span></div>
+                    <div class="card" onclick="registrarClique('Card: ${d.card_usuario_1_titulo || 'Moeda Conecta'}')"><div class="card-icon">🪙</div><h3>${d.card_usuario_1_titulo || 'Moeda Conecta'}</h3><p>${d.card_usuario_1_desc || ''}</p><span class="badge">Criptomoeda própria</span></div>
+                    <div class="card" onclick="registrarClique('Card: ${d.card_usuario_2_titulo || 'Publicar Ofertas'}')"><div class="card-icon">📢</div><h3>${d.card_usuario_2_titulo || 'Publicar Ofertas'}</h3><p>${d.card_usuario_2_desc || ''}</p><span class="badge">Grátis</span></div>
+                    <div class="card" onclick="registrarClique('Card: ${d.card_usuario_3_titulo || 'Indique e Ganhe'}')"><div class="card-icon">👥</div><h3>${d.card_usuario_3_titulo || 'Indique e Ganhe'}</h3><p>${d.card_usuario_3_desc || ''}</p><span class="badge">Configurável</span></div>
+                    <div class="card" onclick="registrarClique('Card: ${d.card_usuario_4_titulo || 'Busca Inteligente'}')"><div class="card-icon">🔍</div><h3>${d.card_usuario_4_titulo || 'Busca Inteligente'}</h3><p>${d.card_usuario_4_desc || ''}</p><span class="badge">Voz + Texto</span></div>
                 </div>
             </div>
             
             <!-- PROFISSIONAIS -->
-            <div id="secao-profissional" class="secao"><div class="hero" style="background: linear-gradient(135deg,#1e293b,#10b981);"><h2>👨‍⚕️ ${d.hero_profissional_titulo || 'Profissionais Liberais'}</h2><p>${d.hero_profissional_texto || ''}</p><div class="hero-badge">Agenda Online | Financeiro Simplificado</div><a href="#" class="btn">📱 Baixe Grátis →</a></div>
+            <div id="secao-profissional" class="secao"><div class="hero" style="background: linear-gradient(135deg,#1e293b,#10b981);"><h2>👨‍⚕️ ${d.hero_profissional_titulo || 'Profissionais Liberais'}</h2><p>${d.hero_profissional_texto || ''}</p><div class="hero-badge">Agenda Online | Financeiro Simplificado</div><a href="#" class="btn" onclick="registrarClique('Botão Profissionais')">📱 Baixe Grátis →</a></div>
                 <div class="card-grid">
-                    <div class="card"><div class="card-icon">📅</div><h3>${d.card_profissional_1_titulo || 'Agenda Online'}</h3><p>${d.card_profissional_1_desc || ''}</p><span class="badge">Organização</span></div>
-                    <div class="card"><div class="card-icon">👥</div><h3>${d.card_profissional_2_titulo || 'Carteira de Clientes'}</h3><p>${d.card_profissional_2_desc || ''}</p><span class="badge">Histórico</span></div>
-                    <div class="card"><div class="card-icon">💰</div><h3>${d.card_profissional_3_titulo || 'Financeiro Simplificado'}</h3><p>${d.card_profissional_3_desc || ''}</p><span class="badge">Controle</span></div>
-                    <div class="card"><div class="card-icon">🏆</div><h3>${d.card_profissional_4_titulo || 'Indique e Ganhe'}</h3><p>${d.card_profissional_4_desc || ''}</p><span class="badge">Bônus</span></div>
+                    <div class="card" onclick="registrarClique('Card: ${d.card_profissional_1_titulo || 'Agenda Online'}')"><div class="card-icon">📅</div><h3>${d.card_profissional_1_titulo || 'Agenda Online'}</h3><p>${d.card_profissional_1_desc || ''}</p><span class="badge">Organização</span></div>
+                    <div class="card" onclick="registrarClique('Card: ${d.card_profissional_2_titulo || 'Carteira de Clientes'}')"><div class="card-icon">👥</div><h3>${d.card_profissional_2_titulo || 'Carteira de Clientes'}</h3><p>${d.card_profissional_2_desc || ''}</p><span class="badge">Histórico</span></div>
+                    <div class="card" onclick="registrarClique('Card: ${d.card_profissional_3_titulo || 'Financeiro Simplificado'}')"><div class="card-icon">💰</div><h3>${d.card_profissional_3_titulo || 'Financeiro Simplificado'}</h3><p>${d.card_profissional_3_desc || ''}</p><span class="badge">Controle</span></div>
+                    <div class="card" onclick="registrarClique('Card: ${d.card_profissional_4_titulo || 'Indique e Ganhe'}')"><div class="card-icon">🏆</div><h3>${d.card_profissional_4_titulo || 'Indique e Ganhe'}</h3><p>${d.card_profissional_4_desc || ''}</p><span class="badge">Bônus</span></div>
                 </div>
             </div>
             
             <!-- SERVIÇOS COM AGENDAMENTO -->
-            <div id="secao-servicos" class="secao"><div class="hero" style="background: linear-gradient(135deg,#1e293b,#f59e0b);"><h2>📅 ${d.hero_servicos_titulo || 'Serviços com Agendamento'}</h2><p>${d.hero_servicos_texto || ''}</p><div class="hero-badge">Agende | Gerencie | Fidelize</div><a href="#" class="btn">📱 Baixe Grátis →</a></div>
+            <div id="secao-servicos" class="secao"><div class="hero" style="background: linear-gradient(135deg,#1e293b,#f59e0b);"><h2>📅 ${d.hero_servicos_titulo || 'Serviços com Agendamento'}</h2><p>${d.hero_servicos_texto || ''}</p><div class="hero-badge">Agende | Gerencie | Fidelize</div><a href="#" class="btn" onclick="registrarClique('Botão Serviços')">📱 Baixe Grátis →</a></div>
                 <div class="card-grid">
-                    <div class="card"><div class="card-icon">📆</div><h3>${d.card_servicos_1_titulo || 'Agendamento Online'}</h3><p>${d.card_servicos_1_desc || ''}</p><span class="badge">Prático</span></div>
-                    <div class="card"><div class="card-icon">⏰</div><h3>${d.card_servicos_2_titulo || 'Lista de Espera'}</h3><p>${d.card_servicos_2_desc || ''}</p><span class="badge">Oportunidade</span></div>
-                    <div class="card"><div class="card-icon">📄</div><h3>${d.card_servicos_3_titulo || 'Comprovante Digital'}</h3><p>${d.card_servicos_3_desc || ''}</p><span class="badge">Histórico</span></div>
-                    <div class="card"><div class="card-icon">⭐</div><h3>${d.card_servicos_4_titulo || 'Fidelidade'}</h3><p>${d.card_servicos_4_desc || ''}</p><span class="badge">Pontos</span></div>
+                    <div class="card" onclick="registrarClique('Card: ${d.card_servicos_1_titulo || 'Agendamento Online'}')"><div class="card-icon">📆</div><h3>${d.card_servicos_1_titulo || 'Agendamento Online'}</h3><p>${d.card_servicos_1_desc || ''}</p><span class="badge">Prático</span></div>
+                    <div class="card" onclick="registrarClique('Card: ${d.card_servicos_2_titulo || 'Lista de Espera'}')"><div class="card-icon">⏰</div><h3>${d.card_servicos_2_titulo || 'Lista de Espera'}</h3><p>${d.card_servicos_2_desc || ''}</p><span class="badge">Oportunidade</span></div>
+                    <div class="card" onclick="registrarClique('Card: ${d.card_servicos_3_titulo || 'Comprovante Digital'}')"><div class="card-icon">📄</div><h3>${d.card_servicos_3_titulo || 'Comprovante Digital'}</h3><p>${d.card_servicos_3_desc || ''}</p><span class="badge">Histórico</span></div>
+                    <div class="card" onclick="registrarClique('Card: ${d.card_servicos_4_titulo || 'Fidelidade'}')"><div class="card-icon">⭐</div><h3>${d.card_servicos_4_titulo || 'Fidelidade'}</h3><p>${d.card_servicos_4_desc || ''}</p><span class="badge">Pontos</span></div>
                 </div>
             </div>
         `;
@@ -513,6 +524,7 @@
         document.querySelectorAll('.nav-btn').forEach(btn => {
             btn.addEventListener('click', () => {
                 const secaoId = btn.dataset.secao;
+                registrarClique(`Navegação: ${btn.innerText}`);
                 document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
                 document.querySelectorAll('.secao').forEach(s => s.classList.remove('active-secao'));
