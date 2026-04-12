@@ -18,23 +18,32 @@
             line-height: 1.5;
         }
 
+        /* Container principal - OCUPA TELA INTEIRA no notebook */
         .container {
             width: 100%;
-            max-width: 1400px;
+            max-width: 100%;
             margin: 0 auto;
             padding: 1rem;
         }
 
-        /* Ajuste para telas pequenas */
-        @media (min-width: 640px) {
+        /* Para telas médias (tablet/notebook pequeno) */
+        @media (min-width: 768px) {
             .container {
-                padding: 1.5rem;
+                padding: 1.5rem 2rem;
             }
         }
 
-        @media (min-width: 1024px) {
+        /* Para telas grandes (notebook/desktop) */
+        @media (min-width: 1280px) {
             .container {
-                padding: 2rem;
+                padding: 2rem 3rem;
+            }
+        }
+
+        /* Para telas muito largas (monitor) */
+        @media (min-width: 1600px) {
+            .container {
+                padding: 2rem 5rem;
             }
         }
 
@@ -53,13 +62,13 @@
             color: transparent;
         }
 
-        @media (min-width: 640px) {
+        @media (min-width: 768px) {
             .header h1 {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
         }
 
-        @media (min-width: 1024px) {
+        @media (min-width: 1280px) {
             .header h1 {
                 font-size: 2.5rem;
             }
@@ -71,13 +80,13 @@
             margin-top: 0.5rem;
         }
 
-        @media (min-width: 640px) {
+        @media (min-width: 768px) {
             .header p {
                 font-size: 1rem;
             }
         }
 
-        /* Navegação - responsiva com scroll horizontal em telas pequenas */
+        /* Navegação - responsiva */
         .publico-nav-wrapper {
             overflow-x: auto;
             margin-bottom: 1.5rem;
@@ -87,15 +96,14 @@
         .publico-nav {
             display: flex;
             gap: 0.5rem;
-            justify-content: flex-start;
+            justify-content: center;
+            flex-wrap: wrap;
             min-width: min-content;
-            padding-bottom: 0.5rem;
         }
 
-        @media (min-width: 640px) {
+        @media (max-width: 640px) {
             .publico-nav {
-                justify-content: center;
-                gap: 0.75rem;
+                justify-content: flex-start;
             }
         }
 
@@ -112,10 +120,17 @@
             white-space: nowrap;
         }
 
-        @media (min-width: 640px) {
+        @media (min-width: 768px) {
             .nav-btn {
                 padding: 0.75rem 1.5rem;
-                font-size: 0.875rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (min-width: 1280px) {
+            .nav-btn {
+                padding: 0.85rem 1.8rem;
+                font-size: 1rem;
             }
         }
 
@@ -153,11 +168,17 @@
             text-align: center;
         }
 
-        @media (min-width: 640px) {
+        @media (min-width: 768px) {
             .hero {
-                padding: 2rem;
+                padding: 2rem 3rem;
                 border-radius: 1.5rem;
                 margin-bottom: 2rem;
+            }
+        }
+
+        @media (min-width: 1280px) {
+            .hero {
+                padding: 2.5rem 4rem;
             }
         }
 
@@ -166,25 +187,36 @@
             margin-bottom: 0.5rem;
         }
 
-        @media (min-width: 640px) {
+        @media (min-width: 768px) {
             .hero h2 {
-                font-size: 1.5rem;
+                font-size: 1.6rem;
             }
         }
 
-        @media (min-width: 1024px) {
+        @media (min-width: 1280px) {
             .hero h2 {
-                font-size: 1.75rem;
+                font-size: 1.9rem;
             }
         }
 
         .hero p {
             font-size: 0.875rem;
+            max-width: 80%;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        @media (min-width: 640px) {
+        @media (min-width: 768px) {
             .hero p {
                 font-size: 1rem;
+                max-width: 70%;
+            }
+        }
+
+        @media (min-width: 1280px) {
+            .hero p {
+                font-size: 1.1rem;
+                max-width: 60%;
             }
         }
 
@@ -197,9 +229,9 @@
             margin-top: 0.75rem;
         }
 
-        @media (min-width: 640px) {
+        @media (min-width: 768px) {
             .hero-badge {
-                font-size: 0.75rem;
+                font-size: 0.8rem;
                 margin-top: 1rem;
             }
         }
@@ -217,10 +249,18 @@
             transition: transform 0.2s;
         }
 
-        @media (min-width: 640px) {
+        @media (min-width: 768px) {
             .btn {
-                padding: 0.6rem 1.2rem;
+                padding: 0.7rem 1.5rem;
+                font-size: 0.95rem;
                 margin-top: 1rem;
+            }
+        }
+
+        @media (min-width: 1280px) {
+            .btn {
+                padding: 0.8rem 1.8rem;
+                font-size: 1rem;
             }
         }
 
@@ -228,32 +268,38 @@
             transform: scale(1.02);
         }
 
+        /* Grid de cards - OTIMIZADO para notebook */
         .card-grid {
             display: grid;
-            grid-template-columns: 1fr;
             gap: 1rem;
             margin-bottom: 1.5rem;
         }
 
-        @media (min-width: 480px) {
-            .card-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1rem;
-            }
+        /* Celular: 1 card */
+        .card-grid {
+            grid-template-columns: 1fr;
         }
 
-        @media (min-width: 768px) {
+        /* Tablet: 2 cards */
+        @media (min-width: 640px) {
             .card-grid {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 1.25rem;
             }
         }
 
+        /* Notebook/Desktop: 4 cards ocupando toda a largura */
         @media (min-width: 1024px) {
             .card-grid {
                 grid-template-columns: repeat(4, 1fr);
                 gap: 1.5rem;
-                margin-bottom: 2rem;
+            }
+        }
+
+        /* Monitor muito largo: ainda 4 cards, mas com mais espaçamento */
+        @media (min-width: 1600px) {
+            .card-grid {
+                gap: 2rem;
             }
         }
 
@@ -265,16 +311,19 @@
             transition: transform 0.3s;
             border: 1px solid #e2e8f0;
             cursor: pointer;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
 
-        @media (min-width: 640px) {
+        @media (min-width: 768px) {
             .card {
                 padding: 1.25rem;
                 border-radius: 1.25rem;
             }
         }
 
-        @media (min-width: 1024px) {
+        @media (min-width: 1280px) {
             .card {
                 padding: 1.5rem;
                 border-radius: 1.5rem;
@@ -291,16 +340,16 @@
             margin-bottom: 0.75rem;
         }
 
-        @media (min-width: 640px) {
+        @media (min-width: 768px) {
             .card-icon {
-                font-size: 2rem;
+                font-size: 2.2rem;
                 margin-bottom: 1rem;
             }
         }
 
-        @media (min-width: 1024px) {
+        @media (min-width: 1280px) {
             .card-icon {
-                font-size: 2.5rem;
+                font-size: 2.8rem;
             }
         }
 
@@ -310,14 +359,14 @@
             color: #1e293b;
         }
 
-        @media (min-width: 640px) {
+        @media (min-width: 768px) {
             .card h3 {
                 font-size: 1.125rem;
                 margin-bottom: 0.75rem;
             }
         }
 
-        @media (min-width: 1024px) {
+        @media (min-width: 1280px) {
             .card h3 {
                 font-size: 1.25rem;
             }
@@ -327,9 +376,10 @@
             color: #475569;
             font-size: 0.75rem;
             margin-bottom: 0.75rem;
+            flex-grow: 1;
         }
 
-        @media (min-width: 640px) {
+        @media (min-width: 768px) {
             .card p {
                 font-size: 0.875rem;
                 margin-bottom: 1rem;
@@ -344,9 +394,10 @@
             padding: 0.2rem 0.6rem;
             border-radius: 999px;
             font-weight: 600;
+            align-self: flex-start;
         }
 
-        @media (min-width: 640px) {
+        @media (min-width: 768px) {
             .badge {
                 font-size: 0.75rem;
                 padding: 0.25rem 0.75rem;
@@ -362,15 +413,15 @@
             color: #64748b;
         }
 
-        @media (min-width: 640px) {
+        @media (min-width: 768px) {
             .footer {
                 margin-top: 2.5rem;
                 padding-top: 1.5rem;
-                font-size: 0.75rem;
+                font-size: 0.8rem;
             }
         }
 
-        @media (min-width: 1024px) {
+        @media (min-width: 1280px) {
             .footer {
                 margin-top: 3rem;
             }
