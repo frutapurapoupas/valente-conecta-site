@@ -108,8 +108,8 @@
     <div class="publico-nav-wrapper">
         <div class="publico-nav">
             <button class="nav-btn" data-secao="comerciante">🏪 Comerciante / PDV</button>
-            <button class="nav-btn" data-secao="academia">🏋️ Academia</button>
-            <button class="nav-btn active" data-secao="usuario">👥 Usuário Geral</button>
+            <button class="nav-btn active" data-secao="academia">🏋️ Academia</button>
+            <button class="nav-btn" data-secao="usuario">👥 Usuário Geral</button>
             <button class="nav-btn" data-secao="profissional">👨‍⚕️ Profissionais</button>
             <button class="nav-btn" data-secao="servicos">📅 Serviços com Agendamento</button>
         </div>
@@ -245,8 +245,8 @@
                 </div>
             </div>
             
-            <!-- ACADEMIA -->
-            <div id="secao-academia" class="secao">
+            <!-- ACADEMIA (PRIMEIRA SEÇÃO) -->
+            <div id="secao-academia" class="secao active-secao">
                 <div class="hero" style="background: linear-gradient(135deg,#1e293b,#0891b2);"><h2>🏋️ ${d.hero_academia_titulo || 'Módulo Academia'}</h2><p>${d.hero_academia_texto || ''}</p><div class="hero-badge">Geolocalização | Push + WhatsApp</div><a href="#" class="btn" onclick="registrarClique('Botão Academia')">📱 Baixe Grátis →</a></div>
                 <div class="card-grid">
                     ${renderizarCard('card_academia_1', d, '📋', 'Individualizado')}
@@ -268,7 +268,7 @@
             </div>
             
             <!-- USUÁRIO GERAL -->
-            <div id="secao-usuario" class="secao active-secao">
+            <div id="secao-usuario" class="secao">
                 <div class="hero" style="background: linear-gradient(135deg,#1e293b,#eab308);"><h2>💰 ${d.hero_usuario_titulo || 'Criptomoeda Conecta'}</h2><p>${d.hero_usuario_texto || ''}</p><div class="hero-badge">Indique e Ganhe | Ofertas ilimitadas</div><a href="#" class="btn" onclick="registrarClique('Botão Usuário Geral')">📱 Baixe Grátis →</a></div>
                 <div class="card-grid">
                     ${renderizarCard('card_usuario_1', d, '🪙', 'Criptomoeda')}
