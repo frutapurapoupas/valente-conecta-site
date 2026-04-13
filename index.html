@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Valente Conecta - PDV Colaborativo e Criptomoeda</title>
     
-    <!-- Clicky Analytics - Versão corrigida -->
+    <!-- Clicky Analytics -->
     <script>
         var clicky_site_ids = clicky_site_ids || [];
         clicky_site_ids.push(101504372);
@@ -33,11 +33,12 @@
             .hero h2 { font-size: 2.8rem !important; }
             .hero p { font-size: 1.5rem !important; }
             .card { padding: 2rem !important; }
-            .card-icon { font-size: 3.5rem !important; }
+            .card-img { width: 60px !important; height: 60px !important; margin-bottom: 1rem !important; }
             .card h3 { font-size: 1.6rem !important; }
             .card p { font-size: 1.2rem !important; }
             .badge { font-size: 1rem !important; padding: 0.5rem 1rem !important; }
             .footer { font-size: 1.1rem !important; }
+            .btn-academia { padding: 0.8rem !important; font-size: 1rem !important; }
         }
         .header { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 2px solid #e2e8f0; }
         .header-top { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
@@ -62,11 +63,25 @@
         .hero-badge { background: rgba(255,255,255,0.2); display: inline-block; padding: 0.4rem 0.9rem; border-radius: 2rem; font-size: 0.85rem; margin-top: 1rem; }
         .btn { display: inline-block; background: white; color: #7c3aed; padding: 0.7rem 1.3rem; border-radius: 2rem; font-weight: 600; text-decoration: none; margin-top: 1rem; font-size: 0.95rem; transition: transform 0.2s; cursor: pointer; }
         .btn:hover { transform: scale(1.02); }
+        .btn-academia {
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+        .btn-academia:hover { background-color: #1d4ed8; transform: scale(1.02); }
         .card-grid { display: grid; gap: 1.2rem; margin-bottom: 2rem; grid-template-columns: 1fr; }
         @media (min-width: 640px) { .card-grid { grid-template-columns: repeat(2, 1fr); gap: 1.2rem; } }
         @media (min-width: 1024px) { .card-grid { grid-template-columns: repeat(4, 1fr); gap: 1.5rem; } }
         .card { background: white; border-radius: 1rem; padding: 1rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); transition: transform 0.3s; border: 1px solid #e2e8f0; cursor: pointer; height: 100%; display: flex; flex-direction: column; }
         .card:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); }
+        .card-img { width: 50px; height: 50px; object-fit: contain; margin-bottom: 0.8rem; align-self: flex-start; }
         .card-icon { font-size: 2rem; margin-bottom: 0.8rem; }
         .card h3 { font-size: 1.1rem; margin-bottom: 0.6rem; color: #1e293b; }
         .card p { color: #475569; font-size: 0.85rem; margin-bottom: 0.8rem; flex-grow: 1; line-height: 1.4; }
@@ -115,51 +130,63 @@
         hero_comerciante_titulo: "PDV Colaborativo",
         hero_comerciante_texto: "Gerencie vendas, estoque e clientes em um só lugar",
         card_comerciante_1_titulo: "PDV Completo",
-        card_comerciante_1_desc: "Opere em celulares, notebooks ou terminais fixos",
+        card_comerciante_1_desc: "Venda de onde quiser, sem complicação",
         card_comerciante_2_titulo: "Modo Espião",
-        card_comerciante_2_desc: "Continue usando seu PDV atual enquanto coleta dados",
+        card_comerciante_2_desc: "Use junto com seu sistema atual",
         card_comerciante_3_titulo: "Relatórios Inteligentes",
-        card_comerciante_3_desc: "Dados de mercado e análise de vendas em tempo real",
-        card_comerciante_4_titulo: "controle do FIADO",
-        card_comerciante_4_desc: "Produtos sem EAN recebem SKU único compartilhável",
+        card_comerciante_3_desc: "Dados de mercado em tempo real",
+        card_comerciante_4_titulo: "Controle do Fiado",
+        card_comerciante_4_desc: "Controle total do fiado no celular",
         hero_academia_titulo: "Módulo Academia",
         hero_academia_texto: "Controle de treinos, alunos e permanência",
         card_academia_1_titulo: "Visualização de Treino",
-        card_academia_1_desc: "Alunos acessam treino e biblioteca de exercícios",
+        card_academia_1_desc: "Acompanhe sua evolução nos treinos",
         card_academia_2_titulo: "Controle de Permanência",
-        card_academia_2_desc: "Geolocalização conta tempo de chegada e saída",
+        card_academia_2_desc: "Check-in automático na academia",
         card_academia_3_titulo: "Notificações Push",
-        card_academia_3_desc: "Alertas de treino e novidades no celular",
+        card_academia_3_desc: "Incentivos e lembretes de treino",
+        card_academia_4_titulo: "🏟️ Outros Esportes",
+        card_academia_4_desc: "Cadastre locais de prática esportiva",
         hero_usuario_titulo: "Criptomoeda Conecta",
-        hero_usuario_texto: "Transações comerciais com saldo inicial gratuito",
+        hero_usuario_texto: "Transações com saldo inicial gratuito",
         card_usuario_1_titulo: "Moeda Conecta",
-        card_usuario_1_desc: "Saldo inicial gratuito para transações",
+        card_usuario_1_desc: "Dinheiro que circula na cidade",
         card_usuario_2_titulo: "Publicar Ofertas",
-        card_usuario_2_desc: "Ilimitado e sem custo com localização",
+        card_usuario_2_desc: "Anuncie produtos e serviços grátis",
         card_usuario_3_titulo: "Indique e Ganhe",
-        card_usuario_3_desc: "R$10,50 por indicação, R$2 para empresas",
+        card_usuario_3_desc: "Ganhe bônus indicando amigos",
         card_usuario_4_titulo: "Busca Inteligente",
-        card_usuario_4_desc: "5 consultas gratuitas/dia com mapa",
+        card_usuario_4_desc: "Encontre ofertas perto de você",
         hero_profissional_titulo: "Profissionais Liberais",
-        hero_profissional_texto: "Advogados, médicos, dentistas, psicólogos, personal trainers e muito mais",
+        hero_profissional_texto: "Agenda online e catálogo grátis",
         card_profissional_1_titulo: "Agenda Online",
-        card_profissional_1_desc: "Gerencie seus horários e atendimentos de forma simples",
+        card_profissional_1_desc: "Gerencie horários e atendimentos",
         card_profissional_2_titulo: "Carteira de Clientes",
-        card_profissional_2_desc: "Histórico e acompanhamento dos seus pacientes/clientes",
-        card_profissional_3_titulo: "Financeiro Simplificado",
-        card_profissional_3_desc: "Controle de recebimentos e comissões automatizado",
+        card_profissional_2_desc: "Base organizada de clientes",
+        card_profissional_3_titulo: "Catálogo Online",
+        card_profissional_3_desc: "Seja encontrado facilmente",
         card_profissional_4_titulo: "Indique e Ganhe",
-        card_profissional_4_desc: "Indique outros profissionais e receba bônus",
+        card_profissional_4_desc: "Receba bônus por indicações",
         hero_servicos_titulo: "Serviços com Agendamento",
-        hero_servicos_texto: "Salões de beleza, barbearias, clínicas de estética, oficinas e muito mais",
+        hero_servicos_texto: "Agendamento para salões, clínicas e mais",
         card_servicos_1_titulo: "Agendamento Online",
-        card_servicos_1_desc: "Clientes marcam horário direto pelo app",
+        card_servicos_1_desc: "Clientes marcam horário pelo app",
         card_servicos_2_titulo: "Lista de Espera",
-        card_servicos_2_desc: "Aproveite cancelamentos de última hora",
+        card_servicos_2_desc: "Aproveite cancelamentos",
         card_servicos_3_titulo: "Comprovante Digital",
-        card_servicos_3_desc: "Histórico de serviços realizados",
+        card_servicos_3_desc: "Histórico de serviços",
         card_servicos_4_titulo: "Fidelidade",
-        card_servicos_4_desc: "Programa de pontos para clientes recorrentes",
+        card_servicos_4_desc: "Programa de pontos para clientes",
+        hero_admin_titulo: "Admin Master",
+        hero_admin_texto: "Gestão de empresas e usuários",
+        card_admin_1_titulo: "Aprovações",
+        card_admin_1_desc: "Produtos e empresas pendentes",
+        card_admin_2_titulo: "Relatório Dinâmico",
+        card_admin_2_desc: "Dados de mercado em tempo real",
+        card_admin_3_titulo: "Cadastro de Empresas",
+        card_admin_3_desc: "Edição e liberação de uso",
+        card_admin_4_titulo: "Desbloqueio de Cidades",
+        card_admin_4_desc: "30 dias por R$30 para expansão",
         rodape_texto: "© 2025 Valente Conecta | CNPJ: 52.816.565/0001-45"
     };
     
@@ -168,14 +195,6 @@
         if (typeof clicky !== 'undefined') {
             clicky.log(cardNome, 'click');
             console.log('✅ Enviado para Clicky');
-        } else {
-            console.log('⚠️ Clicky não disponível - tentando novamente');
-            setTimeout(function() {
-                if (typeof clicky !== 'undefined') {
-                    clicky.log(cardNome, 'click');
-                    console.log('✅ Enviado na segunda tentativa');
-                }
-            }, 500);
         }
     }
     
@@ -186,58 +205,105 @@
             if (!response.ok) throw new Error(`HTTP ${response.status}`);
             const dadosArray = await response.json();
             const dados = {};
-            dadosArray.forEach(item => { dados[`${item.local}_${item.tipo}`] = item.conteudo; });
+            dadosArray.forEach(item => { 
+                dados[`${item.local}_${item.tipo}`] = item.conteudo;
+                if (item.imagem) dados[`${item.local}_imagem`] = item.imagem;
+            });
             renderizarPagina(Object.keys(dados).length === 0 ? DADOS_PADRAO : dados);
         } catch (error) {
             renderizarPagina(DADOS_PADRAO);
         }
     }
     
+    function renderizarCard(local, dados, iconePadrao, badge) {
+        const titulo = dados[`${local}_titulo`] || '';
+        const desc = dados[`${local}_desc`] || '';
+        const imagem = dados[`${local}_imagem`];
+        
+        const imagemHtml = imagem ? `<img src="${imagem}" class="card-img" alt="${titulo}">` : `<div class="card-icon">${iconePadrao}</div>`;
+        
+        return `
+            <div class="card" onclick="registrarClique('Card: ${titulo}')">
+                ${imagemHtml}
+                <h3>${titulo}</h3>
+                <p>${desc}</p>
+                <span class="badge">${badge}</span>
+            </div>
+        `;
+    }
+    
     function renderizarPagina(d) {
         const html = `
+            <!-- COMERCIANTE -->
             <div id="secao-comerciante" class="secao">
                 <div class="hero"><h2>🏪 ${d.hero_comerciante_titulo || 'PDV Colaborativo'}</h2><p>${d.hero_comerciante_texto || ''}</p><div class="hero-badge">Modo Espião | Integração com PDV</div><a href="#" class="btn" onclick="registrarClique('Botão Comerciante')">📱 Baixe Grátis →</a></div>
                 <div class="card-grid">
-                    <div class="card" onclick="registrarClique('Card: ${d.card_comerciante_1_titulo || 'PDV Completo'}')"><div class="card-icon">📱</div><h3>${d.card_comerciante_1_titulo || 'PDV Completo'}</h3><p>${d.card_comerciante_1_desc || ''}</p><span class="badge">Imediato</span></div>
-                    <div class="card" onclick="registrarClique('Card: ${d.card_comerciante_2_titulo || 'Modo Espião'}')"><div class="card-icon">🕵️</div><h3>${d.card_comerciante_2_titulo || 'Modo Espião'}</h3><p>${d.card_comerciante_2_desc || ''}</p><span class="badge">Integração</span></div>
-                    <div class="card" onclick="registrarClique('Card: ${d.card_comerciante_3_titulo || 'Relatórios Inteligentes'}')"><div class="card-icon">📊</div><h3>${d.card_comerciante_3_titulo || 'Relatórios Inteligentes'}</h3><p>${d.card_comerciante_3_desc || ''}</p><span class="badge">Dashboard</span></div>
-                    <div class="card" onclick="registrarClique('Card: ${d.card_comerciante_4_titulo || 'SKU Universal'}')"><div class="card-icon">🏷️</div><h3>${d.card_comerciante_4_titulo || 'SKU Universal'}</h3><p>${d.card_comerciante_4_desc || ''}</p><span class="badge">Colaborativo</span></div>
+                    ${renderizarCard('card_comerciante_1', d, '📱', 'Imediato')}
+                    ${renderizarCard('card_comerciante_2', d, '🕵️', 'Integração')}
+                    ${renderizarCard('card_comerciante_3', d, '📊', 'Dashboard')}
+                    ${renderizarCard('card_comerciante_4', d, '💰', 'Controle')}
                 </div>
             </div>
-            <div id="secao-academia" class="secao"><div class="hero" style="background: linear-gradient(135deg,#1e293b,#0891b2);"><h2>🏋️ ${d.hero_academia_titulo || 'Módulo Academia'}</h2><p>${d.hero_academia_texto || ''}</p><div class="hero-badge">Geolocalização | Push + WhatsApp</div><a href="#" class="btn" onclick="registrarClique('Botão Academia')">📱 Baixe Grátis →</a></div>
+            
+            <!-- ACADEMIA -->
+            <div id="secao-academia" class="secao">
+                <div class="hero" style="background: linear-gradient(135deg,#1e293b,#0891b2);"><h2>🏋️ ${d.hero_academia_titulo || 'Módulo Academia'}</h2><p>${d.hero_academia_texto || ''}</p><div class="hero-badge">Geolocalização | Push + WhatsApp</div><a href="#" class="btn" onclick="registrarClique('Botão Academia')">📱 Baixe Grátis →</a></div>
                 <div class="card-grid">
-                    <div class="card" onclick="registrarClique('Card: ${d.card_academia_1_titulo || 'Visualização de Treino'}')"><div class="card-icon">📋</div><h3>${d.card_academia_1_titulo || 'Visualização de Treino'}</h3><p>${d.card_academia_1_desc || ''}</p><span class="badge">Individualizado</span></div>
-                    <div class="card" onclick="registrarClique('Card: ${d.card_academia_2_titulo || 'Controle de Permanência'}')"><div class="card-icon">📍</div><h3>${d.card_academia_2_titulo || 'Controle de Permanência'}</h3><p>${d.card_academia_2_desc || ''}</p><span class="badge">Automatizado</span></div>
-                    <div class="card" onclick="registrarClique('Card: ${d.card_academia_3_titulo || 'Notificações Push'}')"><div class="card-icon">🔔</div><h3>${d.card_academia_3_titulo || 'Notificações Push'}</h3><p>${d.card_academia_3_desc || ''}</p><span class="badge">WhatsApp + Push</span></div>
+                    ${renderizarCard('card_academia_1', d, '📋', 'Individualizado')}
+                    
+                    <div class="card" style="align-items: flex-start;">
+                        ${d.card_academia_2_imagem ? `<img src="${d.card_academia_2_imagem}" class="card-img" alt="Controle de Permanência">` : '<div class="card-icon">📍</div>'}
+                        <h3>${d.card_academia_2_titulo || 'Controle de Permanência'}</h3>
+                        <p>${d.card_academia_2_desc || 'Geolocalização conta tempo de chegada e saída'}</p>
+                        <p style="font-size: 0.75rem; color: #64748b; margin-top: 0.25rem; margin-bottom: 0.75rem;">
+                            📍 Toque no botão abaixo para registrar sua presença na academia
+                        </p>
+                        <button class="btn-academia" onclick="registrarClique('Botão Iniciar Treino - Controle de Permanência')">🔵 Iniciar Treino</button>
+                        <span class="badge" style="margin-top: 0.75rem;">Automatizado</span>
+                    </div>
+                    
+                    ${renderizarCard('card_academia_3', d, '🔔', 'WhatsApp + Push')}
+                    ${renderizarCard('card_academia_4', d, '🏟️', 'Esportes')}
                 </div>
             </div>
-            <div id="secao-usuario" class="secao active-secao"><div class="hero" style="background: linear-gradient(135deg,#1e293b,#eab308);"><h2>💰 ${d.hero_usuario_titulo || 'Criptomoeda Conecta'}</h2><p>${d.hero_usuario_texto || ''}</p><div class="hero-badge">Indique e Ganhe | BREVE-Ofertas ilimitadas</div><a href="#" class="btn" onclick="registrarClique('Botão Usuário Geral')">📱 Baixe Grátis →</a></div>
+            
+            <!-- USUÁRIO GERAL -->
+            <div id="secao-usuario" class="secao active-secao">
+                <div class="hero" style="background: linear-gradient(135deg,#1e293b,#eab308);"><h2>💰 ${d.hero_usuario_titulo || 'Criptomoeda Conecta'}</h2><p>${d.hero_usuario_texto || ''}</p><div class="hero-badge">Indique e Ganhe | Ofertas ilimitadas</div><a href="#" class="btn" onclick="registrarClique('Botão Usuário Geral')">📱 Baixe Grátis →</a></div>
                 <div class="card-grid">
-                    <div class="card" onclick="registrarClique('Card: ${d.card_usuario_1_titulo || 'Moeda Conecta'}')"><div class="card-icon">🪙</div><h3>${d.card_usuario_1_titulo || 'Moeda Conecta'}</h3><p>${d.card_usuario_1_desc || ''}</p><span class="badge">Criptomoeda própria</span></div>
-                    <div class="card" onclick="registrarClique('Card: ${d.card_usuario_2_titulo || 'Publicar Ofertas'}')"><div class="card-icon">📢</div><h3>${d.card_usuario_2_titulo || 'Publicar Ofertas'}</h3><p>${d.card_usuario_2_desc || ''}</p><span class="badge">Grátis</span></div>
-                    <div class="card" onclick="registrarClique('Card: ${d.card_usuario_3_titulo || 'Indique e Ganhe'}')"><div class="card-icon">👥</div><h3>${d.card_usuario_3_titulo || 'Indique e Ganhe'}</h3><p>${d.card_usuario_3_desc || ''}</p><span class="badge">Configurável</span></div>
-                    <div class="card" onclick="registrarClique('Card: ${d.card_usuario_4_titulo || 'Busca Inteligente'}')"><div class="card-icon">🔍</div><h3>${d.card_usuario_4_titulo || 'Busca Inteligente'}</h3><p>${d.card_usuario_4_desc || ''}</p><span class="badge">Voz + Texto</span></div>
+                    ${renderizarCard('card_usuario_1', d, '🪙', 'Criptomoeda')}
+                    ${renderizarCard('card_usuario_2', d, '📢', 'Grátis')}
+                    ${renderizarCard('card_usuario_3', d, '👥', 'Bônus')}
+                    ${renderizarCard('card_usuario_4', d, '🔍', 'Busca')}
                 </div>
             </div>
-            <div id="secao-profissional" class="secao"><div class="hero" style="background: linear-gradient(135deg,#1e293b,#10b981);"><h2>👨‍⚕️ ${d.hero_profissional_titulo || 'Profissionais Liberais'}</h2><p>${d.hero_profissional_texto || ''}</p><div class="hero-badge">Agenda Online | CATALOGO ONLINE</div><a href="#" class="btn" onclick="registrarClique('Botão Profissionais')">📱 Baixe Grátis →</a></div>
+            
+            <!-- PROFISSIONAIS -->
+            <div id="secao-profissional" class="secao">
+                <div class="hero" style="background: linear-gradient(135deg,#1e293b,#10b981);"><h2>👨‍⚕️ ${d.hero_profissional_titulo || 'Profissionais Liberais'}</h2><p>${d.hero_profissional_texto || ''}</p><div class="hero-badge">Agenda Online | Catálogo Grátis</div><a href="#" class="btn" onclick="registrarClique('Botão Profissionais')">📱 Baixe Grátis →</a></div>
                 <div class="card-grid">
-                    <div class="card" onclick="registrarClique('Card: ${d.card_profissional_1_titulo || 'Agenda Online'}')"><div class="card-icon">📅</div><h3>${d.card_profissional_1_titulo || 'Agenda Online'}</h3><p>${d.card_profissional_1_desc || ''}</p><span class="badge">Organização</span></div>
-                    <div class="card" onclick="registrarClique('Card: ${d.card_profissional_2_titulo || 'Carteira de Clientes'}')"><div class="card-icon">👥</div><h3>${d.card_profissional_2_titulo || 'Carteira de Clientes'}</h3><p>${d.card_profissional_2_desc || ''}</p><span class="badge">Histórico</span></div>
-                    <div class="card" onclick="registrarClique('Card: ${d.card_profissional_3_titulo || 'Financeiro Simplificado'}')"><div class="card-icon">💰</div><h3>${d.card_profissional_3_titulo || 'Financeiro Simplificado'}</h3><p>${d.card_profissional_3_desc || ''}</p><span class="badge">Controle</span></div>
-                    <div class="card" onclick="registrarClique('Card: ${d.card_profissional_4_titulo || 'Indique e Ganhe'}')"><div class="card-icon">🏆</div><h3>${d.card_profissional_4_titulo || 'Indique e Ganhe'}</h3><p>${d.card_profissional_4_desc || ''}</p><span class="badge">Bônus</span></div>
+                    ${renderizarCard('card_profissional_1', d, '📅', 'Organização')}
+                    ${renderizarCard('card_profissional_2', d, '👥', 'Histórico')}
+                    ${renderizarCard('card_profissional_3', d, '📘', 'Destaque')}
+                    ${renderizarCard('card_profissional_4', d, '🏆', 'Bônus')}
                 </div>
             </div>
-            <div id="secao-servicos" class="secao"><div class="hero" style="background: linear-gradient(135deg,#1e293b,#f59e0b);"><h2>📅 ${d.hero_servicos_titulo || 'Serviços com Agendamento'}</h2><p>${d.hero_servicos_texto || ''}</p><div class="hero-badge">Agende | Gerencie | Fidelize</div><a href="#" class="btn" onclick="registrarClique('Botão Serviços')">📱 Baixe Grátis →</a></div>
+            
+            <!-- SERVIÇOS -->
+            <div id="secao-servicos" class="secao">
+                <div class="hero" style="background: linear-gradient(135deg,#1e293b,#f59e0b);"><h2>📅 ${d.hero_servicos_titulo || 'Serviços com Agendamento'}</h2><p>${d.hero_servicos_texto || ''}</p><div class="hero-badge">Agende | Gerencie | Fidelize</div><a href="#" class="btn" onclick="registrarClique('Botão Serviços')">📱 Baixe Grátis →</a></div>
                 <div class="card-grid">
-                    <div class="card" onclick="registrarClique('Card: ${d.card_servicos_1_titulo || 'Agendamento Online'}')"><div class="card-icon">📆</div><h3>${d.card_servicos_1_titulo || 'Agendamento Online'}</h3><p>${d.card_servicos_1_desc || ''}</p><span class="badge">Prático</span></div>
-                    <div class="card" onclick="registrarClique('Card: ${d.card_servicos_2_titulo || 'Lista de Espera'}')"><div class="card-icon">⏰</div><h3>${d.card_servicos_2_titulo || 'Lista de Espera'}</h3><p>${d.card_servicos_2_desc || ''}</p><span class="badge">Oportunidade</span></div>
-                    <div class="card" onclick="registrarClique('Card: ${d.card_servicos_3_titulo || 'Comprovante Digital'}')"><div class="card-icon">📄</div><h3>${d.card_servicos_3_titulo || 'Comprovante Digital'}</h3><p>${d.card_servicos_3_desc || ''}</p><span class="badge">Histórico</span></div>
-                    <div class="card" onclick="registrarClique('Card: ${d.card_servicos_4_titulo || 'Fidelidade'}')"><div class="card-icon">⭐</div><h3>${d.card_servicos_4_titulo || 'Fidelidade'}</h3><p>${d.card_servicos_4_desc || ''}</p><span class="badge">Pontos</span></div>
+                    ${renderizarCard('card_servicos_1', d, '📆', 'Prático')}
+                    ${renderizarCard('card_servicos_2', d, '⏰', 'Oportunidade')}
+                    ${renderizarCard('card_servicos_3', d, '📄', 'Histórico')}
+                    ${renderizarCard('card_servicos_4', d, '⭐', 'Fidelidade')}
                 </div>
             </div>
         `;
+        
         document.getElementById('conteudo-dinamico').innerHTML = html;
         if (d.rodape_texto) document.getElementById('rodape-site').innerHTML = `<p>${d.rodape_texto}</p><p>Instalação via QR Code | Funciona offline | Ícone na tela do dispositivo</p>`;
+        
         document.querySelectorAll('.nav-btn').forEach(btn => {
             btn.addEventListener('click', () => {
                 const secaoId = btn.dataset.secao;
